@@ -1,5 +1,16 @@
+"""Probe_Selection.py will pull all variants from the CIViC Knowledgebase and subdivide them into different folders.  These folders will include:
+Not_Evaluated: Probes that will not be evaluated in the Biomarker Capture Panel
+NanoString_Probes_Needed: Probes that will need to be evaluated using NanoString Technology
+Capture_Sequence_Probes_Needed: Probes that will need to be evaluated using Capture-Sequencing Technology
+Biomarker_Probe_Already_Created: Probe that have already been designed and validated
+
+Usage: Probe_Selection.py
+
+
+
+"""
+
 #Pull in Data from JSON
-#Katie's comment
 python
 import json, requests
 
