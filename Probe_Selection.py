@@ -16,15 +16,15 @@ import json, requests
 
 gene_dict = {}
 
-gene_list = requests.get('https://civic.genome.wustl.edu/api/genes?count=1000000000').json()['records']
+variant_list = requests.get('https://civic.genome.wustl.edu/api/variants?count=1000000000').json()['records']
 
-for current_gene in range(0, len(gene_list)):
-    gene_dict[gene_list[current_gene]["name"]] = gene_list[current_gene]
+for current_gene in range(0, len(variant_list)):
+    gene_dict[variant_list[current_gene]["name"]] = gene_list[current_gene]
 
-print(len(gene_dict))
+
+dictionary_length = len(gene_dict)
 for k,v in gene_dict.items():
     print(k)
-
 
 #Create Buckets Variants for Evaluation
 Not_Evaluated = []
