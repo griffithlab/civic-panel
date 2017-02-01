@@ -22,19 +22,52 @@ variant_list = requests.get('https://civic.genome.wustl.edu/api/variants?count=1
 Not_Evaluated = []
 NanoString_Probes_Needed = []
 Capture_Sequence_Probes_Needed = []
-Biomarker_Probe_Already_Created = []
+Non_Bucketed = []
+ids = []
+#Biomarker_Probe_Already_Created = [] (NOT EVALUATED YET)
 
 #Iterate through list and Pull out Not_Evaluated
-#Criteria = 1) No accepted evidence items
+	#Criteria for Not_Evaluated = 1) No accepted evidence items
+	#Criteria for NanoString_Probes_Needed = 1) Fusion Variant 2) mRNA transcript 
+	#Criteria for Capture_Sequence_Probes_Needed = 
+	#Criteria for Biomarker_Probe_Already_Created = N/A
 for current_variant in range(0, len(variant_list)):
-    if variant_list[current_variant]['evidence_items']['accepted_count'] == 0:
-    	Not_Evaluated.append([variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop']])
+    if (variant_list[current_variant]['evidence_items']['accepted_count'] == 0) or ("SERUM LEVELS" in variant_list[current_variant]['name']):
+		Not_Evaluated.append([variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop']])
+		ids.append(variant_list[current_variant]['id'])
+	elif variant_list[current_variant]['coordinates']['chromosome_2'] is not None:
+		NanoString_Probes_Needed.append([variant_list[current_variant]['id'], [variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop'], variant_list[current_variant]['coordinates']['chromosome2'], variant_list[current_variant]['coordinates']['start2'], variant_list[current_variant]['coordinates']['stop2']]])
+		ids.append(variant_list[current_variant]['id'])
+	
+
+	elif ("EXPRESSION" in variant_list[current_variant]['name']) or ("FRAME SHIFT" in variant_list[current_variant]['name']) or ("METHYLATION" in variant_list[current_variant]['name']) or (variant_list[current_variant]['name'] is "LOSS") or ("DELETION" in variant_list[current_variant]['name']):
+		NanoString_Probes_Needed.append([variant_list[current_variant]['id'], [variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop'])
+		ids.append(variant_list[current_variant]['id'])
+
+#put in capture sequence
+
+	else:
+		Non_Bucketed.append([variant_list[current_variant]['id'], variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop']])
+		ids.append(variant_list[current_variant]['id'])
+
+for current_variant in range(0, len(variant_list)):
+	print(variant_list[current_variant]['name'])
+
 
 print(Not_Evaluated)
+if len(ids) < len(variant_list):
+	print("Error: Some Variants Were Not Bucketed!")
+if len(ids) > len(variant_list):
+	print("Error: Some Variants Were Bucketed Multiple Times")
+
+for current_variant in range(0, len(variant_list)):
+	if "SERUM LEVELS" is variant_list[current_variant]["variant_types"]["name"]:
+		print(ME)
+
+
+
+
 """
-
-
-
 #Create Buckets Variants for Evaluation
 Not_Evaluated = []
 NanoString_Probes_Needed = []
