@@ -1,12 +1,13 @@
-"""Probe_Selection.py will pull all variants from the CIViC Knowledgebase and subdivide them into different folders.  These folders will include:
-Not_Evaluated: Probes that will not be evaluated in the Biomarker Capture Panel
-NanoString_Probes_Needed: Probes that will need to be evaluated using NanoString Technology
-Capture_Sequence_Probes_Needed: Probes that will need to be evaluated using Capture-Sequencing Technology
-Biomarker_Probe_Already_Created: Probe that have already been designed and validated
+"""Probe_Selection.py will pull existing variants from the CIViC Knowledgebase, iterate through all pulled variants, and divide variants into lists.  
+The output will be four lists of variants:
+1) Not_Evaluated: Probes that will not be evaluated in the Biomarker Capture Panel
+2) NanoString_Probes_Needed: Probes that will need to be evaluated using NanoString Technology
+3) Capture_Sequence_Probes_Needed: Probes that will need to be evaluated using Capture-Sequencing Technology
+4) Biomarker_Probe_Already_Created: Probe that have already been designed and validated
+
+Each list will contain four columns.  These columns will be "name" "chromosome" "start" "stop". 
 
 Usage: Probe_Selection.py
-
-
 
 """
 
@@ -18,19 +19,21 @@ variant_dict = {}
 
 variant_list = requests.get('https://civic.genome.wustl.edu/api/variants?count=1000000000').json()['records']
 
-Nanostring = []
+Not_Evaluated = []
+NanoString_Probes_Needed = []
+Capture_Sequence_Probes_Needed = []
+Biomarker_Probe_Already_Created = []
 
+#Iterate through list and Pull out Not_Evaluated
+#Criteria = 1) No accepted evidence items
 for current_variant in range(0, len(variant_list)):
-    if variant_list[current_variant]['coordinates']['chromosome2'] is not None:
-        print(variant_list[current_variant]['coordinates']['chromosome2'])
-        #bob
-        Nanostring.append([variant_list[current_variant]['coordinates']['chromosome2'],variant_list[current_variant]['coordinates']['chromosome']])
-#    variant_dict[variant_list[current_variant]["name"]] = gene_list[current_variant]
+    if variant_list[current_variant]['evidence_items']['accepted_count'] == 0:
+    	Not_Evaluated.append([variant_list[current_variant]['entrez_name'], variant_list[current_variant]['coordinates']['chromosome'], variant_list[current_variant]['coordinates']['start'], variant_list[current_variant]['coordinates']['stop']])
 
-print(Nanostring)
-
-
+print(Not_Evaluated)
 """
+
+
 
 #Create Buckets Variants for Evaluation
 Not_Evaluated = []
