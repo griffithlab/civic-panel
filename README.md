@@ -1,24 +1,21 @@
 # civic-panel
 The CIViC-Panel Project will be used to identify variants within the CIViC Database that will be used in the CIViC Biomarker Capture Panel.  All variants will undergo selection criteria to filter out variants within the database that do not meet selection standards.  Additionally, the CIViC-Panel will create an automated way to design probes for selected variatns so that subsequent additions to the CIViC Database can be quickly incorporated into the CIViC Capture Panel.
 
+#Part 0 - Create Variant CIViC Score 
 
-########################################################
-##      Part 0 - Create Variant CIViC Score          ##
-########################################################
-
-#Scoring Matrix Rules:
-##Evidence Level
+##Scoring Matrix Rules:
+###Evidence Level
 1) A = 10 points
 2) B = 5 points
 3) C = 2.5 points
 4) D = 1 point
 5) E = 0 points
 
-##Trust Rating:
+###Trust Rating:
 1) Each Star = 1 point
 
-#Creating CIViC Scores
-##Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
+##Creating CIViC Scores
+###Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
 1) Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
 2) Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
 3) Eligible Variants must have a CIViC score greater than 30 points.
