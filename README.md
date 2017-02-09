@@ -5,21 +5,21 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 
 ##Scoring Matrix Rules:
 ###Evidence Level
-1) A = 10 points
-2) B = 5 points
-3) C = 2.5 points
-4) D = 1 point
-5) E = 0 points
+A = 10 points
+B = 5 points
+C = 2.5 points
+D = 1 point
+E = 0 points
 
 ###Trust Rating:
-1) Each Star = 1 point
+Each Star = 1 point
 
 ##Creating CIViC Scores
 ###Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
-1) Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
-2) Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
-3) Eligible Variants must have a CIViC score greater than 30 points.
-4) If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
+-Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
+-Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
+-Eligible Variants must have a CIViC score greater than 30 points.
+-If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
 
 Each variant will be called and we will iterate through all of the evidence items.
 Evidence items will be given an 'Evidence Item Score'
