@@ -1,37 +1,31 @@
 # civic-panel
 The CIViC-Panel Project will be used to identify variants within the CIViC Database that will be used in the CIViC Biomarker Capture Panel.  All variants will undergo selection criteria to filter out variants within the database that do not meet selection standards.  Additionally, the CIViC-Panel will create an automated way to design probes for selected variatns so that subsequent additions to the CIViC Database can be quickly incorporated into the CIViC Capture Panel.
 
-## Installation
-
-civic-panel requires Python 3.5.  Prior to running any installation stepls, check the Python Version installed on your system:
-
-`python -V`
-
-If your python version is outdated, we recommend using <a href="http://conda.pydata.org/docs/py2or3.html">Conda</a> to emulate a Python 3.5. environment. 
-
 
 ########################################################
 ##      Part 0 -- Create Variant CIViC Score          ##
 ########################################################
 
-Scoring Matrix Rules:
-	 1) Evidence Level: A = 10 points
-					    B = 5 points
-					    C = 2.5 points
-					    D = 1 point
-				        E = 0 points
+#Scoring Matrix Rules:
+##Evidence Level
+1) A = 10 points
+2) B = 5 points
+3) C = 2.5 points
+4) D = 1 point
+5) E = 0 points
 
-	 2) Trust Rating:   Each Star = 1 point
+##Trust Rating:
+1) Each Star = 1 point
 
-Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
-	 1) Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
-	 2) Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
- 	 3) Eligible Variants must have a CIViC score greater than 30 points.
-     4) If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
+##Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
+1) Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
+2) Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
+3) Eligible Variants must have a CIViC score greater than 30 points.
+4) If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
 
-Each variant will be called and we will iterate through all of the evidence items.
+*Each variant will be called and we will iterate through all of the evidence items.
 Evidence items will be given an 'Evidence Item Score'
-The Evidence Item Scores will be added together to calculate the CIViC Variant Scores for each variant.
+The Evidence Item Scores will be added together to calculate the CIViC Variant Scores for each variant.*
 
 
 ########################################################
