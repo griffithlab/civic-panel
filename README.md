@@ -5,14 +5,14 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 
 ##Scoring Matrix Rules:
 ###Evidence Level
-A = 10 points
-B = 5 points
-C = 2.5 points
-D = 1 point
-E = 0 points
+####A = 10 points
+####B = 5 points
+####C = 2.5 points
+####D = 1 point
+####E = 0 points
 
 ###Trust Rating:
-Each Star = 1 point
+####Each Star = 1 point
 
 ##Creating CIViC Scores
 ###Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
