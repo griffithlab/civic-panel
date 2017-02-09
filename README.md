@@ -3,7 +3,7 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 
 
 ########################################################
-##      Part 0 -- Create Variant CIViC Score          ##
+##      Part 0 - Create Variant CIViC Score          ##
 ########################################################
 
 #Scoring Matrix Rules:
@@ -17,19 +17,20 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 ##Trust Rating:
 1) Each Star = 1 point
 
+#Creating CIViC Scores
 ##Each Evidence Item will receive an Evidence Item Score and each Variant will receive a CIViC Variant Score
 1) Evidence Item scores are determined by multiplying the evidence level points by the trust rating points
 2) Total CIViC Score for each variant is the summation of all the Evidence Item scores for each variant
 3) Eligible Variants must have a CIViC score greater than 30 points.
 4) If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
 
-*Each variant will be called and we will iterate through all of the evidence items.
+Each variant will be called and we will iterate through all of the evidence items.
 Evidence items will be given an 'Evidence Item Score'
-The Evidence Item Scores will be added together to calculate the CIViC Variant Scores for each variant.*
+The Evidence Item Scores will be added together to calculate the CIViC Variant Scores for each variant.
 
 
 ########################################################
-## Part 1 -- Filter Out Variants Based on CIViC Score ##
+## Part 1 - Filter Out Variants Based on CIViC Score ##
 ########################################################
 
 Each variant will have a CIViC Variant Score.
@@ -38,7 +39,7 @@ If the CIViC Variant score is above a certain threshold, the Variant will be eli
 
 
 ########################################################
-##  Part 2 -- Bucket Eligible Variants into Pipelines ##
+##  Part 2 - Bucket Eligible Variants into Pipelines ##
 ########################################################
 
 
@@ -56,7 +57,7 @@ All variants that are bucketed into either the NanoString pipeline or the Captur
      4) Stop Position
 
 ########################################################
-##   Part 3 -- Determine Capture Sequence Probes      ##
+##   Part 3 - Determine Capture Sequence Probes      ##
 ########################################################
 
 Guidelines for Probes:
@@ -78,7 +79,7 @@ For variants greater than 1,000 bases:
 
 
 ########################################################
-## Part 4 -- Determine NanoString Technology Probes   ##
+## Part 4 - Determine NanoString Technology Probes   ##
 ########################################################
 
 Guidelines for Probes:
