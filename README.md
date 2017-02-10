@@ -23,9 +23,11 @@ Evidence Item scores will be calculated for each Evidence Item.  This score is c
 
 [Matching Evidence Item = Same Variant, Disease, Drug but conflicting Directions]
 
-- Total CIViC Score for each variant is the summation of all the Evidence Item scores for each Variant
+- Total CIViC Score for each variant is the summation of all the Evidence Item Scores for each Variant.
 - Eligible Variants must have a CIViC score greater than a certain threshold.  Currently that threshold is 30 points.
-- If two Evidence Items with the same variant, disease and drug have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score
+- If an Evidence Item is diagnostic, predisposing, or prognostic, and has a negative Direction, then the Evidence Item Score is 0 regardless of the Trust Rating and Evidence Level.
+- If the Evidence Item is Predictive  and has a negative Direction, the Evidence Item Score will follow the normal pattern.
+- If two Evidence Items with the same variant and disease have conflicting directions, then the Evidence Item score is deducted from the total CIViC Variant Score.
 
 ###CIViC Variant Scores
 CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the positive Evidence Item Scores and subtracting any negative Evidence Item Scores that have Matching Evidence Items.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
