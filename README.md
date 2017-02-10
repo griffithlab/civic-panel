@@ -65,7 +65,7 @@ For capture sequenceing, each probe can cover approximately 100 bases and costs 
 ###For variants less than 200 bases:
 - Output will be gene, chromosome, start, stop
 
-###For variants between 100-1,000 bases:
+###For variants between 200-1,000 bases:
 - Number of Probes Needed = ((start position) - (stop position)) / 100
 - Output will be gene, chromosome, start, stop for each 100bp increment
 
