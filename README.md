@@ -11,7 +11,7 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 - B = 5 points
 - C = 2.5 points
 - D = 1 point
-- E = 0 points
+- E = 0.25 points
 
 
 ###Trust Rating:
