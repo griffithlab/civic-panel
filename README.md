@@ -19,13 +19,11 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 
 ##Creating CIViC Scores
 ###Evidence Item Scores
-Evidence Item scores will be calculated for each Evidence Item.  This score is calculated by multiplying the Evidence Level points by the Trust Rating points.  If an evidence item has a direction that is negative, and it has a matching positive evidence item, it will be deducted from the total CIViC score. If an evidence item has a direction that is negative but it does not have a matching positive evidence item, it will not be counted towards to total CIViC score.  This score will be used to calcualte the CIViC Variant Score.
-
-[Matching Evidence Item = Same Variant, Disease, Drug but conflicting Directions]
+Evidence Item scores will be calculated for each Evidence Item.  This score is calculated by multiplying the Evidence Level points by the Trust Rating points. This score will be used to calcualte the CIViC Variant Score.
 
 - Total CIViC Score for each variant is the summation of all the Evidence Item Scores for each Variant.
 - Eligible Variants must have a CIViC score greater than a certain threshold.  Currently that threshold is 30 points.
-- If the Evidence Item has a Direction is 'Does Not Support', the Evidence Item Score will follow the normal pattern.
+- Even if the Evidence Item has a Direction is 'Does Not Support', the Evidence Item Score will follow the normal pattern.
 
 ###CIViC Variant Scores
 CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the positive Evidence Item Scores and subtracting any negative Evidence Item Scores that have Matching Evidence Items.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
