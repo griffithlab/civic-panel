@@ -26,7 +26,7 @@ Evidence Item scores will be calculated for each Evidence Item.  This score is c
 - Even if the Evidence Item has a Direction is 'Does Not Support', the Evidence Item Score will follow the normal pattern.
 
 ###CIViC Variant Scores
-CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the positive Evidence Item Scores and subtracting any negative Evidence Item Scores that have Matching Evidence Items.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
+CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the Evidence Item Scores.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
 
 
 #Part 1 - Eligiability Based on CIViC Score
