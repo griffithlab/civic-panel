@@ -21,6 +21,7 @@ Usage: Probe_Selection.py
 import json, requests
 import sys
 
+
 variant_dict = []
 
 variant_list = requests.get('https://civic.genome.wustl.edu/api/panels/captureseq/qualifying_variants?minimum_score=' + sys.argv[1]).json()['records']
@@ -33,8 +34,3 @@ for k in range(0, len(variant_list)):
     count += 1
 print('Total Variants: ', count)
 print('Unique Genes: ', len(variant_dict))
-
-
-
-
-
