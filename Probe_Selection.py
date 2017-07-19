@@ -34,3 +34,4 @@ for k in range(0, len(variant_list)):
     count += 1
 print('Total Variants: ', count)
 print('Unique Genes: ', len(variant_dict))
+print(variant_dict)
