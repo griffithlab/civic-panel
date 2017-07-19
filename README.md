@@ -1,5 +1,9 @@
 # civic-panel
-The CIViC-Panel Project will be used to identify variants within the CIViC Database that will be used in the CIViC Biomarker Capture Panel.  All variants will undergo selection criteria to filter out variants within the database that do not meet selection standards.  Additionally, the CIViC-Panel will create an automated way to design probes for selected variatns so that subsequent additions to the CIViC Database can be quickly incorporated into the CIViC Capture Panel.
+The CIViC-Panel Project will be used to identify variants within the CIViC Database that have been extensively curated
+ and are therefore eligible for the CIViC Biomarker Capture Panel. All variants will undergo selection criteria to
+ filter out variants within the database that do not meet selection standards.  Additionally, the CIViC-Panel will
+ create an automated way to design probes for selected variatns so that subsequent additions to the CIViC Database can
+ be quickly incorporated into the CIViC Capture Panel.
 
 
 # Part 0 - Create Variant CIViC Score
@@ -19,20 +23,23 @@ The CIViC-Panel Project will be used to identify variants within the CIViC Datab
 
 ## Creating CIViC Scores
 ### Evidence Item Scores
-Evidence Item scores will be calculated for each Evidence Item.  This score is calculated by multiplying the Evidence Level points by the Trust Rating points. This score will be used to calcualte the CIViC Variant Score.
+Evidence Item scores will be calculated for each Evidence Item associated with individual variants.  This score is calculated by multiplying the Evidence
+Level points by the Trust Rating points. This score will be used to calcualte the CIViC Capture Score.
 
 - Total CIViC Score for each variant is the summation of all the Evidence Item Scores for each Variant.
-- Eligible Variants must have a CIViC score greater than a certain threshold.  Currently that threshold is 30 points.
+- Eligible Variants must have a CIViC score greater than a certain threshold.  The threshold can be changed (See ProbeSelection.py).
 - Even if the Evidence Item has a Direction is 'Does Not Support', the Evidence Item Score will follow the normal pattern.
 
 ### CIViC Variant Scores
-CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the Evidence Item Scores.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
+CIViC Variant Scores will be calculated for each Variant.  The score is calculated by adding all of the Evidence Item
+Scores.  This score will be used to determine if variants are eligible for the CIViC Capture Panel.
 
 
 # Part 1 - Eligiability Based on CIViC Score
 
 ## Eligiable Variants
-All Variants with a CIViC Variant score that meets a certain threshold will be eligible for the CIViC Capture Panel.  Currently, the threshold is set at 30 points, however, this is a variable that can be changed to increase or decrease stringency.
+All Variants with a CIViC Variant score that meets a certain threshold will be eligible for the CIViC Capture Panel.
+Currently, the default threshold is set at 30 points, however, this is a variable that can be changed to increase or decrease stringency.
 	
 	
 # Part 2 - Pipelines for Eligible Variants
@@ -41,7 +48,9 @@ All Variants with a CIViC Variant score that meets a certain threshold will be e
 All variants that are eligible for the CIViC Capture Panel will analyzed using two pipelines:
 - IDT Capture Sequencing
 - NanoString Technologies
-The pipeline used for individual variants will be determined by the Sequence Ontology ID.  Each sequence ontology ID will be associated with one or more pipelines for analysis.  If a sequence ontology ID is not associated with any pipeline, it will not be included in the CIViC Capture Panel.
+The pipeline used for individual variants will be determined by the Sequence Ontology ID.  Each sequence ontology
+ID will be associated with one or more pipelines for analysis.  If a sequence ontology ID is not associated with any
+pipeline, it will not be included in the CIViC Capture Panel.
 
 ## Output
 All variants that are bucketed into either the NanoString pipeline or the Capture Sequencing pipeline must have:
@@ -55,7 +64,9 @@ All variants that are bucketed into either the NanoString pipeline or the Captur
 # Part 3 - Determine Capture Sequence Probes
 
 ## Guidelines for Probes
-For capture sequenceing, each probe can cover approximately 100 bases and costs approximately $7.00 whereas tiling a whole gene costs approximately $70.00.  Therefore, if the variant length is greater than 1,000 bases, the whole gene should be covered.  Additionally, for variants that are longer than 200 bases, multiple probes must be created.
+For capture sequenceing, each probe can cover approximately 100 bases and costs approximately $7.00 whereas tiling
+a whole gene costs approximately $70.00.  Therefore, if the variant length is greater than 1,000 bases, the whole
+gene should be covered.  Additionally, for variants that are longer than 200 bases, multiple probes must be created.
 
 ## Creating Output for Probes:
 ### For variants less than 200 bases:
@@ -66,7 +77,7 @@ For capture sequenceing, each probe can cover approximately 100 bases and costs 
 - Output will be gene, chromosome, start, stop for each 100bp increment
 
 ### For variants greater than 1,000 bases:
-- Output will be gene
+- Output will be gene, chromosome, start, stop
 
 
 # Part 4 - Determine NanoString Technology Probes
@@ -74,6 +85,7 @@ For capture sequenceing, each probe can cover approximately 100 bases and costs 
 ## Guidelines for Probes:
 ### For all variants:
 - Output will be gene, chromosome, start, stop
+- If gene is a fusion, output will be gene, chromosome, start, stop, chromosome2, start2, stop2
 
 
 
