@@ -10,19 +10,26 @@ multiplying the Trust Rating by the Evidence Level. The threshold will provide t
 to be considered extensively curated and therefore eligible for probe design.
 
 
-Usage: Probe_Selection.py <Threshold> <Sequence Ontology Terms>
+Usage: Probe_Selection.py <Threshold> <Sequence Ontology Terms> <panel_genes>
 
 1) <Threshold> = CIViC Score required for Variant
 2) <Sequence Ontology Terms> = this input requires a .tsv file to determine the appropriate sequence platoform for
  analysis. The 'sequence_ontology_labels.tsv' is a file within the repo that contains SO_IDs that have been manually
 evaluated for platform analysis. Each SO_ID is followed by either a "YES" or a "NO" indicating which platform will be 
 used for variant evaluation.
+3) <panel_genes> = this input is a .txt file that contains genes within existing gene panels
 
 
-Output: The output will show total variants that have attained a CIViC Score that exceeds the input threshold (Eligible 
-Variants). The output will also detail the Unique Genes associated with the eligible variants (Eligible Genes). Finally,
-two lists will be created to assist in probe design for the eligible variants. Each list will contain four columns.  
-These columns will be "name" "chromosome" "start" "stop":
+Output: There are two forms of output, statistics on the capture panel and output files for probe design. The statistics
+output will show the following:
+1) Total Number of Eligible Variants based on the <Threshold> input
+2) Total Number of Eligible Genes based on the <Threshold> input
+3) Number of genes in at least 10-panels that have been previosuly described based on the <panel_genes> input
+4) Number of missing variants in civic based on the <Threshold> input and the <panel_genes> input
+
+There will also be two output files for probe design. Specifically, two bed files will be created to detail the
+coordinates for the eligible variants based on the <Threshold> input. Each list will contain four columns.  
+These columns will be "name" "chromosome" "start" "stop". The files will be named the following:
 
 1) nanoString_probes: Probes that will need to be evaluated using NanoString Technology
 2) capture_sequence_probes: Probes that will need to be evaluated using Capture-Sequencing Technology
@@ -62,6 +69,23 @@ for k in range(0, len(variants)): #iterate through API and pull all eligible var
     count += 1 #Count all of the eligible variants
 print('Total Number of Eligible Variants: ', count) #Print out all variants
 print('Total Number of Eligible Genes: ', len(variant_list)) #Print out all Genes
+
+##See how many genes are in panels but not eligible for CIViC
+panel_genes = open(sys.argv[3], 'r') #open panel_genes
+panel_genes_list = [] #create empty file for panel genes
+for line in panel_genes: #iterate through panel genes
+    line = line.strip('\n') #strip the new line
+    line = line.split('\t') #split by tabs
+    gene = line[0] #pull gene
+    panel_genes_list.append(gene) #append to gene list
+
+not_in_CIViC = [] #create empty list for genes that are not extensively curated
+for item in panel_genes_list: #for item in panel list
+    if item not in variant_list: #if the item is not in the civic list
+        not_in_CIViC.append(item) #append it to the not in civic list
+print('Number of genes in at Least 10 Panels is:', len(panel_genes_list)) #print the length of the panel Genes
+print('Number of Genes Missing from CIViC is:', len(not_in_CIViC)) #print number of genes not in civic
+
 
 ##Use API to pull information for probe design
 
