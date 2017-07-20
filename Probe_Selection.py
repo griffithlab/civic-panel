@@ -117,7 +117,7 @@ for k,v in bed_information.items(): #iterate through the bed information dictona
 
 ##Output files
 nanostring = open('nanoString_probes.tsv', 'w')  #create empy file for nanostring coordinates
-nanostring.write('gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chromosome' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
+nanostring.write('gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in nanoString_probes: #iterate through nanostring list
     if len(item) == 4: #if they have one set of coordinates
         nanostring.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\n') #add to the file
@@ -127,7 +127,7 @@ nanostring.close() #close file
 
 
 capture = open('capture_sequence_probes.tsv', 'w') #create empy file for capture sequence coordinates
-capture.write('gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chromosome' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
+capture.write('gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in capture_sequence_probes: #iterate through capture list
     if len(item) == 4: #if they have one set of coordinates
         capture.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\n') #add to the file
@@ -140,3 +140,5 @@ if len(unlabeled_SOIDs) != 0: #if the length of the unlabeled_SOID list is not e
     print('WARNING: the following SO_IDs have not been entered into ' + sys.argv[2]) #state that we are missing annotation for at least 1 SOID
     for i in unlabeled_SOIDs: #iterate through the list
         print(i) #print out the sequence ontology IDs that we need to manually add to the .tsv file
+
+
