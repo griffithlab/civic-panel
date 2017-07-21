@@ -85,12 +85,14 @@ for item in panel_genes_list: #for item in panel list
         not_in_CIViC.append(item) #append it to the not in civic list
 print('Number of genes in at Least 10 Panels is:', len(panel_genes_list)) #print the length of the panel Genes
 print('Number of Genes Missing from CIViC is:', len(not_in_CIViC)) #print number of genes not in civic
+#print(not_in_CIViC)
+
+###ADD GENES IN CIVIC BUT NOT IN 10 GENE PANELS#####
 
 
 ##Use API to pull information for probe design
 
 unlabeled_SOIDs = [] #Create Bucket for SO_IDs that have not been labeled yet
-
 
 #Create a dictionary with the .bed information for the two analysis platforms
 bed_information = {}
@@ -123,6 +125,16 @@ for k in range(0, len(variants)): #iterate through API and pull all eligible var
             bed_information[soid] = [] #create a new blank list
             bed_information[soid].append([capture, nanostring, gene, chrom, start, stop]) #append new list with bed information
 
+
+#####PULL VARIANTS and the SO_TERM FOR CAPTURE PANEL
+### Further bin based on the soid for whole gene versus probe
+### if they tile the whole gene they will tile the exons (multiple regions for the same gene) --> depends on the soid term
+### for regulatiory regions and splice sites
+
+### Katrina --> understnad the requirements for IDT probe  (after tuesday....)
+
+
+##Create lists for Output Files
 nanoString_probes = [] #create empty list for nanostring probes
 capture_sequence_probes = [] #create empty list for capture sequence probes
 
