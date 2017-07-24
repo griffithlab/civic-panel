@@ -25,6 +25,8 @@ output will show the following:
 5) List of genes missing in CIViC that are in 10 gene panels
 6) Number of genes in CIViC but not on 10 gene panels
 7) List of genes in CIViC but are not on 10 gene panels
+8) Number of genes that do not have a Vriant Type (SO_id)
+9) SO_id Numbers and names that need the be analyzed for either NanoString or CaptureSeq Platforms
 
 There will also be two output files for probe design. Specifically, two bed files will be created to detail the
 coordinates for the eligible variants based on the <Threshold> input. Each list will contain four columns.  
@@ -33,9 +35,6 @@ These columns will be "name" "chromosome" "start" "stop". The files will be name
 1) nanoString_probes: Probes that will need to be evaluated using NanoString Technology
 2) capture_sequence_probes: Probes that will need to be evaluated using Capture-Sequencing Technology
 
-WARNING LABELS:
-
-1) 
 
 """
 
@@ -97,48 +96,49 @@ print()
 #############################
 ## Check Sequence Ontoloty ##
 #############################
+#Make sure that all variants have SOIDs and that all SOIDs that are currently in CIViC have deignated platforms for analysis
 
+#Pull SOIDs from API Interface (Capture Seq)
 SOID_labels = requests.get('https://civic.genome.wustl.edu/api/panels?count=1000000').json()['CaptureSeq']['sequence_ontology_terms']
-
-SOID = {}
-
+SOID = {} #Create new dictionary to hold SOIDs in API
+#Iterate through the API interface
 for item in SOID_labels:
-    if item['soid'] not in SOID:
-        SOID[item['soid']] = []
-        SOID[item['soid']].append(item['name'])
-    if item['soid'] in SOID:
-        continue
+    if item['soid'] not in SOID: #Pull the SOIDs
+        SOID[item['soid']] = [] #create new list if it is not already in SOID dictioanry
+        SOID[item['soid']].append(item['name']) #Add to dictionary
+    if item['soid'] in SOID: #if it is already there
+        continue #move onto the next
 
+#Pull SOIDs from API Interface (Nanostring)
 SOID_labels = requests.get('https://civic.genome.wustl.edu/api/panels?count=1000000').json()['NanoString']['sequence_ontology_terms']
+for item in SOID_labels:#iterate through the variants
+    if item['soid'] not in SOID: #If the soid is not already in the
+        SOID[item['soid']] = [] #create holder
+        SOID[item['soid']].append(item['name']) #add to the list
+    if item['soid'] in SOID: #If it is already there
+        continue #move onto the next
 
-for item in SOID_labels:
-    if item['soid'] not in SOID:
-        SOID[item['soid']] = []
-        SOID[item['soid']].append(item['name'])
-    if item['soid'] in SOID:
-        continue
+CIViC_SOID = [] #Create new list for all of the SOIDs that are in CIViC
+no_SOID_in_CIViC = [] #Create new list for all of the variants that do not have a SOID term attached to it
 
-CIViC_SOID = []
-no_SOID_in_CIViC = []
-
+#Pull all of the variants from the CIViC API
 SOID_API = requests.get('https://civic.genome.wustl.edu/api/variants?count=1000000').json()['records']
-
-for item in SOID_API:
-    if item['variant_types'] != []:
-        if item['variant_types'][0]['so_id'] not in CIViC_SOID:
-            CIViC_SOID.append(item['variant_types'][0]['so_id'])
-    if item['variant_types'] == []:
-        if item['entrez_name'] not in no_SOID_in_CIViC:
-            no_SOID_in_CIViC.append(item['entrez_name'])
+for item in SOID_API: #iterate through the API
+    if item['variant_types'] != []: #If the variant_type is there
+        if item['variant_types'][0]['so_id'] not in CIViC_SOID: #and the soid is not in the CIViC SOID list
+            CIViC_SOID.append(item['variant_types'][0]['so_id']) #add it to the list
+    if item['variant_types'] == []: #If the variant type has not been created yet
+        if item['entrez_name'] not in no_SOID_in_CIViC: #and the gene name has not already been evaluated
+            no_SOID_in_CIViC.append(item['entrez_name']) #Add the gene name to the 'not in civic' list
 
 print()
-print('Number of genes without Variant Type (SO_id):', len(no_SOID_in_CIViC))
+print('Number of genes without Variant Type (SO_id):', len(no_SOID_in_CIViC)) #Print the number of genes that need a variant type :(
 print()
 
-print('The Following SO_ids need to be added to the API')
-for k,v in SOID.items():
-    if k not in CIViC_SOID:
-        print(k, v)
+print('The Following SO_ids need to be added to the API') #Header
+for k,v in SOID.items(): #Iterate through the soids from civic and nanotring
+    if k not in CIViC_SOID: #if there is an SOID that is in CIVic but it is not in the SOID API
+        print(k, v) #print out the soid number and name (NEED TO ADD THESE TO CIVIC)
 
 
 ##########################
