@@ -10,14 +10,10 @@ multiplying the Trust Rating by the Evidence Level. The threshold will provide t
 to be considered extensively curated and therefore eligible for probe design.
 
 
-Usage: Probe_Selection.py <Threshold> <Sequence Ontology Terms> <panel_genes>
+Usage: Probe_Selection.py <Threshold> <panel_genes>
 
 1) <Threshold> = CIViC Score required for Variant
-2) <Sequence Ontology Terms> = this input requires a .tsv file to determine the appropriate sequence platoform for
- analysis. The 'sequence_ontology_labels.tsv' is a file within the repo that contains SO_IDs that have been manually
-evaluated for platform analysis. Each SO_ID is followed by either a "YES" or a "NO" indicating which platform will be 
-used for variant evaluation.
-3) <panel_genes> = this input is a .txt file that contains genes within existing gene panels
+2) <panel_genes> = this input is a .txt file that contains genes within existing gene panels
 
 
 Output: There are two forms of output, statistics on the capture panel and output files for probe design. The statistics
@@ -26,6 +22,9 @@ output will show the following:
 2) Total Number of Eligible Genes based on the <Threshold> input
 3) Number of genes in at least 10-panels that have been previosuly described based on the <panel_genes> input
 4) Number of missing variants in civic based on the <Threshold> input and the <panel_genes> input
+5) List of genes missing in CIViC that are in 10 gene panels
+6) Number of genes in CIViC but not on 10 gene panels
+7) List of genes in CIViC but are not on 10 gene panels
 
 There will also be two output files for probe design. Specifically, two bed files will be created to detail the
 coordinates for the eligible variants based on the <Threshold> input. Each list will contain four columns.  
@@ -34,9 +33,9 @@ These columns will be "name" "chromosome" "start" "stop". The files will be name
 1) nanoString_probes: Probes that will need to be evaluated using NanoString Technology
 2) capture_sequence_probes: Probes that will need to be evaluated using Capture-Sequencing Technology
 
-WARNING INDICATORS:
-- If there are eligible variants whereby the SO_ID is not on the SO_ID input file you will receive an output
-list of all SOIDs that need to be manually evalulated for NanoString or Capture Sequencing Analysis
+WARNING LABELS:
+
+1) 
 
 """
 
@@ -47,111 +46,150 @@ import sys
 
 ##Pull in Data from JSON
 variant_list = [] #Create a Variant Dictionary for Eligible Variants
-variants = requests.get('https://civic.genome.wustl.edu/api/panels/captureseq/qualifying_variants?minimum_score=' +
+variants_nanostring = requests.get('https://civic.genome.wustl.edu/api/panels/nanostring/qualifying_variants?minimum_score=' +
                         sys.argv[1]).json()['records'] #Call eligible variants
 
-##Pull in sequence ontology labels
-sequence_ontology_dictionary = {}
-file = open(sys.argv[2], 'r')
-for line in file:
-    row = line.strip('\n')
-    row = row.split('\t')
-    soid = row[1]
-    capture = row[4]
-    nanostring = row[5]
-    sequence_ontology_dictionary[soid] = [capture, nanostring]
+variants_capture = requests.get('https://civic.genome.wustl.edu/api/panels/captureseq/qualifying_variants?minimum_score=' +
+                        sys.argv[1]).json()['records'] #Call eligible variants
 
 ##Use API to determine the total number of eligible variants and the total number of eligible genes
 count = 0 #Start count to determine the total number of eligible variants
-for k in range(0, len(variants)): #iterate through API and pull all eligible variants
-    if variants[k]['entrez_name'] not in variant_list: #If the gene is not in the list already
-        variant_list.append(variants[k]['entrez_name']) #add to the list
+for k in range(0, len(variants_nanostring)): #iterate through API and pull all eligible variants
+    if variants_nanostring[k]['entrez_name'] not in variant_list: #If the gene is not in the list already
+        variant_list.append(variants_nanostring[k]['entrez_name']) #add to the list
+    count += 1 #Count all of the eligible variants
+for k in range(0, len(variants_capture)): #iterate through API and pull all eligible variants
+    if variants_capture[k]['entrez_name'] not in variant_list: #If the gene is not in the list already
+        variant_list.append(variants_capture[k]['entrez_name']) #add to the list
     count += 1 #Count all of the eligible variants
 print('Total Number of Eligible Variants: ', count) #Print out all variants
 print('Total Number of Eligible Genes: ', len(variant_list)) #Print out all Genes
+print()
 
 ##See how many genes are in panels but not eligible for CIViC
-panel_genes = open(sys.argv[3], 'r') #open panel_genes
+panel_genes = open(sys.argv[2], 'r') #open panel_genes
 panel_genes_list = [] #create empty file for panel genes
 for line in panel_genes: #iterate through panel genes
     line = line.strip('\n') #strip the new line
     line = line.split('\t') #split by tabs
     gene = line[0] #pull gene
     panel_genes_list.append(gene) #append to gene list
-
 not_in_CIViC = [] #create empty list for genes that are not extensively curated
 for item in panel_genes_list: #for item in panel list
     if item not in variant_list: #if the item is not in the civic list
         not_in_CIViC.append(item) #append it to the not in civic list
 print('Number of genes in at Least 10 Panels is:', len(panel_genes_list)) #print the length of the panel Genes
 print('Number of Genes Missing from CIViC is:', len(not_in_CIViC)) #print number of genes not in civic
-#print(not_in_CIViC)
+print('List of Genes missing from CIViC ', not_in_CIViC)
+print()
 
-###ADD GENES IN CIVIC BUT NOT IN 10 GENE PANELS#####
+#See how many genes are in CIViC but are not on the 10 panel list
+civic_only = []
+for item in variant_list:
+    if item not in panel_genes_list:
+        if item not in civic_only:
+            civic_only.append(item)
+
+print('Number of genes in CIViC but not in 10 gene Panels is: ', len(civic_only))
+print('Genes in CIViC but not in 10 panels: ', civic_only)
+print()
+
+#############################
+## Check Sequence Ontoloty ##
+#############################
+
+SOID_labels = requests.get('https://civic.genome.wustl.edu/api/panels?count=1000000').json()['CaptureSeq']['sequence_ontology_terms']
+
+SOID = {}
+
+for item in SOID_labels:
+    if item['soid'] not in SOID:
+        SOID[item['soid']] = []
+        SOID[item['soid']].append(item['name'])
+    if item['soid'] in SOID:
+        continue
+
+SOID_labels = requests.get('https://civic.genome.wustl.edu/api/panels?count=1000000').json()['NanoString']['sequence_ontology_terms']
+
+for item in SOID_labels:
+    if item['soid'] not in SOID:
+        SOID[item['soid']] = []
+        SOID[item['soid']].append(item['name'])
+    if item['soid'] in SOID:
+        continue
+
+CIViC_SOID = []
+no_SOID_in_CIViC = []
+
+SOID_API = requests.get('https://civic.genome.wustl.edu/api/variants?count=1000000').json()['records']
+
+for item in SOID_API:
+    if item['variant_types'] != []:
+        if item['variant_types'][0]['so_id'] not in CIViC_SOID:
+            CIViC_SOID.append(item['variant_types'][0]['so_id'])
+    if item['variant_types'] == []:
+        if item['entrez_name'] not in no_SOID_in_CIViC:
+            no_SOID_in_CIViC.append(item['entrez_name'])
+
+print()
+print('Number of genes without Variant Type (SO_id):', len(no_SOID_in_CIViC))
+print()
+
+print('The Following SO_ids need to be added to the API')
+for k,v in SOID.items():
+    if k not in CIViC_SOID:
+        print(k, v)
 
 
-##Use API to pull information for probe design
+##########################
+## Evaluate Capture API ##
+##########################
+## For variants listed in the CaptureSeq API, create bed-like files for capture design
 
-unlabeled_SOIDs = [] #Create Bucket for SO_IDs that have not been labeled yet
+capture_sequence_probes = [] #create empty list for capture sequence probes
 
 #Create a dictionary with the .bed information for the two analysis platforms
 bed_information = {}
-for k in range(0, len(variants)): #iterate through API and pull all eligible variants
-    gene = variants[k]['entrez_name']  #Call Gene name
-    soid = variants[k]['variant_types'][0]['so_id'] #call soid
-    chrom = variants[k]['coordinates']['chromosome'] #call chrom
-    start = variants[k]['coordinates']['start'] #call start
-    stop = variants[k]['coordinates']['stop'] #call stop
-    if soid not in sequence_ontology_dictionary.keys(): #if the soid is not in the soid dictionary
-        unlabeled_SOIDs.append(soid) #put it in the unlabeled soid list for the soid warning
-        capture = 'no' #set capture to no
-        nanostring = 'no' #set nanostring to no
-    if soid in sequence_ontology_dictionary.keys(): #if the soid is in the seqontology dictionary
-        capture = sequence_ontology_dictionary[soid][0] #set the capture status to the first value in the dict
-        nanostring = sequence_ontology_dictionary[soid][1] #set the nanostring status to the second value in the dictionary
-    if variants[k]['coordinates']['chromosome2'] is not None and variants[k]['coordinates']['start2'] is not None and variants[k]['coordinates']['stop2'] is not None: #if there are two chromosomes for the variant
-        chrom2 = variants[k]['coordinates']['chromosome2'] #call chrom2
-        start2 = variants[k]['coordinates']['start2'] #call start2
-        stop2 = variants[k]['coordinates']['stop2'] #call stop2
-        if soid in bed_information: #is SOID is already in the bed dictionary
-            bed_information[soid].append([capture, nanostring, gene, chrom, start, stop, chrom2, start2, stop2]) #append new list with bed information
-        if soid not in bed_information: #if the SOID is not in the bed dictionary
-            bed_information[soid] = [] #create a new blank list
-            bed_information[soid].append([capture, nanostring, gene, chrom, start, stop, chrom2, start2, stop2]) #append new list with bed informaiton
+for k in range(0, len(variants_capture)): #iterate through API and pull all eligible variants
+    gene = variants_capture[k]['entrez_name']  #Call Gene name
+    soid = variants_capture[k]['variant_types'][0]['so_id'] #call soid
+    chrom = variants_capture[k]['coordinates']['chromosome'] #call chrom
+    start = variants_capture[k]['coordinates']['start'] #call start
+    stop = variants_capture[k]['coordinates']['stop'] #call stop
+    if variants_capture[k]['coordinates']['chromosome2'] is not None and variants_capture[k]['coordinates']['start2'] is not None and variants_capture[k]['coordinates']['stop2'] is not None: #if there are two chromosomes for the variant
+        chrom2 = variants_capture[k]['coordinates']['chromosome2'] #call chrom2
+        start2 = variants_capture[k]['coordinates']['start2'] #call start2
+        stop2 = variants_capture[k]['coordinates']['stop2'] #call stop2
+        capture_sequence_probes.append([gene, chrom, start, stop, chrom2, start2, stop2]) #append new list with bed informaiton
     else: #if there is only 1 chromosome for the variant
-        if soid in bed_information: #if the SOID is not in the bed dictionary
-            bed_information[soid].append([capture, nanostring, gene, chrom, start, stop]) #append new list with bed information
-        if soid not in bed_information: #if the SOID is not in the bed dictionary
-            bed_information[soid] = [] #create a new blank list
-            bed_information[soid].append([capture, nanostring, gene, chrom, start, stop]) #append new list with bed information
+        capture_sequence_probes.append([gene, chrom, start, stop]) #append new list with bed information
 
 
-#####PULL VARIANTS and the SO_TERM FOR CAPTURE PANEL
-### Further bin based on the soid for whole gene versus probe
-### if they tile the whole gene they will tile the exons (multiple regions for the same gene) --> depends on the soid term
-### for regulatiory regions and splice sites
+#############################
+## Evaluate NanoString API ##
+#############################
+## For variants listed in the NanoString API, create bed-like files for capture design
 
-### Katrina --> understnad the requirements for IDT probe  (after tuesday....)
+nanoString_probes = []  # create empty list for nanostring probes
 
+for k in range(0, len(variants_nanostring)):  # iterate through API and pull all eligible variants
+    gene = variants_nanostring[k]['entrez_name']  # Call Gene name
+    soid = variants_nanostring[k]['variant_types'][0]['so_id']  # call soid
+    chrom = variants_nanostring[k]['coordinates']['chromosome']  # call chrom
+    start = variants_nanostring[k]['coordinates']['start']  # call start
+    stop = variants_nanostring[k]['coordinates']['stop']  # call stop
+    if variants_nanostring[k]['coordinates']['chromosome2'] is not None and variants_nanostring[k]['coordinates']['start2'] is not None and variants_nanostring[k]['coordinates']['stop2'] is not None:  # if there are two chromosomes for the variant
+        chrom2 = variants_nanostring[k]['coordinates']['chromosome2']  # call chrom2
+        start2 = variants_nanostring[k]['coordinates']['start2']  # call start2
+        stop2 = variants_nanostring[k]['coordinates']['stop2']  # call stop2
+        nanoString_probes.append([gene, chrom, start, stop, chrom2, start2, stop2])  # append new list with bed information
+    else:  # if there is only 1 chromosome for the variant
+        nanoString_probes.append([gene, chrom, start, stop])  # append new list with bed information
 
-##Create lists for Output Files
-nanoString_probes = [] #create empty list for nanostring probes
-capture_sequence_probes = [] #create empty list for capture sequence probes
+###########################
+## Generate Output files ##
+###########################
 
-for k,v in bed_information.items(): #iterate through the bed information dictonary
-    for item in v: #for each list in the dictionary's values
-        if item[0] == 'Yes': #if the capture label is yes
-            if len(item) == 6: #if there is only one chrom, start, stop
-                capture_sequence_probes.append([item[2], item[3], item[4], item[5]]) #append informaiton to the capture list
-            if len(item) == 9: #if there are two chroms, starts, stops
-                capture_sequence_probes.append([item[2], item[3], item[4], item[5], item[6], item[7], item[8]]) #append informaiton to the capture list
-        if item[1] == 'Yes': #if the nanostring label is yes
-            if len(item) == 6: #if there is only one chrom, start, stop
-                nanoString_probes.append([item[2], item[3], item[4], item[5]]) #append information to the nanostring list
-            if len(item) == 9: #if there are two chroms, starts, stops
-                nanoString_probes.append([item[2], item[3], item[4], item[5], item[6], item[7], item[8]]) #append information to the nanostring list
-
-##Output files
 nanostring = open('nanoString_probes.tsv', 'w')  #create empy file for nanostring coordinates
 nanostring.write('gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in nanoString_probes: #iterate through nanostring list
@@ -171,10 +209,5 @@ for item in capture_sequence_probes: #iterate through capture list
         capture.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\t' + str(item[4]) + '\t' + str(item[5]) + '\t' + str(item[6]) + '\n') #add to the file
 capture.close() #close file
 
-#CREATE WARNING FOR UNLABELED SOIDs
-if len(unlabeled_SOIDs) != 0: #if the length of the unlabeled_SOID list is not empty
-    print('WARNING: the following SO_IDs have not been entered into ' + sys.argv[2]) #state that we are missing annotation for at least 1 SOID
-    for i in unlabeled_SOIDs: #iterate through the list
-        print(i) #print out the sequence ontology IDs that we need to manually add to the .tsv file
 
 
