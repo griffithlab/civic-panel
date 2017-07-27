@@ -45,10 +45,11 @@ import sys
 
 ##Pull in Data from JSON
 variant_list = [] #Create a Variant Dictionary for Eligible Variants
-variants_nanostring = requests.get('https://civic.genome.wustl.edu/api/panels/nanostring/qualifying_variants?minimum_score=' +
-                        sys.argv[1]).json()['records'] #Call eligible variants
 
 variants_capture = requests.get('https://civic.genome.wustl.edu/api/panels/captureseq/qualifying_variants?minimum_score=' +
+                        sys.argv[1]).json()['records'] #Call eligible variants
+
+variants_nanostring = requests.get('https://civic.genome.wustl.edu/api/panels/nanostring/qualifying_variants?minimum_score=' +
                         sys.argv[1]).json()['records'] #Call eligible variants
 
 ##Use API to determine the total number of eligible variants and the total number of eligible genes
@@ -146,7 +147,9 @@ capture_sequence_probes = [] #create empty list for capture sequence probes
 
 for k in range(0, len(variants_capture)): #iterate through API and pull all eligible variants
     gene = variants_capture[k]['entrez_name']  #Call Gene name
+    soid_name = variants_capture[k]['name'] #call soid name
     soid = variants_capture[k]['variant_types'][0]['so_id'] #call soid
+    transcript = variants_capture[k]['coordinates']['representative_transcript'] #call transcript
     chrom = variants_capture[k]['coordinates']['chromosome'] #call chrom
     start = variants_capture[k]['coordinates']['start'] #call start
     stop = variants_capture[k]['coordinates']['stop'] #call stop
@@ -154,18 +157,18 @@ for k in range(0, len(variants_capture)): #iterate through API and pull all elig
     # Filtering capture_sequence_probes based on start/stop
     if (abs(int(start) - int(stop))) < 200:
        tile = 'no'
-    if (abs(int(start) - int(stop))) > 1000:
-        tile = 'yes'
+    else:
+        tile = ''
 
     #Append coordinates to the capture_sequence_probes list
     if variants_capture[k]['coordinates']['chromosome2'] is not None and variants_capture[k]['coordinates']['start2'] is not None and variants_capture[k]['coordinates']['stop2'] is not None: #if there are two chromosomes for the variant
+        transcript2 = variants_capture[k]['coordinates']['representative_transcript'] #call transcript
         chrom2 = variants_capture[k]['coordinates']['chromosome2'] #call chrom2
         start2 = variants_capture[k]['coordinates']['start2'] #call start2
         stop2 = variants_capture[k]['coordinates']['stop2'] #call stop2
-        capture_sequence_probes.append([soid, gene, chrom, start, stop, chrom2, start2, stop2, tile]) #append new list with bed informaiton
+        capture_sequence_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, transcript2, chrom2, start2, stop2, tile]) #append new list with bed informaiton
     else: #if there is only 1 chromosome for the variant
-        capture_sequence_probes.append([soid, gene, chrom, start, stop, tile]) #append new list with bed information
-
+        capture_sequence_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, tile]) #append new list with bed information
 
 
 #############################
@@ -194,22 +197,20 @@ for k in range(0, len(variants_nanostring)):  # iterate through API and pull all
 ###########################
 
 capture = open('capture_sequence_probes.tsv', 'w') #create empy file for capture sequence coordinates
-capture.write('soid' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'tile' + '\n') #write header
+capture.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'tile' + '\n') #write header
 for item in capture_sequence_probes: #iterate through capture list
-    if len(item) == 6: #if they have one set of coordinates
-        capture.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\t' + str(item[4]) + '\t' + str(item[5]) + '\n') #add to the file
-    if len(item) == 9: #if they have two sets of coordinates
-        capture.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\t' + str(item[4]) + '\t' + str(item[5]) + '\t' + str(item[6]) + '\t' + str(item[7]) + '\t' + str(item[8]) +  '\n') #add to the file
+    for k in item:
+        capture.write(str(k) + '\t')
+    capture.write('\n')
 capture.close() #close file
 
 
 nanostring = open('nanoString_probes.tsv', 'w')  #create empy file for nanostring coordinates
-nanostring.write('soid' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
+nanostring.write('soid' + '\t' + 'soid name' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in nanoString_probes: #iterate through nanostring list
-    if len(item) == 5: #if they have one set of coordinates
-        nanostring.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\t' + str(item[4]) + '\n') #add to the file
-    if len(item) == 8: #if they have two sets of coordinates
-        nanostring.write(str(item[0]) + '\t' + str(item[1]) + '\t' + str(item[2]) + '\t' + str(item[3]) + '\t' + str(item[4]) + '\t' + str(item[5]) + '\t' + str(item[6]) + '\t' + str(item[7]) + '\n') #add to file
+    for k in item:
+        nanostring.write(str(k) + '\t')
+    nanostring.write('\n')
 nanostring.close() #close file
 
 
