@@ -10,7 +10,9 @@ multiplying the Trust Rating by the Evidence Level. The threshold will provide t
 to be considered extensively curated and therefore eligible for probe design.
 
 
-Usage: Probe_Selection.py <Threshold> <panel_genes>
+Usage: python3 Probe_Selection.py <Threshold> <panel_genes>
+
+python3 Probe_Selection.py 20 panel_genes.txt
 
 1) <Threshold> = CIViC Score required for Variant
 2) <panel_genes> = this input is a .txt file that contains genes within existing gene panels
@@ -179,25 +181,28 @@ for k in range(0, len(variants_capture)): #iterate through API and pull all elig
 nanoString_probes = []  # create empty list for nanostring probes
 
 for k in range(0, len(variants_nanostring)):  # iterate through API and pull all eligible variants
-    gene = variants_nanostring[k]['entrez_name']  # Call Gene name
-    soid = variants_nanostring[k]['variant_types'][0]['so_id']  # call soid
-    chrom = variants_nanostring[k]['coordinates']['chromosome']  # call chrom
-    start = variants_nanostring[k]['coordinates']['start']  # call start
-    stop = variants_nanostring[k]['coordinates']['stop']  # call stop
+    gene = variants_nanostring[k]['entrez_name']  #Call Gene name
+    soid_name = variants_nanostring[k]['name'] #call soid name
+    soid = variants_nanostring[k]['variant_types'][0]['so_id'] #call soid
+    transcript = variants_nanostring[k]['coordinates']['representative_transcript'] #call transcript
+    chrom = variants_nanostring[k]['coordinates']['chromosome'] #call chrom
+    start = variants_nanostring[k]['coordinates']['start'] #call start
+    stop = variants_nanostring[k]['coordinates']['stop'] #call stop
+
     if variants_nanostring[k]['coordinates']['chromosome2'] is not None and variants_nanostring[k]['coordinates']['start2'] is not None and variants_nanostring[k]['coordinates']['stop2'] is not None:  # if there are two chromosomes for the variant
         chrom2 = variants_nanostring[k]['coordinates']['chromosome2']  # call chrom2
         start2 = variants_nanostring[k]['coordinates']['start2']  # call start2
         stop2 = variants_nanostring[k]['coordinates']['stop2']  # call stop2
-        nanoString_probes.append([soid, gene, chrom, start, stop, chrom2, start2, stop2])  # append new list with bed information
+        nanoString_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, chrom2, start2, stop2])  # append new list with bed information
     else:  # if there is only 1 chromosome for the variant
-        nanoString_probes.append([soid, gene, chrom, start, stop])  # append new list with bed information
+        nanoString_probes.append([gene, soid, soid_name, transcript, chrom, start, stop])  # append new list with bed information
 
 ###########################
 ## Generate Output files ##
 ###########################
 
 capture = open('capture_sequence_probes.tsv', 'w') #create empy file for capture sequence coordinates
-capture.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'tile' + '\n') #write header
+capture.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'transcript' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'tile' + '\n') #write header
 for item in capture_sequence_probes: #iterate through capture list
     for k in item:
         capture.write(str(k) + '\t')
@@ -206,7 +211,7 @@ capture.close() #close file
 
 
 nanostring = open('nanoString_probes.tsv', 'w')  #create empy file for nanostring coordinates
-nanostring.write('soid' + '\t' + 'soid name' + '\t' + 'gene' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
+nanostring.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'transcript' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in nanoString_probes: #iterate through nanostring list
     for k in item:
         nanostring.write(str(k) + '\t')
