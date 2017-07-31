@@ -9,8 +9,14 @@ stop, gene_name for all exons.
 
 Usage: exons_for_tiling.py <genes_to_be_tiled> <bed file with transcripts>
 
+python3 exons_for_tiling.py genes.txt UCSC_exons_modif_canonical.bed 
+
+Input Files:
 <genes_to_be_tiled> = list of gene names (HUGO) that need to be tiled
 <bed file with transcripts> = UCSC_exons_modif_canonical.bed for canonical transcripts or other for full tile
+
+Output Files:
+<list of exons> = coordinates for all exons in your gene list called  exons_coordinates.txt
 
 """
 
