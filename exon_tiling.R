@@ -91,21 +91,16 @@ ENST_protein_coding_no_UTRs_bed_ordered <- ENST_protein_coding_no_UTRs_bed[with(
   ENST_protein_coding_no_UTRs_bed, order(chromosome_name, exon_chrom_start)), ]
 
 
-ENST_protein_coding_no_UTRs_bed_merged <- if (check.binary("bedtools")) {
-  index <- ENST_protein_coding_no_UTRs_bed_ordered;
-  a <- index[[1]];
-  a.sort <- bedr.sort.region(a);
-  a.merged <- bedr.merge.region(a.sort);
-}
+# ENST_protein_coding_no_UTRs_bed_merged <- if (check.binary("bedtools")) {
+#   index <- ENST_protein_coding_no_UTRs_bed_ordered;
+#   a <- index[[1]];
+#   a.sort <- bedr.sort.region(a);
+#   a.merged <- bedr.merge.region(a.sort);
+# }
 
-ENST_protein_coding_no_UTRs_bed_merged <- bedr.merge.region(ENST_protein_coding_no_UTRs_bed_ordered)
+#ENST_protein_coding_no_UTRs_bed_merged <- bedr.merge.region(ENST_protein_coding_no_UTRs_bed_ordered)
 
+write.table(ENST_protein_coding_no_UTRs_bed_merged, file = "ENST_protein_coding_no_UTRs_bed_merged.bed", sep = "\t",
+            eol = "\n", na = "", row.names = FALSE,
+            col.names = TRUE)
 
-
-
-if (check.binary("bedr")) {
-  index <- get.example.regions();
-  a <- index[[1]];
-  a.sort <- bedr.sort.region(a);
-  a.merged <- bedr.merge.region(a.sort);
-}
