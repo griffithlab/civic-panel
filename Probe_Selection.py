@@ -6,8 +6,9 @@
 Information: Probe_Selection.py will pull existing variants from the CIViC Knowledgebase, iterate through all pulled 
 variants, and score the variant based on the accepted evidence items. This CIViC Score is calculated by adding the 
 Evidence Scores for all accepted Evidence Statements associated with that variant. The Evidence Score is calculated by 
-multiplying the Trust Rating by the Evidence Level. The threshold will provide the lower limite required for a variant 
-to be considered extensively curated and therefore eligible for probe design.
+multiplying the Trust Rating by the Evidence Level. The threshold will provide the lower limit required for a variant 
+to be considered extensively curated and therefore eligible for probe design. This script will also provide informaiton
+on the CIViC Interface relative to other panel genes.
 
 
 Usage: python3 Probe_Selection.py <Threshold> <panel_genes>
@@ -36,6 +37,8 @@ These columns will be "name" "chromosome" "start" "stop". The files will be name
 
 1) nanoString_probes: Probes that will need to be evaluated using NanoString Technology
 2) capture_sequence_probes: Probes that will need to be evaluated using Capture-Sequencing Technology
+    +All variants that are SNPs or Amplificaiton will be labeled "no" for tiling
+    +All variants that are not SNPs or Amplificaiton will require manual review to assign a tiling value
 
 
 """
@@ -146,12 +149,36 @@ for item in SOID_labels:#iterate through the variants
 ## For variants listed in the CaptureSeq API, create bed-like files for capture design
 
 capture_sequence_probes = [] #create empty list for capture sequence probes
-
+capture_sequence_probes.append(['gene', 'soid', 'soid_name', 'transcript', 'top_evidence_level', 'diseases', 'chrom', 'start', 'stop'])
 for k in range(0, len(variants_capture)): #iterate through API and pull all eligible variants
     gene = variants_capture[k]['entrez_name']  #Call Gene name
     soid_name = variants_capture[k]['name'] #call soid name
     soid = variants_capture[k]['variant_types'][0]['so_id'] #call soid
     transcript = variants_capture[k]['coordinates']['representative_transcript'] #call transcript
+    evidence = variants_capture[k]['evidence_items']
+    diseases = []
+    for item in evidence:
+        if item['disease']['name'] not in diseases:
+            if 'Walden' in item['disease']['name']:
+                if 'Waldenstroms Macroglobulemia' not in diseases:
+                    diseases.append('Waldenstroms Macroglobulinemia')
+            else:
+                diseases.append(item['disease']['name'])
+    disease = ', '.join(diseases)
+    top_evidences = []
+    for item in evidence:
+        if item['evidence_level'] != '[]':
+            top_evidences.append(item['evidence_level'].strip())
+    if 'A' in top_evidences:
+        top_evidence = 'A'
+    elif 'B' in top_evidences:
+        top_evidence = 'B'
+    elif 'C' in top_evidences:
+        top_evidence = 'C'
+    elif 'D' in top_evidences:
+        top_evidence = 'D'
+    else:
+        top_evidence = 'E'
     chrom = variants_capture[k]['coordinates']['chromosome'] #call chrom
     start = variants_capture[k]['coordinates']['start'] #call start
     stop = variants_capture[k]['coordinates']['stop'] #call stop
@@ -159,6 +186,8 @@ for k in range(0, len(variants_capture)): #iterate through API and pull all elig
     # Filtering capture_sequence_probes based on start/stop
     if (abs(int(start) - int(stop))) < 200:
        tile = 'no'
+    elif soid_name == 'AMPLIFICATION':
+        tile = 'no'
     else:
         tile = ''
 
@@ -168,9 +197,9 @@ for k in range(0, len(variants_capture)): #iterate through API and pull all elig
         chrom2 = variants_capture[k]['coordinates']['chromosome2'] #call chrom2
         start2 = variants_capture[k]['coordinates']['start2'] #call start2
         stop2 = variants_capture[k]['coordinates']['stop2'] #call stop2
-        capture_sequence_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, transcript2, chrom2, start2, stop2, tile]) #append new list with bed informaiton
+        capture_sequence_probes.append([gene, soid, soid_name, transcript, top_evidence, disease, chrom, start, stop, transcript2, chrom2, start2, stop2]) #append new list with bed informaiton
     else: #if there is only 1 chromosome for the variant
-        capture_sequence_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, tile]) #append new list with bed information
+        capture_sequence_probes.append([gene, soid, soid_name, transcript, top_evidence, disease, chrom, start, stop]) #append new list with bed information
 
 
 #############################
@@ -179,30 +208,50 @@ for k in range(0, len(variants_capture)): #iterate through API and pull all elig
 ## For variants listed in the NanoString API, create bed-like files for capture design
 
 nanoString_probes = []  # create empty list for nanostring probes
-
+nanoString_probes.append(['gene', 'soid', 'soid_name', 'transcript', 'top_evidence_level', 'diseases', 'chrom', 'start', 'stop', 'transcript2', 'chrom2', 'start2', 'stop2'])
 for k in range(0, len(variants_nanostring)):  # iterate through API and pull all eligible variants
     gene = variants_nanostring[k]['entrez_name']  #Call Gene name
     soid_name = variants_nanostring[k]['name'] #call soid name
     soid = variants_nanostring[k]['variant_types'][0]['so_id'] #call soid
     transcript = variants_nanostring[k]['coordinates']['representative_transcript'] #call transcript
+    top_evidence = variants_nanostring[k]
+    diseases = variants_nanostring[k]
     chrom = variants_nanostring[k]['coordinates']['chromosome'] #call chrom
     start = variants_nanostring[k]['coordinates']['start'] #call start
     stop = variants_nanostring[k]['coordinates']['stop'] #call stop
-
+    evidence = variants_capture[k]['evidence_items']
+    diseases = []
+    for item in evidence:
+        if item['disease']['name'] not in diseases:
+            diseases.append(item['disease']['name'])
+    disease = ', '.join(diseases)
+    top_evidences = []
+    for item in evidence:
+        if item['evidence_level'] != '[]':
+            top_evidences.append(item['evidence_level'].strip())
+    if 'A' in top_evidences:
+        top_evidence = 'A'
+    elif 'B' in top_evidences:
+        top_evidence = 'B'
+    elif 'C' in top_evidences:
+        top_evidence = 'C'
+    elif 'D' in top_evidences:
+        top_evidence = 'D'
+    else:
+        top_evidence = 'E'
     if variants_nanostring[k]['coordinates']['chromosome2'] is not None and variants_nanostring[k]['coordinates']['start2'] is not None and variants_nanostring[k]['coordinates']['stop2'] is not None:  # if there are two chromosomes for the variant
         chrom2 = variants_nanostring[k]['coordinates']['chromosome2']  # call chrom2
         start2 = variants_nanostring[k]['coordinates']['start2']  # call start2
         stop2 = variants_nanostring[k]['coordinates']['stop2']  # call stop2
-        nanoString_probes.append([gene, soid, soid_name, transcript, chrom, start, stop, chrom2, start2, stop2])  # append new list with bed information
+        nanoString_probes.append([gene, soid, soid_name, transcript, top_evidence, disease, chrom, start, stop, chrom2, start2, stop2])  # append new list with bed information
     else:  # if there is only 1 chromosome for the variant
-        nanoString_probes.append([gene, soid, soid_name, transcript, chrom, start, stop])  # append new list with bed information
+        nanoString_probes.append([gene, soid, soid_name, transcript, top_evidence, disease, chrom, start, stop])  # append new list with bed information
 
 ###########################
 ## Generate Output files ##
 ###########################
 
 capture = open('capture_sequence_probes.tsv', 'w') #create empy file for capture sequence coordinates
-capture.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'transcript' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'tile' + '\n') #write header
 for item in capture_sequence_probes: #iterate through capture list
     for k in item:
         capture.write(str(k) + '\t')
@@ -211,12 +260,13 @@ capture.close() #close file
 
 
 nanostring = open('nanoString_probes.tsv', 'w')  #create empy file for nanostring coordinates
-nanostring.write('gene' + '\t' + 'soid' + '\t' + 'soid name' + '\t' + 'transcript' + '\t' + 'chromosome' + '\t' + 'start' + '\t' + 'stop' + '\t' + 'chrosome2' + '\t' + 'start2' + '\t' + 'stop2' + '\n') #write header
 for item in nanoString_probes: #iterate through nanostring list
     for k in item:
         nanostring.write(str(k) + '\t')
     nanostring.write('\n')
 nanostring.close() #close file
+
+###PUT IN CAPTURE_SEQUENCE TILE.TXT
 
 
 
