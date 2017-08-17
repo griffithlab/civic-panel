@@ -3,27 +3,34 @@ setwd('/Users/ebarnell/civic-panel/')
 #Import Libraries
 library(biomaRt)
 library(data.table)
-library(bedr)
+#library(bedr)
 
 #Read in manually curated tiling
-tiling <- read.table('/Users/ebarnell/civic-panel/capture_sequence_tile.txt', head=T, sep='\t')
+tiling <- read.table('/Users/ebarnell/civic-panel/tile_classification.txt', head=T, sep='\t')
 
 #Read in captureseq output file from ProbeSelection.py
 capture_sequencing <- read.delim('/Users/ebarnell/civic-panel/capture_sequence_probes.tsv', head=T, sep='\t')
-capture_sequencing <- subset(capture_sequencing, select=c(gene:stop))
 
-capture_sequencing <- merge(capture_sequencing, tiling, by.x=c('gene', 'soid_name'), by.y = c('gene', 'Mutation'), all.x=TRUE)
+#Merge tiling file and capture sequencing file
+capture_sequencing <- merge(capture_sequencing, tiling, by.x=c('gene', 'variant_name'), by.y = c('gene', 'variant_name'), all.x=TRUE)
 
-capture_sequencing <- subset(capture_sequencing, tile=='yes')
+
+
+##################################
+## Analyze Exon Tiling Variants ##
+##################################
+
+#pull variants that need to be tiled
+exon_tiling <- subset(capture_sequencing, tile=='yes')
 
 #remove the version number from transcripts
-capture_sequencing$transcript <- gsub('\\..*', '', capture_sequencing$transcript)
+exon_tiling$representative_transcript <- gsub('\\..*', '', exon_tiling$representative_transcript)
 
 #Upload the ensembl mart
 ensembl_us_west = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="grch37.ensembl.org", dataset="hsapiens_gene_ensembl")
 
 #Use the representative transcripts to get the ENSG IDs
-ENSG <- getBM(attributes=c('ensembl_gene_id'), filters ='ensembl_transcript_id', values =c(capture_sequencing$transcript), mart = ensembl_us_west)
+ENSG <- getBM(attributes=c('ensembl_gene_id'), filters ='ensembl_transcript_id', values =c(exon_tiling$representative_transcript), mart = ensembl_us_west)
 
 
 #Use the ENSG IDs to get all ENST IDs assocaited with ENSG
@@ -99,14 +106,41 @@ ENST_protein_coding_no_UTRs_bed$chromosome_name <- factor(ENST_protein_coding_no
 ENST_protein_coding_no_UTRs_bed$exon_chrom_start <- as.numeric(ENST_protein_coding_no_UTRs_bed$exon_chrom_start)
 ENST_protein_coding_no_UTRs_bed$exon_chrom_end <- as.numeric(ENST_protein_coding_no_UTRs_bed$exon_chrom_end)
 
-#Order the bed file based on chromosome then start
-ENST_protein_coding_no_UTRs_bed_ordered <- ENST_protein_coding_no_UTRs_bed[with(
-  ENST_protein_coding_no_UTRs_bed, order(chromosome_name, exon_chrom_start)), ]
 
-ENST_protein_coding_no_UTRs_bed_ordered$exon_chrom_start <- gsub(' ', '', ENST_protein_coding_no_UTRs_bed_ordered$exon_chrom_start)
-ENST_protein_coding_no_UTRs_bed_ordered$exon_chrom_end <- gsub(' ', '', ENST_protein_coding_no_UTRs_bed_ordered$exon_chrom_end)
+
+###################################
+## Analyze Single Probe Variants ##
+###################################
+
+#pull variants that require only one probe for analysis
+single_probe <- subset(capture_sequencing, tile=='no')
+single_probe <- single_probe[11:13]
+
+
+#########################################
+## Merge Exon Tiling and Single Probes ##
+#########################################
+
+names(ENST_protein_coding_no_UTRs_bed) <- c('chrom', 'start', 'stop')
+coordinates <- rbind(single_probe, ENST_protein_coding_no_UTRs_bed)
+
+#Order the bed file based on chromosome then start
+coordinates <- coordinates[with(
+  coordinates, order(chrom, start)), ]
+
+coordinates$start <- coordinates$start - 1
+
+coordinates$start <- gsub(' ', '', coordinates$start)
+coordinates$stop <- gsub(' ', '', coordinates$stop)
+
+
+#################
+## Write Files ##
+#################
 
 #Print out final file for merging
-write.table(ENST_protein_coding_no_UTRs_bed_ordered, file = "ENST_protein_coding_no_UTRs_bed_ordered.bed",
+write.table(coordinates, file = "coordinates.bed",
             quote=F, sep="\t", row.names=F, col.names=F)
+
+
 
