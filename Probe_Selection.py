@@ -46,7 +46,8 @@ there are any new variants that require tile classification curation. The files 
 
 ##TOOLS
 #!/usr/bin/env python3
-import json, requests
+import json
+import requests
 import sys
 
 ##Pull in Data from JSON
@@ -140,11 +141,15 @@ print()
 print('Number of genes without Variant Type (SO_id):', len(no_SOID_in_CIViC)) #Print the number of genes that need a variant type :(
 print()
 
-print('The Following SO_ids need to be added to the API') #Header
+
 #Pull SOIDs from API Interface (Unbinned)
 SOID_labels = requests.get('https://civic.genome.wustl.edu/api/panels?count=1000000').json()['unbinned_terms']
-for item in SOID_labels:#iterate through the variants
-    print(item['soid'] + ' - ' + item['name'])
+if len(SOID_labels) == 0:
+    print('There are no SO_ids that need to be added to the API!')
+else:
+    print('The Following SO_ids need to be added to the API')  # Header
+    for item in SOID_labels:#iterate through the variants
+        print(item['soid'] + ' - ' + item['name'])
 
 ##########################
 ## Evaluate Capture API ##

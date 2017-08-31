@@ -3,7 +3,7 @@ setwd('/Users/ebarnell/civic-panel/')
 #Import Libraries
 library(biomaRt)
 library(data.table)
-#library(bedr)
+
 
 #Read in manually curated tiling
 tiling <- read.table('/Users/ebarnell/civic-panel/tile_classification.txt', head=T, sep='\t')
@@ -41,7 +41,7 @@ ENST_all <- getBM(attributes=c('ensembl_transcript_id','chromosome_name','exon_c
 ENST_protein_coding <- subset(ENST_all, ENST_all$transcript_biotype == 'protein_coding')
 
 #Obtain the UTRs for all protein coding ENSTs
-ENST_protein_coding_UTRs <- getBM(attributes=c('chromosome_name','exon_chrom_start','exon_chrom_end','5_utr_start', '5_utr_end', '3_utr_start', 
+ENST_protein_coding_UTRs <- getBM(attributes=c('external_gene_name', 'ensembl_transcript_id', 'chromosome_name','exon_chrom_start','exon_chrom_end','5_utr_start', '5_utr_end', '3_utr_start', 
                                                '3_utr_end'), filters ='ensembl_transcript_id', values =c(ENST_protein_coding$ensembl_transcript_id),
                                   mart = ensembl_us_west)
 
@@ -100,12 +100,11 @@ ENST_protein_coding_fewer_UTRs$exon_chrom_start <- apply(ENST_protein_coding_few
 })
 
 #Create bed file from final exons
-ENST_protein_coding_no_UTRs_bed <- ENST_protein_coding_fewer_UTRs[1:3]
+ENST_protein_coding_no_UTRs_bed <- ENST_protein_coding_fewer_UTRs[1:5]
 ENST_protein_coding_no_UTRs_bed$chromosome_name <- factor(ENST_protein_coding_no_UTRs_bed$chromosome_name,
                                                           levels = c(1:22, 'X', 'Y'))
 ENST_protein_coding_no_UTRs_bed$exon_chrom_start <- as.numeric(ENST_protein_coding_no_UTRs_bed$exon_chrom_start)
 ENST_protein_coding_no_UTRs_bed$exon_chrom_end <- as.numeric(ENST_protein_coding_no_UTRs_bed$exon_chrom_end)
-
 
 
 ###################################
@@ -114,7 +113,7 @@ ENST_protein_coding_no_UTRs_bed$exon_chrom_end <- as.numeric(ENST_protein_coding
 
 #pull variants that require only one probe for analysis
 single_probe <- subset(capture_sequencing, tile=='no')
-single_probe <- single_probe[11:13]
+single_probe <- single_probe[c(11:13,1,2,14)]
 
 
 #########################################
