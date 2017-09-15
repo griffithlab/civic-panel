@@ -18,7 +18,7 @@ AURKA	N/A	N/A	OVEREXPRESSION	ENST00000395913.3	B	Cervical Adenocarcinoma, Non-sm
 PGR	N/A	N/A	EXPRESSION	ENST00000325455.5	B	Breast Cancer	Prognostic, Predictive	4	11	100900355	101001255
 EGFR	N/A	N/A	OVEREXPRESSION	ENST00000275493.2	B	Supratentorial Glioblastoma Multiforme, Head And Neck Squamous Cell Carcinoma, Non-small Cell Lung Carcinoma, Esophagus Squamous Cell Carcinoma	Prognostic, Predictive	11	7	55086794	55279321
 PTEN	N/A	N/A	EXPRESSION	ENST00000371953.3	B	Breast Cancer, Glioblastoma Multiforme, Her2-receptor Positive Breast Cancer	Predictive	5	10	89622870	89731687
-CD274	N/A	N/A	EXPRESSION	ENST00000381577.3	B	Ovarian Serous Carcinoma, Melanoma, Non-small Cell Lung Carcinoma, Lung Squamous Cell Carcinoma, Stomach Carcinoma, Papillary Thyroid Carcinoma, Cancer, Merkel Cell Carcinoma, Head And Neck Squamous Cell Carcinoma, Breast Cancer	Prognostic, Predictive	20	9	5450525	5470547
+CD274	N/A	N/A	EXPRESSION	ENST00000381577.3	B	Non-small Cell Lung Carcinoma, Ovarian Serous Carcinoma, Melanoma, Lung Squamous Cell Carcinoma, Stomach Carcinoma, Papillary Thyroid Carcinoma, Cancer, Merkel Cell Carcinoma, Head And Neck Squamous Cell Carcinoma, Breast Cancer	Predictive, Prognostic	21	9	5450525	5470547
 ERBB3	N/A	N/A	OVEREXPRESSION	ENST00000267101.3	B	Colorectal Cancer, Cancer, Uveal Melanoma, Breast Cancer	Predictive	5	12	56473645	56497289
 TYMS	N/A	N/A	EXPRESSION	ENST00000323274.10	B	Non-small Cell Lung Carcinoma, Gastric Adenocarcinoma	Predictive	3	18	657604	673578
 AREG	N/A	N/A	EXPRESSION	ENST00000395748.3	B	Colorectal Cancer, Head And Neck Squamous Cell Carcinoma, Non-small Cell Lung Carcinoma	Predictive	6	4	75310851	75320726
@@ -35,6 +35,17 @@ PAX8	N/A	N/A	EXPRESSION	ENST00000429538.3	A	Female Reproductive Organ Cancer	Dia
 SGK1	N/A	N/A	OVEREXPRESSION	ENST00000367858.5	B	Breast Cancer	Predictive	3	6	134490384	134639196
 FGFR1	N/A	N/A	EXPRESSION	ENST00000425967.3	B	Bladder Carcinoma, Colorectal Cancer, Lung Cancer, Head And Neck Squamous Cell Carcinoma, Gastric Adenocarcinoma, Breast Cancer, Sarcoma	Predictive, Prognostic	10	8	38268656	38325363
 RRM1	N/A	N/A	UNDEREXPRESSION	ENST00000300738.5	B	Non-small Cell Lung Carcinoma, Pancreatic Cancer	Predictive	5	11	4116039	4160106
+ARID1A	N/A	N/A	UNDEREXPRESSION	ENST00000324856.7	B	Renal Clear Cell Carcinoma, Ovarian Clear Cell Carcinoma, Stomach Cancer	Prognostic	3	1	27022524	27108595
+CCND1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000227507.2	B	Non-small Cell Lung Carcinoma, Breast Cancer, Renal Cell Carcinoma, Skin Melanoma, Ovarian Cancer	Prognostic, Predictive	6	11	69455855	69469242
+EGFR	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000275493.2	B	Barrett's Adenocarcinoma, Cervical Squamous Cell Carcinoma, Colorectal Cancer, Head And Neck Squamous Cell Carcinoma, Non-small Cell Lung Carcinoma	Prognostic, Predictive	9	7	55086794	55279321
+CCNE1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000262643.3	B	Ovarian Carcinoma, Ovarian Serous Cystadenocarcinoma, Estrogen-receptor Positive Breast Cancer	Prognostic, Predictive	3	19	30302805	30315215
+PIK3CA	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000263967.3	B	Gastric Adenocarcinoma, Epithelial Ovarian Cancer, Head And Neck Squamous Cell Carcinoma, Stomach Carcinoma	Prognostic, Predictive	4	3	178866311	178957881
+MET	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000318493.6	C	Gastric Adenocarcinoma, Non-small Cell Lung Carcinoma, Lung Adenocarcinoma, Lung Squamous Cell Carcinoma, Glioblastoma Multiforme, Colorectal Cancer, Cancer	Predictive	14	7	116312459	116436396
+MYCN	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000281043.3	A	Neuroblastoma, Medulloblastoma	Predictive, Prognostic	4	2	16080686	16087129
+CDK4	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000257904.6	B	Liposarcoma	Predictive	2	12	58141510	58146304
+ERBB2	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000269571.5	A	Breast Cancer, Gastric Adenocarcinoma, Uterine Corpus Endometrial Carcinoma, Colorectal Cancer, Pancreatic Adenocarcinoma, Her2-receptor Positive Breast Cancer, Non-small Cell Lung Carcinoma, Uterine Corpus Serous Adenocarcinoma, Endometrial Cancer, Lung Adenocarcinoma, Scrotum Paget's Disease, Lung Small Cell Carcinoma	Predictive, Prognostic	52	17	37856333	37884915
+FGFR2	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000457416.2	B	Breast Cancer, Stomach Carcinoma	Predictive	2	10	123239371	123357917
+FGFR1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000425967.3	B	Non-small Cell Lung Carcinoma, Breast Cancer, Lung Squamous Cell Carcinoma, Cancer, Bone Ewing's Sarcoma, Estrogen-receptor Positive Breast Cancer, Bladder Carcinoma	Predictive, Prognostic	16	8	38268656	38325363
 ALK	SO:0001886	transcript_fusion	EML4-ALK L1196M	ENST00000389048.3	B	Non-small Cell Lung Carcinoma, Lung Adenocarcinoma	Predictive	12	2	29443631	29443631
 ROS1	SO:0001886	transcript_fusion	REARRANGEMENT	ENST00000368508.3	B	Non-small Cell Lung Carcinoma, Lung Adenocarcinoma, Colorectal Adenocarcinoma, Bronchiolo-alveolar Adenocarcinoma, Cancer	Predictive	8	6	117609463	117747018
 FLI1	SO:0001886	transcript_fusion	EWSR1-FLI1	ENST00000397938.2	B	Ewing Sarcoma	Diagnostic	1	22	29664007	29683123	11	128651853	128683162
@@ -56,16 +67,6 @@ EWSR1	SO:0001886	transcript_fusion	EWSR1-FLI1	ENST00000414183.2	B	Bone Ewing's S
 PRKACA	SO:0001886	transcript_fusion	DNAJB1-PRKACA	ENST00000254322.2	B	Hepatocellular Fibrolamellar Carcinoma, Hepatocellular Mixed Fibrolamellar Carcinoma	Diagnostic	4	19	14628951	14629232	19	14202500	14218221
 ABL1	SO:0001886	transcript_fusion	BCR-ABL	ENST00000305877.8	A	Chronic Myeloid Leukemia, Acute Myeloid Leukemia	Predictive, Diagnostic	7	22	23522397	23632600	9	133729451	133763063
 FGFR1	SO:0001886	transcript_fusion	FGFR1 FUSIONS	ENST00000425967.3	A	Chronic Myelomonocytic Leukemia, Hematologic Cancer	Diagnostic	2	8	38268656	38325363
-CCND1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000227507.2	B	Non-small Cell Lung Carcinoma, Breast Cancer, Renal Cell Carcinoma, Skin Melanoma, Ovarian Cancer	Prognostic, Predictive	6	11	69455855	69469242
-EGFR	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000275493.2	B	Barrett's Adenocarcinoma, Cervical Squamous Cell Carcinoma, Colorectal Cancer, Head And Neck Squamous Cell Carcinoma, Non-small Cell Lung Carcinoma	Prognostic, Predictive	9	7	55086794	55279321
-CCNE1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000262643.3	B	Ovarian Carcinoma, Ovarian Serous Cystadenocarcinoma, Estrogen-receptor Positive Breast Cancer	Prognostic, Predictive	3	19	30302805	30315215
-PIK3CA	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000263967.3	B	Gastric Adenocarcinoma, Epithelial Ovarian Cancer, Head And Neck Squamous Cell Carcinoma, Stomach Carcinoma	Prognostic, Predictive	4	3	178866311	178957881
-MET	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000318493.6	C	Gastric Adenocarcinoma, Non-small Cell Lung Carcinoma, Lung Adenocarcinoma, Lung Squamous Cell Carcinoma, Glioblastoma Multiforme, Colorectal Cancer, Cancer	Predictive	14	7	116312459	116436396
-MYCN	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000281043.3	A	Neuroblastoma, Medulloblastoma	Predictive, Prognostic	4	2	16080686	16087129
-CDK4	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000257904.6	B	Liposarcoma	Predictive	2	12	58141510	58146304
-ERBB2	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000269571.5	A	Breast Cancer, Gastric Adenocarcinoma, Uterine Corpus Endometrial Carcinoma, Colorectal Cancer, Pancreatic Adenocarcinoma, Her2-receptor Positive Breast Cancer, Non-small Cell Lung Carcinoma, Uterine Corpus Serous Adenocarcinoma, Endometrial Cancer, Lung Adenocarcinoma, Scrotum Paget's Disease, Lung Small Cell Carcinoma	Predictive, Prognostic	52	17	37856333	37884915
-FGFR2	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000457416.2	B	Breast Cancer, Stomach Carcinoma	Predictive	2	10	123239371	123357917
-FGFR1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000425967.3	B	Non-small Cell Lung Carcinoma, Breast Cancer, Lung Squamous Cell Carcinoma, Cancer, Bone Ewing's Sarcoma, Estrogen-receptor Positive Breast Cancer, Bladder Carcinoma	Predictive, Prognostic	16	8	38268656	38325363
 PTEN	SO:0001893	transcript_ablation	DELETION	ENST00000371953.3	B	Prostate Adenocarcinoma, Prostate Cancer	Prognostic, Predictive	3	10	89622870	89731687
 IKZF1	SO:0001893	transcript_ablation	DELETION	ENST00000331340.3	B	Precursor B Lymphoblastic Lymphoma/leukemia, Acute Lymphocytic Leukemia	Prognostic	5	7	50344378	50472799
 TERT	SO:0001566	regulatory_region_variant	C228T	ENST00000310581.5	B	Papillary Thyroid Carcinoma, Thyroid Cancer	Prognostic, Diagnostic	2	5	1295228	1295228
@@ -73,24 +74,25 @@ TERT	SO:0001566	regulatory_region_variant	PROMOTER MUTATION	ENST00000310581.5	B	
 PBRM1	SO:0001549	transcription_variant	MUTATION	ENST00000394830.3	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic	2	3	52581857	52719852
 ATM	SO:0001549	transcription_variant	MUTATION	ENST00000278616.4	A	Glioblastoma Multiforme, Melanoma, Hematologic Cancer, Chronic Lymphocytic Leukemia, Prostate Cancer, Mantle Cell Lymphoma	Predictive, Prognostic	7	11	108093559	108239826
 MYD88	SO:0002053	gain_of_function_variant	L265P	ENST00000396334.3	B	Waldenstroms Macroglobulinemia, Chronic Lymphocytic Leukemia	Predictive, Prognostic	3	3	38182641	38182641
-BRAF	SO:0002053	gain_of_function_variant	MUTATION	ENST00000288602.6	B	Cancer, Colorectal Cancer	Predictive, Prognostic	4	7	140453136	140481403
+BRAF	SO:0001564	gene_variant	MUTATION	ENST00000288602.6	B	Cancer, Colorectal Cancer	Predictive, Prognostic	4	7	140453136	140481403
 NRAS	SO:0002053	gain_of_function_variant	MUTATION	ENST00000369535.4	A	Colorectal Cancer, Acute Myeloid Leukemia, Melanoma, Multiple Myeloma, Cancer, Skin Melanoma	Prognostic, Predictive	16	1	115247090	115259515
 JAK2	SO:0002053	gain_of_function_variant	V617F	ENST00000381652.3	B	Lymphoid Leukemia, Chronic Myeloid Leukemia, Bone Marrow Cancer, Polycythemia Vera	Diagnostic, Predictive	5	9	5073770	5073770
 FLT3	SO:0002053	gain_of_function_variant	MUTATION	ENST00000241453.7	A	Acute Myeloid Leukemia	Prognostic, Predictive	4	13	28577411	28674729
 PIK3CA	SO:0002053	gain_of_function_variant	MUTATION	ENST00000263967.3	B	Her2-receptor Positive Breast Cancer, Head And Neck Squamous Cell Carcinoma, Endometrial Cancer, Colorectal Cancer, Breast Cancer, Head And Neck Cancer, Cancer, Stomach Cancer	Predictive	19	3	178866311	178957881
 CEBPA	SO:0002054	loss_of_function_variant	MUTATION	ENST00000498907.2	B	Acute Myeloid Leukemia	Prognostic, Predictive	6	19	33790840	33793470
-BRCA1	SO:0001786	loss_of_heterozygosity	LOSS-OF-FUNCTION	ENST00000357654.3	B	Prostate Cancer, Ovarian Cancer, Breast Cancer	Predictive, Prognostic	6	17	41196312	41277387
-SMARCA4	SO:0002054	loss_of_function_variant	MUTATION	ENST00000358026.2	B	Small Cell Carcinoma Of The Ovary Hypercalcemic Type	Diagnostic	1	19	11071598	11172958
+BRCA1	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000357654.3	B	Prostate Cancer, Ovarian Cancer, Breast Cancer, Her2-receptor Negative Breast Cancer	Predictive, Prognostic	7	17	41196312	41277387
+SMARCA4	SO:0001564	gene_variant	MUTATION	ENST00000358026.2	B	Small Cell Carcinoma Of The Ovary Hypercalcemic Type	Diagnostic	1	19	11071598	11172958
 SMAD4	SO:0002054	loss_of_function_variant	MUTATION	ENST00000342988.3	B	Pancreatic Adenocarcinoma, Colorectal Cancer	Prognostic, Predictive	2	18	48556583	48611409
-TET2	SO:0002054	loss_of_function_variant	MUTATION	ENST00000513237.1	B	Acute Myeloid Leukemia, Myelodysplastic Syndrome	Prognostic	6	4	106067450	106200973
-VHL	SO:0002054	loss_of_function_variant	MUTATION	ENST00000256474.2	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic, Predictive	5	3	10182692	10193904
+TET2	SO:0001564	gene_variant	MUTATION	ENST00000513237.1	B	Acute Myeloid Leukemia, Myelodysplastic Syndrome	Prognostic	6	4	106067450	106200973
+VHL	SO:0001564	gene_variant	MUTATION	ENST00000256474.2	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic, Predictive	5	3	10182692	10193904
 STK11	SO:0002054	loss_of_function_variant	LOSS	ENST00000326873.7	B	Peutz-Jeghers Syndrome, Non-small Cell Lung Carcinoma	Predisposing, Predictive	5	19	1205740	1228428
-BRCA1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000357654.3	A	Epithelial Ovarian Cancer, Cancer, Ovarian Cancer, Breast Cancer, Ovarian Carcinoma, Triple-receptor Negative Breast Cancer	Prognostic, Predictive	10	17	41196312	41277387
-BRCA2	SO:0002054	loss_of_function_variant	MUTATION	ENST00000380152.3	A	Epithelial Ovarian Cancer, Ovarian Cancer, Breast Cancer, Cancer, Ovarian Carcinoma, Triple-receptor Negative Breast Cancer	Prognostic, Predictive	9	13	32889611	32973347
+BRCA1	SO:0001564	gene_variant	MUTATION	ENST00000357654.3	A	Epithelial Ovarian Cancer, Cancer, Ovarian Cancer, Breast Cancer, Ovarian Carcinoma, Triple-receptor Negative Breast Cancer	Prognostic, Predictive	10	17	41196312	41277387
+BRCA2	SO:0001564	gene_variant	MUTATION	ENST00000380152.3	A	Epithelial Ovarian Cancer, Ovarian Cancer, Breast Cancer, Cancer, Ovarian Carcinoma, Triple-receptor Negative Breast Cancer	Prognostic, Predictive	9	13	32889611	32973347
 PTEN	SO:0002054	loss_of_function_variant	LOSS	ENST00000371953.3	B	Colorectal Cancer, Prostate Cancer, Bladder Carcinoma, Melanoma, Breast Cancer, Cancer, Endometrial Cancer, Gastric Adenocarcinoma, Pancreatic Carcinoma, Her2-receptor Positive Breast Cancer, Stomach Cancer, Ovarian Cancer, Stomach Carcinoma	Predictive, Prognostic	23	10	89622870	89731687
 CHEK2	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000328354.6	B	Cancer	Predisposing	1	22	29083732	29137832
 CDKN2A	SO:0002054	loss_of_function_variant	LOSS	ENST00000579755.1	C	Ovarian Cancer, Skin Melanoma, Renal Cell Carcinoma, Her2-receptor Negative Breast Cancer, Ewing Sarcoma, Glioblastoma Multiforme, Dermatofibrosarcoma Protuberans	Predictive	8	9	21967752	21994623
-BRCA2	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000380152.3	B	Ovarian Cancer, Prostate Cancer, Pancreatic Cancer, Breast Cancer	Predictive, Prognostic	7	13	32889611	32973347
+BRCA2	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000380152.3	B	Ovarian Cancer, Prostate Cancer, Pancreatic Cancer, Breast Cancer, Her2-receptor Negative Breast Cancer	Predictive, Prognostic	8	13	32889611	32973347
+VHL	SO:0002054	loss_of_function_variant	LOSS	ENST00000256474.2	B	Renal Carcinoma, Renal Cell Carcinoma	Predictive	2	3	10182692	10193904
 RUNX1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000300305.3	B	Acute Myeloid Leukemia, Acute Lymphocytic Leukemia	Predictive, Prognostic	6	21	36160098	36421641
 NF1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000358273.4	B	Skin Melanoma, Plexiform Neurofibroma	Predictive	5	17	29421945	29704695
 CEBPA	SO:0002054	loss_of_function_variant	BIALLELIC INACTIVATION	ENST00000498907.2	B	Acute Myeloid Leukemia	Prognostic	1	19	33790840	33793470

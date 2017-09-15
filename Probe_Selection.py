@@ -139,6 +139,7 @@ for item in SOID_API: #iterate through the API
 #print statements
 print()
 print('Number of genes without Variant Type (SO_id):', len(no_SOID_in_CIViC)) #Print the number of genes that need a variant type :(
+print('These genes are:', no_SOID_in_CIViC)
 print()
 
 
@@ -286,6 +287,9 @@ tiling_output = [] #create empty list for output file
 tiling_file = [] #create dictionary for keys as the gene, variant and values as tile notes
 tile_panel = open(sys.argv[3], 'r') #open tiled genes input file
 for line in tile_panel: #iterate through the tile pane
+    if line[2] is None:
+        print('YOU NEED TO UPDATE THE CIVIC_TILING.TXT!!!')
+        break
     line = line.strip('\n')  # strip the new line
     line = line.split('\t')  # split by tabs
     gene = line[0]  # pull gene

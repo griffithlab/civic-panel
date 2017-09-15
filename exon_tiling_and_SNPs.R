@@ -120,6 +120,9 @@ single_probe <- single_probe[c(11:13,1,2,14)]
 ## Merge Exon Tiling and Single Probes ##
 #########################################
 
+single_probe <- single_probe[c(1:3)] 
+ENST_protein_coding_no_UTRs_bed <- ENST_protein_coding_no_UTRs_bed[c(3:5)]
+
 names(ENST_protein_coding_no_UTRs_bed) <- c('chrom', 'start', 'stop')
 coordinates <- rbind(single_probe, ENST_protein_coding_no_UTRs_bed)
 

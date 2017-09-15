@@ -139,3 +139,4 @@ VHL	C162F (c.485G>T)	no	Single SNV requiring one probe.
 WT1	EXON 7 MUTATION	no	Analysis requires only evaluating one exon.
 WT1	EXON 9 MUTATION	no	Analysis requires only evaluating one exon.
 XRCC1	Q399R	no	Single SNV requiring one probe.
+VHL	LOSS
