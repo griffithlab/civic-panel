@@ -116,7 +116,7 @@ exons$stop <- as.numeric(exons$stop)
 #Order the bed file based on chromosome then start
 exons <- exons[with(exons, order(chrom, start)), ]
 
-exons$start <- exons$start - 1
+exons$start <- exons$start
 exons$start <- gsub(' ', '', exons$start)
 exons$stop <- gsub(' ', '', exons$stop)
 
@@ -140,7 +140,7 @@ single_probe$stop <- as.numeric(single_probe$stop)
 
 single_probe <- single_probe[with(single_probe, order(chrom, start)), ]
 
-single_probe$start <- single_probe$start - 1
+single_probe$start <- single_probe$start
 
 single_probe$start <- gsub(' ', '', single_probe$start)
 single_probe$stop <- gsub(' ', '', single_probe$stop)
@@ -250,7 +250,7 @@ ten_exons$stop <- as.numeric(ten_exons$stop)
 #Order the bed file based on chromosome then start
 ten_exons <- ten_exons[with(ten_exons, order(chrom, start)), ]
 
-ten_exons$start <- ten_exons$start - 1
+ten_exons$start <- ten_exons$start
 ten_exons$start <- gsub(' ', '', ten_exons$start)
 ten_exons$stop <- gsub(' ', '', ten_exons$stop)
 
@@ -273,14 +273,14 @@ civic_coordinates_37$stop <- as.numeric(civic_coordinates_37$stop)
 
 civic_coordinates_37 <- civic_coordinates_37[with(civic_coordinates_37, order(chrom, start)), ]
 
-civic_coordinates_37$start <- civic_coordinates_37$start - 1
+civic_coordinates_37$start <- civic_coordinates_37$start
 civic_coordinates_37$start <- gsub(' ', '', civic_coordinates_37$start)
 civic_coordinates_37$stop <- gsub(' ', '', civic_coordinates_37$stop)
 
 write.table(civic_coordinates_37, file = "civic_coordinates_37.txt", quote=F, sep="\t", row.names=F, col.names=F)
 
 #CIVIC 37 COORDINATES FOR LIFTOVER
-civic_coordinates_37 <- read.table('coordinates_merge_37.txt', 'r', header=F, sep='\t')
+civic_coordinates_37 <- read.table('coordinates_merged_37.txt', 'r', header=F, sep='\t')
 names(civic_coordinates_37) <- c('chrom', 'start', 'stop')
 civic_coordinates_37$chrom <- paste0("chr", civic_coordinates_37$chrom, ':', civic_coordinates_37$start, '-', civic_coordinates_37$stop)
 write.table(civic_coordinates_37[1], file = "civic_coordinates_37_for_lift.txt", quote=F, sep="\t", row.names=F, col.names=F)
