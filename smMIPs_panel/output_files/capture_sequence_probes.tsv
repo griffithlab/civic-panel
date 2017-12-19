@@ -1,6 +1,7 @@
 gene	so_id	variant_type	variant_name	representative_transcript	top_evidence_level	diseases	evidence_types	number_of_evidence_statements	evidence_score	chrom	start	stop
 TP53	SO:0000817	wild_type	WILD TYPE	ENST00000269305.4	B	Colorectal Cancer, Non-small Cell Lung Carcinoma, Esophageal Carcinoma, Cancer, Leukemia	Predictive	6	64	17	7571720	7590856
 BRAF	SO:0000817	wild_type	WILD TYPE	ENST00000288602.6	B	Melanoma	Predictive	1	8	7	140434279	140624564
+EGFR	SO:0001563	copy_number_change	COPY NUMBER VARIATION	ENST00000275493.2	B	Head And Neck Squamous Cell Carcinoma	Prognostic	1	16	7	55086794	55279321
 BCL2	SO:0001890	transcript_regulatory_region_fusion	IGH-BCL2	None	B	Diffuse Large B-cell Lymphoma	Diagnostic	1	16	14	106032614	107288051	None	18	60794268	60987019
 CCND1	SO:0001889	transcript_amplification	AMPLIFICATION	ENST00000227507.2	B	Non-small Cell Lung Carcinoma, Breast Cancer, Renal Cell Carcinoma, Skin Melanoma, Ovarian Cancer	Prognostic, Predictive	6	46	11	69455855	69469242
 BRAF	SO:0001889	transcript_amplification	V600E AMPLIFICATION	ENST00000288602.6	E	Colorectal Cancer	Predictive	1	4	7	140434279	140624564
@@ -44,6 +45,19 @@ SMAD4	SO:0001893	transcript_ablation	DELETION	ENST00000342988.3	B	Colorectal Can
 LRP1B	SO:0001893	transcript_ablation	DELETION	ENST00000389484.3	B	Glioblastoma Multiforme	Prognostic	1	16	2	140988992	142889270
 SMARCB1	SO:0001893	transcript_ablation	DELETION	ENST00000344921.6	D	Rhabdoid Cancer	Predictive	2	12	22	24129150	24176703
 IKZF1	SO:0001893	transcript_ablation	DELETION	ENST00000331340.3	B	Precursor B Lymphoblastic Lymphoma/leukemia, Acute Lymphocytic Leukemia	Prognostic	5	68	7	50344378	50472799
+SMARCA4	SO:0001564	gene_variant	MUTATION	ENST00000358026.2	B	Small Cell Carcinoma Of The Ovary Hypercalcemic Type	Diagnostic	1	20	19	11071598	11172958
+VHL	SO:0001564	gene_variant	MUTATION	ENST00000256474.2	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic, Predictive	5	68	3	10182692	10193904
+BRAF	SO:0001564	gene_variant	MUTATION	ENST00000288602.6	B	Cancer, Colorectal Cancer	Predictive, Prognostic	4	44	7	140453136	140481403
+ALK	SO:0001564	gene_variant	MUTATION	ENST00000389048.3	B	Non-small Cell Lung Carcinoma	Predictive	1	16	2	29415640	30144432
+BRCA1	SO:0001564	gene_variant	MUTATION	ENST00000357654.3	A	Epithelial Ovarian Cancer, Cancer, Triple-receptor Negative Breast Cancer, Ovarian Cancer, Ovarian Carcinoma, Breast Cancer	Prognostic, Predictive	11	148	17	41196312	41277387
+BRCA2	SO:0001564	gene_variant	MUTATION	ENST00000380152.3	A	Epithelial Ovarian Cancer, Ovarian Cancer, Triple-receptor Negative Breast Cancer, Cancer, Ovarian Carcinoma, Breast Cancer	Prognostic, Predictive	10	132	13	32889611	32973347
+PTCH1	SO:0001564	gene_variant	MUTATION	ENST00000331920.6	B	Brain Medulloblastoma	Predictive	1	16	9	98205262	98270943
+SRSF2	SO:0001564	gene_variant	MUTATION	ENST00000392485.2	B	Acute Myeloid Leukemia	Prognostic	1	20	17	74732402	74733113
+STK11	SO:0001564	gene_variant	MUTATION	ENST00000326873.7	B	Peutz-Jeghers Syndrome	Predisposing	1	16	19	1205740	1223074
+POLE	SO:0001564	gene_variant	MUTATION	ENST00000320574.5	C	Glioblastoma Multiforme, Endometrial Cancer	Predictive	2	18	12	133202900	133256623
+RB1	SO:0001564	gene_variant	MUTATION	ENST00000267163.4	B	Lung Small Cell Carcinoma	Predictive	1	8	13	48877911	49056122
+TET2	SO:0001564	gene_variant	MUTATION	ENST00000513237.1	B	Acute Myeloid Leukemia, Myelodysplastic Syndrome	Prognostic	6	96	4	106067450	106200973
+VHL	SO:0001017	silent_mutation	E55E (c.165G>A)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10183696	10183696
 RAD51D	SO:0001587	stop_gained	R186*	ENST00000345365.6	C	Breast Cancer	Predisposing	1	6	17	33433425	33433425
 KRAS	SO:0001587	stop_gained	Q22*	ENST00000256078.4	C	Colon Mucinous Adenocarcinoma	Predictive	1	6	12	25398255	25398255
 PTEN	SO:0001587	stop_gained	R233*	ENST00000371953.3	B	Breast Cancer, Glioblastoma Multiforme	Predictive, Prognostic	2	20	10	89717672	89717672
@@ -67,23 +81,24 @@ VHL	SO:0001587	stop_gained	Q73* (c.217C>T)	ENST00000	B	Renal Cell Carcinoma, Von
 VHL	SO:0001587	stop_gained	W88* (c.264G>A)	ENST	C	Von Hippel-Lindau Disease	Predisposing	2	21	3	10183795	10183795
 MLH1	SO:0001587	stop_gained	Q149*	ENST00000231790.2	E	Lynch Syndrome	Predisposing	1	2	3	37048546	37048546
 VHL	SO:0001587	stop_gained	Q195* (c.583C>T)	ENST	C	Von Hippel-Lindau Disease	Predisposing	7	60	3	10191590	10191590
-FNTB	SO:0001566	regulatory_region_variant	RS11623866	ENST00000246166.2	B	Ovarian Cancer	Predictive	1	8	14	65453063	65453063
-TERT	SO:0001566	regulatory_region_variant	C228T	ENST00000310581.5	B	Papillary Thyroid Carcinoma, Thyroid Cancer	Prognostic, Diagnostic	2	32	5	1295228	1295228
-TERT	SO:0001566	regulatory_region_variant	PROMOTER MUTATION	ENST00000310581.5	B	Thyroid Cancer, Skin Melanoma, Glioblastoma Multiforme, Brain Glioma	Diagnostic, Prognostic	5	64	5	1295161	1295373
-VHL	SO:0001017	silent_mutation	E55E (c.165G>A)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10183696	10183696
-MET	SO:0002053	gain_of_function_variant	MUTATION	ENST00000318493.6	B	Papillary Renal Cell Carcinoma	Predictive	1	12	7	116312459	116436396
+MET	SO:0001549	transcription_variant	MUTATION	ENST00000318493.6	B	Papillary Renal Cell Carcinoma	Predictive	1	12	7	116312459	116436396
+PBRM1	SO:0001549	transcription_variant	MUTATION	ENST00000394830.3	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic	2	24	3	52581857	52719852
+ATM	SO:0001549	transcription_variant	MUTATION	ENST00000278616.4	A	Glioblastoma Multiforme, Melanoma, Hematologic Cancer, Chronic Lymphocytic Leukemia, Prostate Cancer, Mantle Cell Lymphoma	Predictive, Prognostic	7	74	11	108093559	108239826
+CDH1	SO:0001549	transcription_variant	MUTATION	ENST00000261769.5	E	Stomach Carcinoma	Prognostic	1	2	16	68771128	68869451
+RHOA	SO:0001549	transcription_variant	MUTATION	ENST00000418115.1	E	Stomach Carcinoma	Prognostic	1	2	3	49412898	49405977
+KMT2C	SO:0001549	transcription_variant	MUTATION	ENST00000262189.6	B	Skin Squamous Cell Carcinoma	Prognostic	1	12	7	151832010	152133090
+BRCA1	SO:0001786	loss_of_heterozygosity	LOSS-OF-FUNCTION	ENST00000357654.3	B	Prostate Cancer, Ovarian Cancer, Breast Cancer, Her2-receptor Negative Breast Cancer	Predictive, Prognostic	7	90	17	41196312	41277387
+PTCH1	SO:0001786	loss_of_heterozygosity	LOH	ENST00000331920.6	B	Brain Medulloblastoma	Predictive	1	8	9	98205262	98270943
+STK11	SO:0001786	loss_of_heterozygosity	D194E	ENST00000326873.7	C	Pancreatic Cancer	Predictive	1	6	19	1220489	1220489
 MYD88	SO:0002053	gain_of_function_variant	L265P	ENST00000396334.3	B	Waldenstroms Macroglobulinemia, Chronic Lymphocytic Leukemia	Predictive, Prognostic	3	26	3	38182641	38182641
 KIT	SO:0002053	gain_of_function_variant	MUTATION	ENST00000288135.5	B	Gastrointestinal Stromal Tumor, Melanoma, Acute Promyelocytic Leukemia	Predictive	3	24	4	55524085	55606881
 FGFR2	SO:0002053	gain_of_function_variant	MUTATION	ENST00000457416.2	C	Endometrial Cancer, Cholangiocarcinoma	Predictive	2	12	10	123239371	123357917
-BRAF	SO:0002053	gain_of_function_variant	MUTATION	ENST00000288602.6	B	Cancer, Colorectal Cancer	Predictive, Prognostic	4	44	7	140453136	140481403
 NRAS	SO:0002053	gain_of_function_variant	MUTATION	ENST00000369535.4	A	Colorectal Cancer, Acute Myeloid Leukemia, Melanoma, Multiple Myeloma, Cancer, Skin Melanoma	Prognostic, Predictive	16	162	1	115247090	115259515
-ALK	SO:0002053	gain_of_function_variant	MUTATION	ENST00000389048.3	B	Non-small Cell Lung Carcinoma	Predictive	1	16	2	29415640	30144432
 JAK2	SO:0002053	gain_of_function_variant	V617F	ENST00000381652.3	B	Lymphoid Leukemia, Chronic Myeloid Leukemia, Bone Marrow Cancer, Polycythemia Vera	Diagnostic, Predictive	5	70	9	5073770	5073770
 MTOR	SO:0002053	gain_of_function_variant	P2213S	ENST00000361445.4	D	Melanoma	Predictive	1	6	1	11184580	11184580
 MTOR	SO:0002053	gain_of_function_variant	H1968Y	ENST00000361445.4	D	Melanoma	Predictive	2	12	1	11188519	11188519
 FGFR2	SO:0002053	gain_of_function_variant	N550K	ENST00000457416.2	D	Endometrial Cancer	Predictive	1	6	10	123258034	123258034
 PIK3R1	SO:0002053	gain_of_function_variant	MUTATION	ENST00000521381.1	D	Breast Cancer	Predictive	1	4	5	67511548	67597649
-RHOA	SO:0002053	gain_of_function_variant	MUTATION	ENST00000418115.1	E	Stomach Carcinoma	Prognostic	1	2	3	49412898	49405977
 ERBB4	SO:0002053	gain_of_function_variant	MUTATION	ENST00000342788.4	D	Melanoma	Predictive	1	8	2	212295697	212578308
 CTNNB1	SO:0002053	gain_of_function_variant	ACTIVATING MUTATION	ENST00000349496.5	D	Melanoma	Predictive	1	8	3	41240930	41281936
 FLT3	SO:0002053	gain_of_function_variant	MUTATION	ENST00000241453.7	A	Acute Myeloid Leukemia	Prognostic, Predictive	4	43	13	28577411	28674729
@@ -93,27 +108,19 @@ CCND3	SO:0002054	loss_of_function_variant	LOSS	ENST00000372991.4	D	T-cell Leukem
 CEBPA	SO:0002054	loss_of_function_variant	MUTATION	ENST00000498907.2	B	Acute Myeloid Leukemia	Prognostic, Predictive	6	84	19	33790840	33793470
 TSC1	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000298552.3	B	Bladder Carcinoma, Renal Cell Carcinoma	Predictive	2	24	9	135766735	135820008
 SMARCA4	SO:0002054	loss_of_function_variant	INACTIVATING MUTATION	ENST00000358026.2	B	Lung Adenocarcinoma	Prognostic	1	16	19	11071598	11172958
-BRCA1	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000357654.3	B	Prostate Cancer, Ovarian Cancer, Breast Cancer, Her2-receptor Negative Breast Cancer	Predictive, Prognostic	7	90	17	41196312	41277387
-SMARCA4	SO:0002054	loss_of_function_variant	MUTATION	ENST00000358026.2	B	Small Cell Carcinoma Of The Ovary Hypercalcemic Type	Diagnostic	1	20	19	11071598	11172958
 SMAD4	SO:0002054	loss_of_function_variant	MUTATION	ENST00000342988.3	B	Pancreatic Adenocarcinoma, Colorectal Cancer	Prognostic, Predictive	2	20	18	48556583	48611409
-VHL	SO:0002054	loss_of_function_variant	MUTATION	ENST00000256474.2	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic, Predictive	5	68	3	10182692	10193904
 VHL	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000256474.2	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic, Predictive	4	46	3	10182692	10193904
-PBRM1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000394830.3	B	Renal Clear Cell Carcinoma, Renal Cell Carcinoma	Prognostic	2	24	3	52581857	52719852
 MRE11	SO:0002054	loss_of_function_variant	LOSS	ENST00000323929.3	C	Endometrial Cancer, Prostate Cancer	Predictive	2	10	11	94152895	94227074
 PALB2	SO:0002054	loss_of_function_variant	BIALLELIC INACTIVATION	ENST00000261584.4	C	Pancreatic Cancer, Prostate Cancer	Predictive	2	21	16	23614491	23652631
 PTPRD	SO:0002054	loss_of_function_variant	MUTATION	ENST00000381196.4	D	Head And Neck Carcinoma	Predictive	1	6	9	8314246	10033790
 KMT2D	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000301067.7	B	Follicular Lymphoma	Diagnostic	1	12	12	49412758	49449107
 STK11	SO:0002054	loss_of_function_variant	LOSS	ENST00000326873.7	B	Peutz-Jeghers Syndrome, Non-small Cell Lung Carcinoma	Predisposing, Predictive	5	28	19	1205740	1228428
 FANCC	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000289081.3	D	Pancreatic Cancer	Predictive	1	6	9	97861336	98079984
-ATM	SO:0002054	loss_of_function_variant	MUTATION	ENST00000278616.4	A	Glioblastoma Multiforme, Melanoma, Hematologic Cancer, Chronic Lymphocytic Leukemia, Prostate Cancer, Mantle Cell Lymphoma	Predictive, Prognostic	7	74	11	108093559	108239826
-BRCA1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000357654.3	A	Epithelial Ovarian Cancer, Cancer, Triple-receptor Negative Breast Cancer, Ovarian Cancer, Ovarian Carcinoma, Breast Cancer	Prognostic, Predictive	11	148	17	41196312	41277387
-BRCA2	SO:0002054	loss_of_function_variant	MUTATION	ENST00000380152.3	A	Epithelial Ovarian Cancer, Ovarian Cancer, Triple-receptor Negative Breast Cancer, Cancer, Ovarian Carcinoma, Breast Cancer	Prognostic, Predictive	10	132	13	32889611	32973347
 PTEN	SO:0002054	loss_of_function_variant	LOSS	ENST00000371953.3	B	Colorectal Cancer, Prostate Cancer, Bladder Carcinoma, Melanoma, Breast Cancer, Cancer, Endometrial Cancer, Gastric Adenocarcinoma, Pancreatic Carcinoma, Her2-receptor Positive Breast Cancer, Stomach Cancer, Ovarian Cancer, Stomach Carcinoma	Predictive, Prognostic	24	204	10	89622870	89731687
 CHEK2	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000328354.6	B	Cancer	Predisposing	1	20	22	29083732	29137832
 CDK12	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000447079.4	D	Ovarian Serous Carcinoma	Predictive	1	8	17	37618292	37691399
 CDKN2A	SO:0002054	loss_of_function_variant	LOSS	ENST00000579755.1	C	Ovarian Cancer, Skin Melanoma, Renal Cell Carcinoma, Her2-receptor Negative Breast Cancer, Ewing Sarcoma, Glioblastoma Multiforme, Dermatofibrosarcoma Protuberans	Predictive	8	43	9	21967752	21994623
 FBXW7	SO:0002054	loss_of_function_variant	MUTATION	ENST00000281708.4	B	Colorectal Cancer, Cancer	Predictive	2	16	4	153245446	153332714
-PTCH1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000331920.6	B	Brain Medulloblastoma	Predictive	1	16	9	98205262	98270943
 BRCA2	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000380152.3	B	Ovarian Cancer, Prostate Cancer, Pancreatic Cancer, Breast Cancer, Her2-receptor Negative Breast Cancer	Predictive, Prognostic	8	96	13	32889611	32973347
 SMAD4	SO:0002054	loss_of_function_variant	LOSS	ENST00000342988.3	B	Pancreatic Cancer	Prognostic	1	12	18	48556583	48611409
 VHL	SO:0002054	loss_of_function_variant	LOSS	ENST00000256474.2	B	Renal Carcinoma, Renal Cell Carcinoma	Predictive	2	22	3	10182692	10193904
@@ -127,7 +134,6 @@ PRDM1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000369096.4	B	Diffuse L
 FBXW7	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000281708.4	D	Renal Cell Carcinoma, Cancer	Predictive	2	10	4	153242410	153457253
 POT1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000357628.3	B	Chronic Lymphocytic Leukemia	Prognostic	1	12	7	124462440	124570035
 SOX10	SO:0002054	loss_of_function_variant	LOSS	ENST00000396884.2	D	Melanoma	Predictive	1	8	22	38368307	38380544
-KMT2C	SO:0002054	loss_of_function_variant	MUTATION	ENST00000262189.6	B	Skin Squamous Cell Carcinoma	Prognostic	1	12	7	151832010	152133090
 NF1	SO:0002054	loss_of_function_variant	LOSS	ENST00000358273.4	D	Malignant Peripheral Nerve Sheath Tumor, Neuroblastoma, Melanoma	Predictive	3	18	17	29421945	29704695
 NF2	SO:0002054	loss_of_function_variant	LOSS	ENST00000338641.4	D	Thyroid Carcinoma	Predictive	1	8	22	29999547	30094587
 CYP2D6	SO:0002054	loss_of_function_variant	LOSS-OF-FUNCTION	ENST00000360608.5	B	Breast Cancer	Prognostic	1	16	22	42522501	42526908
@@ -136,11 +142,7 @@ MSH6	SO:0002054	loss_of_function_variant	LOSS	ENST00000234420.5	C	Urothelial Car
 MSH2	SO:0002054	loss_of_function_variant	LOSS	ENST00000233146.2	C	Urothelial Carcinoma	Predictive	1	9	2	47630108	47710367
 RUNX1	SO:0002054	loss_of_function_variant	D198Y	ENST00000300305.3	C	Acute Myeloid Leukemia	Predisposing	1	9	21	36231792	36231792
 BAP1	SO:0002054	loss_of_function_variant	MUTATION	ENST00000460680.1	B	Renal Clear Cell Carcinoma, Uveal Melanoma, Malignant Mesothelioma, Renal Cell Carcinoma	Prognostic, Predictive	5	64	3	52435029	52444366
-TET2	SO:0002054	loss_of_function_variant	MUTATION	ENST00000513237.1	B	Acute Myeloid Leukemia, Myelodysplastic Syndrome	Prognostic	6	96	4	106067450	106200973
 CEBPA	SO:0002052	dominant_negative_variant	N-TERMINAL FRAME SHIFT	ENST00000498907.2	D	Acute Myeloid Leukemia	Predictive	1	6	19	33792961	33793470
-PTCH1	SO:0001786	loss_of_heterozygosity	LOH	ENST00000331920.6	B	Brain Medulloblastoma	Predictive	1	8	9	98205262	98270943
-STK11	SO:0001786	loss_of_heterozygosity	D194E	ENST00000326873.7	C	Pancreatic Cancer	Predictive	1	6	19	1220489	1220489
-CDH1	SO:0001549	transcription_variant	MUTATION	ENST00000261769.5	E	Stomach Carcinoma	Prognostic	1	2	16	68771128	68869451
 KIT	SO:0001821	inframe_insertion	INTERNAL DUPLICATION	ENST00000288135.5	C	Malignant Anus Melanoma	Predictive	1	9	4	55593582	55593708
 ERBB2	SO:0001821	inframe_insertion	M774INSAYVM	ENST00000269571.5	C	Non-small Cell Lung Carcinoma, Lung Carcinoma, Lung Adenocarcinoma	Predictive	6	52	17	37880993	37880994
 ALK	SO:0001886	transcript_fusion	EML4-ALK T1151INST	ENST00000389048.3	C	Non-small Cell Lung Carcinoma	Predictive	5	28	2	29445271	29445272
@@ -499,6 +501,27 @@ ASXL1	SO:0001791	exon_variant	EXON 12 MUTATION	ENST00000375687.4	B	Acute Myeloid
 KIT	SO:0001791	exon_variant	EXON 14 MUTATION	ENST00000288135.5	B	Gastrointestinal Stromal Tumor	Prognostic	1	12	4	55595501	55595651
 KIT	SO:0001791	exon_variant	EXON 9 MUTATION	ENST00000288135.5	B	Gastrointestinal Stromal Tumor	Predictive	3	40	4	55592023	55592216
 CALR	SO:0001791	exon_variant	EXON 9 FRAMESHIFT	ENST00000316448.5	A	Myelofibrosis, Chronic Myeloproliferative Disease	Prognostic, Predictive	3	52	19	13054527	13054727
+KRAS	SO:0001624	3_prime_UTR_variant	RS61764370	ENST00000311936.3	B	Epithelial Ovarian Cancer, Head And Neck Squamous Cell Carcinoma	Predictive	2	24	12	25360224	25360224
+HIF1A	SO:0001624	3_prime_UTR_variant	3' UTR Polymorphism	ENST00000394997.1	B	Pancreatic Adenocarcinoma	Prognostic	1	8	14	62213848	62213848
+KIT	SO:0001624	3_prime_UTR_variant	3' UTR MUTATION	ENST00000288135.5	B	Acral Lentiginous Melanoma	Diagnostic	1	12	4	55604724	55606881
+VHL	SO:0002012	start_lost	M1? (c.3G>A)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183534	10183534
+VHL	SO:0002012	start_lost	M1FS (c.1_17del17)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183532	10183548
+VHL	SO:0002012	start_lost	M1? (c.1-1_20del21)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183531	10183551
+EGFR	SO:0001650	inframe_variant	MUTATION	ENST00000275493.2	B	Colorectal Cancer, Lung Adenocarcinoma, Non-small Cell Lung Carcinoma, Lung Cancer	Predictive, Prognostic	12	126	7	55086794	55279321
+VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-2A>T)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10191469	10191469
+VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-1G>C)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	2	21	3	10191470	10191470
+VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-1G>A)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	5	39	3	10191470	10191470
+VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-2A>G)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	3	27	3	10191469	10191469
+VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.341-2A>C)	ENST00000256474.2	C	Renal Cell Carcinoma, Von Hippel-Lindau Disease	Predisposing	2	21	3	10188196	10188196
+CDKN2A	SO:0002092	5_prime_UTR_exon_variant	RS3814960	ENST00000498124.1	B	Esophagus Squamous Cell Carcinoma	Prognostic	1	12	9	21975017	21975017
+VHL	SO:0001578	stop_lost	*214W (c.642A>G)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10191649	10191649
+MLH1	SO:0001578	stop_lost	*757L	ENST00000231790.2	E	Lynch Syndrome	Predisposing	1	1	3	37092143	37092143
+ERCC5	SO:0001623	5_prime_UTR_variant	RS751402	ENST00000355739.4	B	Parietal Lobe Ependymoma	Prognostic	1	12	13	103498198	103498199
+TYMS	SO:0001623	5_prime_UTR_variant	5' TANDEM REPEAT	ENST00000323274.10	B	Colorectal Cancer	Predictive	1	12	18	657604	657742
+EGFR	SO:0001826	disruptive_inframe_deletion	VIII	ENST00000275493.2	B	Glioblastoma Multiforme, Brain Glioma, Head And Neck Squamous Cell Carcinoma, Malignant Glioma	Predictive	7	56	7	55087058	55223523
+EPCAM	SO:0001826	disruptive_inframe_deletion	3' EXON DELETION	ENST00000263735	B	Lynch Syndrome	Predisposing	1	16	2	47612305	47614173
+KIT	SO:0001580	coding_sequence_variant	EXON 11 MUTATION	ENST00000288135.5	B	Gastrointestinal Stromal Tumor, Lung Cancer, Melanoma	Prognostic, Diagnostic, Predictive	10	105	4	55593582	55593708
+ERBB2	SO:0001820	inframe_indel	M774DELINSWLV	ENST00000269571.5	C	Non-small Cell Lung Carcinoma	Predictive	1	9	17	37880991	37880991
 ERBB2	SO:0001822	inframe_deletion	DEL 755-759	ENST00000269571.5	D	Breast Cancer	Predictive	1	10	17	37880219	37880233
 PDGFRA	SO:0001822	inframe_deletion	I843DEL	ENST00000257290.5	D	Gastrointestinal Stromal Tumor	Predictive	2	12	4	55152095	55152097
 KIT	SO:0001822	inframe_deletion	V560DEL	ENST00000288135.5	C	Thymic Carcinoma, Gastrointestinal Stromal Tumor	Predictive	9	15	4	55593612	55593614
@@ -511,24 +534,6 @@ VHL	SO:0001822	inframe_deletion	G104H (c.309_310delTG)	ENST00000256474.2	C	Von H
 VHL	SO:0001822	inframe_deletion	F76del (c.227_229delTCT)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	7	60	3	10183758	10183760
 VHL	SO:0001822	inframe_deletion	F76del (c.226_228delTTC)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	5	39	3	10183757	10183759
 VHL	SO:0001822	inframe_deletion	V62C (c.180delG)	ENST	C	Von Hippel-Lindau Disease	Predisposing	2	21	3	10183711	10183711
-KRAS	SO:0001624	3_prime_UTR_variant	RS61764370	ENST00000311936.3	B	Epithelial Ovarian Cancer, Head And Neck Squamous Cell Carcinoma	Predictive	2	24	12	25360224	25360224
-HIF1A	SO:0001624	3_prime_UTR_variant	3' UTR Polymorphism	ENST00000394997.1	B	Pancreatic Adenocarcinoma	Prognostic	1	8	14	62213848	62213848
-KIT	SO:0001624	3_prime_UTR_variant	3' UTR MUTATION	ENST00000288135.5	B	Acral Lentiginous Melanoma	Diagnostic	1	12	4	55604724	55606881
-VHL	SO:0002012	start_lost	M1? (c.3G>A)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183534	10183534
-VHL	SO:0002012	start_lost	M1FS (c.1_17del17)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183532	10183548
-VHL	SO:0002012	start_lost	M1? (c.1-1_20del21)	ENST00000256474.2	E	Von Hippel-Lindau Disease	Predisposing	1	2	3	10183531	10183551
-MGMT	SO:0001819	synonymous_variant	RS16906252	ENST00000306010.7	B	Glioblastoma Multiforme	Predictive	1	12	10	131265545	131265545
-KIT	SO:0001819	synonymous_variant	RS3733542	ENST00000288135.5	B	Acute Myeloid Leukemia	Predictive	1	4	4	55602765	55602765
-ABCB1	SO:0001819	synonymous_variant	I1145I	ENST00000265724.3	B	Non-small Cell Lung Carcinoma, Breast Cancer	Predictive, Prognostic	2	20	7	87138645	87138645
-CBLB	SO:0001819	synonymous_variant	RS2305035	ENST00000264122.4	B	Non-small Cell Lung Carcinoma	Prognostic	1	8	3	105439026	105439026
-ETS2	SO:0001819	synonymous_variant	RS461155	ENST00000360214.3	B	Non-small Cell Lung Carcinoma	Predictive	1	8	21	40191638	40191638
-EGFR	SO:0001650	inframe_variant	MUTATION	ENST00000275493.2	B	Colorectal Cancer, Lung Adenocarcinoma, Non-small Cell Lung Carcinoma, Lung Cancer	Predictive, Prognostic	12	126	7	55086794	55279321
-VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-2A>T)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10191469	10191469
-VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-1G>C)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	2	21	3	10191470	10191470
-VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-1G>A)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	5	39	3	10191470	10191470
-VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.464-2A>G)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	3	27	3	10191469	10191469
-VHL	SO:0001574	splice_acceptor_variant	Splicing alteration (c.341-2A>C)	ENST00000256474.2	C	Renal Cell Carcinoma, Von Hippel-Lindau Disease	Predisposing	2	21	3	10188196	10188196
-ERBB2	SO:0001820	inframe_indel	M774DELINSWLV	ENST00000269571.5	C	Non-small Cell Lung Carcinoma	Predictive	1	9	17	37880991	37880991
 MDM2	SO:0002015	3_prime_UTR_truncation	RS34886328	ENST00000462284.1	B	Esophagus Squamous Cell Carcinoma	Prognostic	1	8	12	69234988	69234988
 NOTCH1	SO:0001589	frameshift_variant	V2444FS	ENST00000277541.6	B	Non-small Cell Lung Carcinoma	Prognostic	1	16	9	139390861	139390861
 MRE11	SO:0001589	frameshift_variant	FRAMESHIFT MUTATION	ENST00000323929.3	B	Prostate Cancer	Predictive	1	8	11	94152895	94227074
@@ -538,15 +543,8 @@ MLH1	SO:0001589	frameshift_variant	R687FS	ENST00000231790.2	E	Lynch Syndrome	Pre
 MSH2	SO:0001589	frameshift_variant	V273FS	ENST00000233146.2	E	Lynch Syndrome	Predisposing	1	2	2	47641433	47641433
 VHL	SO:0001589	frameshift_variant	P61fs (c.182_185delCCGT)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	12	3	10183713	10183716
 VHL	SO:0001589	frameshift_variant	L129fs (c.384delT)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10188241	10188241
-CDKN2A	SO:0002092	5_prime_UTR_exon_variant	RS3814960	ENST00000498124.1	B	Esophagus Squamous Cell Carcinoma	Prognostic	1	12	9	21975017	21975017
-DPYD	SO:0001575	splice_donor_variant	DPYD*2A HOMOZYGOSITY	ENST00000370192.3	A	Cancer	Predictive	1	25	1	97915614	97915614
-MLH1	SO:0001575	splice_donor_variant	C.790+1G>A	ENST0000023170.2	E	Lynch Syndrome	Predisposing	1	2	3	37056036	37056036
 BRAF	SO:0001886	transcript_fusion	PAPSS1-BRAF	ENST00000265174.4	D	Melanoma	Predictive	2	12	4	108603171	108641608	ENST00000265174.4	7	140434279	140487384
-VHL	SO:0001578	stop_lost	*214W (c.642A>G)	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	1	6	3	10191649	10191649
-MLH1	SO:0001578	stop_lost	*757L	ENST00000231790.2	E	Lynch Syndrome	Predisposing	1	1	3	37092143	37092143
 EZH2	SO:0001627	intron_variant	INTRON 6 MUTATION	ENST00000320356.2	B	Colorectal Cancer	Prognostic	1	16	7	148524359	148525831
-ERCC5	SO:0001623	5_prime_UTR_variant	RS751402	ENST00000355739.4	B	Parietal Lobe Ependymoma	Prognostic	1	12	13	103498198	103498199
-TYMS	SO:0001623	5_prime_UTR_variant	5' TANDEM REPEAT	ENST00000323274.10	B	Colorectal Cancer	Predictive	1	12	18	657604	657742
 DNMT3A	SO:0001576	transcript_variant	MUTATION	ENST00000264709.3	B	Acute Myeloid Leukemia, T-cell Acute Lymphoblastic Leukemia, Myelodysplastic Syndrome, Cancer	Prognostic, Predictive	7	92	2	25455845	25565459
 RIT1	SO:0001576	transcript_variant	MUTATION	ENST00000368322.3	D	Lung Adenocarcinoma	Predictive	1	6	1	155870065	155880706
 AR	SO:0001576	transcript_variant	MUTATION	ENST00000374690.3	B	Prostate Cancer	Predictive	1	16	X	66764465	66950461
@@ -590,9 +588,6 @@ VHL	SO:0001910	frameshift_truncation	Y175fs (c.526delA)	ENST00000256474.2	C	Rena
 NF2	SO:0001909	frameshift_elongation	Y177FS	ENST00000338641.4	C	Peritoneal Mesothelioma	Predictive	1	9	22	30051593	30051594
 NPM1	SO:0001909	frameshift_elongation	W288FS	ENST00000517671.1	A	Acute Myeloid Leukemia	Diagnostic, Predictive	5	66	5	170837547	170837548
 MSH2	SO:0001909	frameshift_elongation	E28FS	ENST00000233146.2	E	Lynch Syndrome	Predisposing	1	2	2	47630413	47630414
-EGFR	SO:0001826	disruptive_inframe_deletion	VIII	ENST00000275493.2	B	Glioblastoma Multiforme, Brain Glioma, Head And Neck Squamous Cell Carcinoma, Malignant Glioma	Predictive	7	56	7	55087058	55223523
-EPCAM	SO:0001826	disruptive_inframe_deletion	3' EXON DELETION	ENST00000263735	B	Lynch Syndrome	Predisposing	1	16	2	47612305	47614173
-KIT	SO:0001580	coding_sequence_variant	EXON 11 MUTATION	ENST00000288135.5	B	Gastrointestinal Stromal Tumor, Lung Cancer, Melanoma	Prognostic, Diagnostic, Predictive	10	105	4	55593582	55593708
 NOTCH1	SO:0001594	plus_1_frameshift_variant	S2275FS	ENST00000277541.6	B	Non-small Cell Lung Carcinoma	Prognostic	1	16	9	139391369	139391370
 FLT3	SO:0001992	nonsynonymous_variant	TKD MUTATION	ENST00000241453.7	B	Acute Myeloid Leukemia	Prognostic, Diagnostic, Predictive	7	96	13	28592642	28592642
 EGFR	SO:0001572	exon_loss_variant	EXON 4 DELETION	ENST00000275493.2	D	Epithelial Ovarian Cancer	Predictive	1	8	7	55214299	55214433
@@ -601,13 +596,18 @@ VHL	SO:0001572	exon_loss_variant	EXON 1-2 DELETION	ENST00000256474.2	C	Von Hippe
 VHL	SO:0001572	exon_loss_variant	EXON 1 DELETION	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	3	21	3	10183532	10183871
 VHL	SO:0001572	exon_loss_variant	EXON 1-3 DELETION	ENST00000256474.2	C	Von Hippel-Lindau Disease	Predisposing	2	18	3	10183532	10191649
 MET	SO:0001572	exon_loss_variant	EXON 14 SKIPPING MUTATION	ENST00000318493.6	C	Lung Adenocarcinoma, Cancer	Predictive	6	42	7	116411903	116412043
-EGFR	SO:0000667	insertion	V769_770insASV	ENST00000275493.2	C	Lung Adenocarcinoma	Predictive	2	9	7	55249009	55249010
+MGMT	SO:0001819	synonymous_variant	RS16906252	ENST00000306010.7	B	Glioblastoma Multiforme	Predictive	1	12	10	131265545	131265545
+KIT	SO:0001819	synonymous_variant	RS3733542	ENST00000288135.5	B	Acute Myeloid Leukemia	Predictive	1	4	4	55602765	55602765
+ABCB1	SO:0001819	synonymous_variant	I1145I	ENST00000265724.3	B	Non-small Cell Lung Carcinoma, Breast Cancer	Predictive, Prognostic	2	20	7	87138645	87138645
+CBLB	SO:0001819	synonymous_variant	RS2305035	ENST00000264122.4	B	Non-small Cell Lung Carcinoma	Prognostic	1	8	3	105439026	105439026
+ETS2	SO:0001819	synonymous_variant	RS461155	ENST00000360214.3	B	Non-small Cell Lung Carcinoma	Predictive	1	8	21	40191638	40191638
+DPYD	SO:0001575	splice_donor_variant	DPYD*2A HOMOZYGOSITY	ENST00000370192.3	A	Cancer	Predictive	1	25	1	97915614	97915614
+MLH1	SO:0001575	splice_donor_variant	C.790+1G>A	ENST0000023170.2	E	Lynch Syndrome	Predisposing	1	2	3	37056036	37056036
 HSPH1	SO:0002096	short_tandem_repeat_variation	T17 DELETION	ENST00000320027.5	B	Colorectal Cancer	Predictive	1	8	13	31722621	31722637
+EGFR	SO:0000667	insertion	V769_770insASV	ENST00000275493.2	C	Lung Adenocarcinoma	Predictive	2	9	7	55249009	55249010
 UGT1A1	SO:0000289	microsatellite	UGT1A1*28	ENST00000305208.5	A	Cancer	Predictive	1	25	2	234668881	234668882
 TP53	SO:0001429	DNA_binding_site	DNA BINDING DOMAIN MUTATION	ENST00000269305.4	B	Oral Squamous Cell Carcinoma, Breast Cancer	Prognostic, Predictive	2	28	17	7577149	7578443
-EGFR	SO:0001563	copy_number_change	COPY NUMBER VARIATION	ENST00000275493.2	B	Head And Neck Squamous Cell Carcinoma	Prognostic	1	16	7	55086794	55279321
-SRSF2	SO:0001564	gene_variant	MUTATION	ENST00000392485.2	B	Acute Myeloid Leukemia	Prognostic	1	20	17	74732402	74733113
-STK11	SO:0001564	gene_variant	MUTATION	ENST00000326873.7	B	Peutz-Jeghers Syndrome	Predisposing	1	16	19	1205740	1223074
-POLE	SO:0001564	gene_variant	MUTATION	ENST00000320574.5	C	Glioblastoma Multiforme, Endometrial Cancer	Predictive	2	18	12	133202900	133256623
-RB1	SO:0001564	gene_variant	MUTATION	ENST00000267163.4	B	Lung Small Cell Carcinoma	Predictive	1	8	13	48877911	49056122
 BCL2L11	SO:0001025	polymorphic_sequence_variant	DELETION POLYMORPHISM	ENST00000393256.3	B	Non-small Cell Lung Carcinoma, Chronic Myeloid Leukemia	Predictive	2	32	2	111883195	111886097
+FNTB	SO:0001566	regulatory_region_variant	RS11623866	ENST00000246166.2	B	Ovarian Cancer	Predictive	1	8	14	65453063	65453063
+TERT	SO:0001566	regulatory_region_variant	C228T	ENST00000310581.5	B	Papillary Thyroid Carcinoma, Thyroid Cancer	Prognostic, Diagnostic	2	32	5	1295228	1295228
+TERT	SO:0001566	regulatory_region_variant	PROMOTER MUTATION	ENST00000310581.5	B	Thyroid Cancer, Skin Melanoma, Glioblastoma Multiforme, Brain Glioma	Diagnostic, Prognostic	5	64	5	1295161	1295373
