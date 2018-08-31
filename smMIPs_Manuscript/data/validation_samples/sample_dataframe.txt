@@ -1,0 +1,23 @@
+Sample	Mass	Tumor Type	Sample Type	Matched Normal
+Merck002	100ng	OSCC	tumor	yes
+Merck016	500ng	OSCC	tumor	yes
+Merck017	500ng	OSCC	tumor	yes
+Merck012	500ng	OSCC	tumor	yes
+HOC71	500ng	OSCC	tumor	yes
+SCLC19	250ng	SCLC	tumor	yes
+SCLC29	500ng	SCLC	tumor	yes
+SCLC31	500ng	SCLC	tumor	yes
+SCLC2	100ng	SCLC	tumor	yes
+SCLC15	250ng	SCLC	tumor	yes
+SCLC7	500ng	SCLC	tumor	yes
+SCLC8	250ng	SCLC	tumor	yes
+SCLC25	500ng	SCLC	tumor	yes
+SCLC11	500ng	SCLC	tumor	yes
+H_ML-08-0075-248	500ng	HL	tumor	yes
+AML31	500ng	AML	tumor	no
+H_ML-08-0075-513	500ng	HL	tumor	no
+CRC1	500ng	CRC	tumor	no
+CRC2	500ng	CRC	tumor	no
+CRC3	500ng	CRC	tumor	no
+CRC4	500ng	CRC	tumor	no
+CRC5	250ng	CRC	tumor	no
