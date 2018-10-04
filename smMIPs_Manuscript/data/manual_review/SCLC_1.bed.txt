@@ -1,0 +1,83 @@
+Chromosome	Start	Stop	Reference	Variant	Call	Tags	tumor coverage	normal coverage	original_VAF	Notes
+chr18	48584837	48584837	G	T	F	"MM, D"	None	None	None	Sequencing artifact
+chr18	48584824	48584824	A	T	F	"MM, D"	None	None	None	Sequencing artifact
+chr13	28609813	28609813	GA	G	F	MN	None	None	None	Sequencing artifact
+chr11	108203632	108203632	GT	G	F	MN	None	None	None	Sequencing artifact
+chr5	170837513	170837513	C	CT	F	MN	None	None	None	Sequencing artifact
+chr2	234668879	234668879	C	CAT	F	DN	None	None	None	Sequencing artifact
+chr11	108121410	108121410	CTT	C	F	MN	None	None	None	Sequencing artifact
+chr2	234668879	234668879	CAT	C	F	DN	None	None	None	Sequencing artifact
+chr7	50468343	50468343	A	C	F	"MM, D"	None	None	None	Sequencing artifact
+chr11	108121410	108121410	CT	C	F	MN	None	None	None	Sequencing artifact
+chr11	108121410	108121410	CTTT	C	F	MN	None	None	None	Sequencing artifact
+chr18	48584855	48584855	A	AT	F	MN	None	None	None	Sequencing artifact
+chr18	48584855	48584855	A	AN	F	MN	None	None	None	Sequencing artifact
+chr11	108188266	108188266	AT	A	F	MN	None	None	None	Sequencing artifact
+chr11	108188266	108188266	ATT	A	F	MN	None	None	None	Sequencing artifact
+chr13	32905219	32905219	AT	A	F	MN	None	None	None	Sequencing artifact
+chr18	48584855	48584855	AT	A	F	MN	None	None	None	Sequencing artifact
+chr18	48584855	48584855	ATT	A	F	MN	None	None	None	Sequencing artifact
+chr18	48584855	48584855	ATTT	A	F	MN	None	None	None	Sequencing artifact
+chr20	31022441	31022441	AG	A	F	MN	None	None	None	Sequencing artifact
+chr13	32914904	32914904	G	T	G		None	None	None	germline
+chr13	32929232	32929232	A	G	G		None	None	None	germline
+chr12	25368462	25368462	C	T	G		None	None	None	germline
+chr13	28608473	28608473	C	T	G		None	None	None	germline
+chr7	55238087	55238087	C	T	G		None	None	None	germline
+chr7	55238227	55238227	C	T	G		None	None	None	germline
+chr7	116339672	116339672	C	T	G		None	None	None	germline
+chr10	89720907	89720907	T	G	G		None	None	None	germline
+chr11	108183167	108183167	A	G	G		None	None	None	germline
+chr13	32932072	32932072	C	G	G		None	None	None	germline
+chr3	178927410	178927410	A	G	G		None	None	None	germline
+chr7	50436033	50436033	A	G	G		None	None	None	germline
+chr11	108114840	108114840	T	C	G		None	None	None	germline
+chr13	28608459	28608459	T	C	G		None	None	None	germline
+chr13	32915005	32915005	G	C	G		None	None	None	germline
+chr13	32936646	32936646	T	C	G		None	None	None	germline
+chr3	52437748	52437748	A	C	G		None	None	None	germline
+chr13	28624294	28624294	G	A	G		None	None	None	germline
+chr17	41244936	41244936	G	A	G		None	None	None	germline
+chr7	55249063	55249063	G	A	G		None	None	None	germline
+chr9	21994208	21994208	G	A	S		225	110	1%	
+chr9	139400268	139400268	G	A	S		72	26	1%	
+chr4	106197116	106197116	C	T	S		58	42	2%	
+chr17	7578202	7578202	A	G	S		98	113	17%	
+chr17	7578457	7578457	CG	C	S		41	49	20%	
+chr7	140453160	140453160	AT	A	S		73	102	29%	
+chr13	32912785	32912785	A	T	S		45	108	33%	
+chr9	139401330	139401330	G	A	S		215	111	85%	
+chr18	48577782	48577782	G	C	S		0	0	0	
+chr18	48584777	48584777	C	T	S		107	179	0	
+chr9	139391900	139391900	C	T	S		113	80	0	
+chr18	48584762	48584762	G	T	S		115	178	0	
+chr9	139401880	139401880	C	T	S		118	39	0	
+chr9	139393627	139393627	C	T	S		132	64	0	
+chr4	106197388	106197388	G	T	S		20	36	0	
+chr17	7577121	7577121	G	T	S		28	33	0	
+chr9	139390944	139390944	TGTG	T	S		30	53	0	
+chr9	21994155	21994155	G	T	S		361	187	0	
+chr9	139413982	139413982	C	T	S		414	333	0	
+chr9	21994322	21994322	G	T	S		67	43	0	
+chr9	139391607	139391607	C	T	S		84	25	0	
+chr9	139390804	139390804	C	T	S		86	39	0	
+chr9	139391593	139391593	C	T	S		91	28	0	
+chr9	139390850	139390850	G	T	S		93	50	0	
+chr2	25536880	25536880	T	G	S		104	72	0	
+chr2	25470587	25470587	A	C	S		145	61	0	
+chr9	139390584	139390584	A	C	S		219	118	0	
+chr1	115258759	115258759	A	C	S		178	254	0	
+chr9	139393553	139393553	C	A	S		106	60	0	
+chr9	139390619	139390619	G	A	S		119	111	0	
+chr9	139404361	139404361	G	A	S		172	115	0	
+chr11	108124759	108124759	C	A	S		17	46	0	
+chr9	139400100	139400100	G	A	S		219	135	0	
+chr9	139409109	139409109	C	A	S		339	208	0	
+chr7	116411941	116411941	C	A	S		37	40	0	
+chr7	116412064	116412064	C	A	S		37	73	0	
+chr1	115251301	115251301	AT	A	S		46	57	0	
+chr17	41247846	41247846	G	A	S		50	122	0	
+chr9	139407905	139407905	G	A	S		57	60	0	
+chr21	44514803	44514803	C	A	S		66	78	0	
+chr9	139409779	139409779	G	A	S		88	52	0	
+chr17	7577534	7577534	C	A	S		89	102	0	
