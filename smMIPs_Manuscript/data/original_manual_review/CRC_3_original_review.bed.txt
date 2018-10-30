@@ -1,0 +1,3 @@
+chromosome_name	start	stop	reference	variant	call	tags	notes	genome
+12	25245350	25245350	G	A	S			38
+17	7673803	7673803	C	T	S			38

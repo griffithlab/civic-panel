@@ -1,0 +1,12 @@
+Chromosome	Start	Stop	Reference	Variant	Call	Tags	tumor coverage	normal coverage	original_VAF	Notes
+chr11	108121454	108121454	C	A	S		11	20	0	No support
+chr17	7579373	7579373	C	A	S		49	70	0	No support
+chr18	48581325	48581325	G	A	S		85	82	0	No support
+chr18	48584850	48584850	G	T	S		63	63	0	No support
+chr2	25470587	25470587	A	C	S		42	44	0	No support
+chr9	139396542	139396542	T	G	S		23	39	0	No support
+chr9	139396549	139396549	T	G	S		24	35	0	No support
+chr9	139399367	139399367	G	A	S		52	34	0	No support
+chr11	108121410	108121410	C	CT	F	"MN,D"	0	0	0	Sequencing artifact
+chr18	48584855	48584855	A	ATTT	F	"MN,D"	0	0	0	Sequencing artifact
+chr9	139390944	139390944	TGTG	T	S		72	59	0	No support

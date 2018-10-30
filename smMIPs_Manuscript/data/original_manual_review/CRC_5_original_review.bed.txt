@@ -1,0 +1,5 @@
+chromosome_name	start	stop	reference	variant	call	tags	notes	genome
+12	25380276	25380277	TGA	TTT	S			38
+19	1223047	1223047	C	A	S			38
+4	105243745	105243745	C	T	S			38
+17	7673776	7673776	C	T	S			38

@@ -1,0 +1,3 @@
+chromosome_name	start	stop	reference	variant	call	tags	notes	genome
+7	140753336	140753336	T	A	S			38
+17	7674884	7674884	T	A	S			38
