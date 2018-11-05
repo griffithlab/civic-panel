@@ -1,5 +1,2 @@
 chrom	start	stop	reference	variant
 chr5	170837513	170837513	CT	C
-chr17	7577121	7577121	G	A
-chr17	7578469	7578469	C	A
-chr3	178936082	178936082	G	A
