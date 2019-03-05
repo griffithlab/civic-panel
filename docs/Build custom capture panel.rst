@@ -4,7 +4,7 @@ Build custom capture panel
 
 # Identify variants for capture
 
-The CIViC database is constantly being updated with new evidence statements and assertions. Therefore, we have provided a real-time query interface that allows users to build a pool of variants required for custom capture. This interface can be accessed by going to the CIViC website, selecting the "SEARCH" button, and navigating to the `Variants" tab: [https://civicdb.org/search/variants/]`_. The interface should look like the screenshot shown below:
+The CIViC database is constantly being updated with new evidence statements and assertions. Therefore, we have provided a real-time query interface that allows users to build a pool of variants required for custom capture. This interface can be accessed by going to the CIViC website, selecting the "SEARCH" button, and navigating to the `Variants tab: <https://civicdb.org/search/variants/>`_. The interface should look like the screenshot shown below:
 
 .. image:: Identify\ Variants.png
 
