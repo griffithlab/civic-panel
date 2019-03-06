@@ -14,11 +14,7 @@ each statement summarizes variant actionability described by a publication.
 These evidence statements are summarized at the variant level and also at the
 gene level. An example of this hierarchy has been provided:
 
-* **Evidence Statement**- Osimertinib has been approved for the treatment of EGFR T790M mutant NSCLC.
-* **Variant** - T790M
-* **Gene** - EGFR
-
-`Link to CIViC <https://civicdb.org/events/genes/19/summary/variants/34/summary/evidence/1592/summary#evidence>`_
+.. image:: CIViC_hierarchy.png
 
 ---------------
 Getting Started
