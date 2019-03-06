@@ -33,10 +33,10 @@ CIViC Resources
 
 We have provided a variety of resources to introduce users to the CIVIC database. Please review the following for more information about CIViC and the CIViC team:
 
-* `Nature Genetics Publication <https://www.nature.com/articles/ng.3774>`_
-* `CIViC Help Documents <https://civicdb.org/help/introduction>`_
-* `CIViC Glossary <https://civicdb.org/glossary>`_
-* `API Documentation <https://griffithlab.github.io/civic-api-docs/>`_
+- `Nature Genetics Publication <https://www.nature.com/articles/ng.3774>`_
+- `CIViC Help Documents <https://civicdb.org/help/introduction>`_
+- `CIViC Glossary <https://civicdb.org/glossary>`_
+- `API Documentation <https://griffithlab.github.io/civic-api-docs/>`_
 
 If you have further issues or need to report a problem, feel free to email the
 CIViC team at `help@civicdb.org <help@civicdb.org>`_
