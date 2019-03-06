@@ -38,21 +38,21 @@ Nucleic acid generation
 
 If samples are stored as FFPE blocks, they require FFPE DNA extraction. This can be accomplished using commercially available kits (e.g., INSERT). In general, these kits require paraffin removal and tissue rehydration, tissue digestion, mild reversal of cross-linkage, and nucleic acid purification. If samples are stored as fresh-frozen tissue blocks, they only require nucleic acid purification.
 
-Nucleic acid purification requires cell lysis, binding of nucleic acid, washing off non nucleic acid material, drying of nucleic acid, and elution into a buffer. There are many commercially available kits that can perform nucleic acid purification (e.g., ). These steps can also be automated using commercially available equipment (e.g., `QIAsymphony® SP <https://agtc.med.wayne.edu/pdfs/qiasymphony_sp_brochure.pdfn>`_, `NUCLISENS® easyMAG® <https://www.mediray.co.nz/media/15757/om_biomerieux_nucleic-acids-isolation_nuclei-sens-user-manual-easymag.pdf>_, etc.)
+Nucleic acid purification requires cell lysis, binding of nucleic acid, washing off non nucleic acid material, drying of nucleic acid, and elution into a buffer. There are many commercially available kits that can perform nucleic acid purification (e.g., ). These steps can also be automated using commercially available equipment (e.g., `QIAsymphony® SP <https://agtc.med.wayne.edu/pdfs/qiasymphony_sp_brochure.pdfn>`_, `NUCLISENS® easyMAG® <https://www.mediray.co.nz/media/15757/om_biomerieux_nucleic-acids-isolation_nuclei-sens-user-manual-easymag.pdf>`_, etc.). Below we describe each step in detail:
 
-- **Lyse**: Tissue samples are typically stored as whole cells. The lysis step is used to disrupt the cellular membrane to expose the nucleic acid. Lysis buffers typically comprises a chaotropic agent, which breaks the hydrogen bonds network between water molecules and optionally a surfactant to lower surface tension between membrane components and nucleic acid-containing solution. Some chaotropic agents can include: guanidium thiocyanate or magnesium chloride. Some surfactants can include: Triton-X-100, or sodium dodecyl sulfate.
+**Lyse**: Tissue samples are typically stored as whole cells. The lysis step is used to disrupt the cellular membrane to expose the nucleic acid. Lysis buffers typically comprises a chaotropic agent, which breaks the hydrogen bonds network between water molecules and optionally a surfactant to lower surface tension between membrane components and nucleic acid-containing solution. Some chaotropic agents can include: guanidium thiocyanate or magnesium chloride. Some surfactants can include: Triton-X-100, or sodium dodecyl sulfate. <br>
  
-- **Bind**: After nucleic acid has been suspended in solution, it can be reversibly bound to a positively charged material for purification. These materials can include magnetic particles, columns, filters, silica beads, or organic solvent-based methods. 
+**Bind**: After nucleic acid has been suspended in solution, it can be reversibly bound to a positively charged material for purification. These materials can include magnetic particles, columns, filters, silica beads, or organic solvent-based methods. 
 
-- **Wash**: Once the nucleic acid is bound to a positively charged material, remaining substances in the lysate are washed from solution. A washing solution does not disrupt the covalent bond between the nucleic acid and the positively charged material used for purification. Washing buffers can include: INSERT.
+**Wash**: Once the nucleic acid is bound to a positively charged material, remaining substances in the lysate are washed from solution. A washing solution does not disrupt the covalent bond between the nucleic acid and the positively charged material used for purification. Washing buffers can include: INSERT.
 
-- **Dry**: To ensure proper elution, bound nucleic acid typically needs to be completely devoid of all liquid. To avoid degradation, alcohols can be used to expedite the drying step.
+**Dry**: To ensure proper elution, bound nucleic acid typically needs to be completely devoid of all liquid. To avoid degradation, alcohols can be used to expedite the drying step.
 
-- **Elute**: Elution buffers are solvents that displace the nucleic acid from the positively charged material used for purification. Elution buffers can include: 10 mM Tris at pH 8-9, Warmed MilliQ (60 oC), or 1X TE.
+**Elute**: Elution buffers are solvents that displace the nucleic acid from the positively charged material used for purification. Elution buffers can include: 10 mM Tris at pH 8-9, Warmed MilliQ (60 oC), or 1X TE.
 
-- **Cleanup**: Elutions can be optionally treated with either RNAse (`RNase ONE™ Ribonuclease <https://www.promega.com/-/media/files/resources/msds/m4000/m4261.pdf?la=en-us>`_, `RNase A <https://files.zymoresearch.com/sds/e1008-1_e1008-8_e1008-24_e1008-30_rnase_a.pdf>`_, etc.) or DNAse (e.g., `DNase I` <https://www.neb.com/protocols/0001/01/01/a-typical-dnase-i-reaction-protocol-m0303>, `Baseline-ZERO™ DNase <http://www.epibio.com/docs/default-source/protocols/baseline-zero-dnase.pdf?sfvrsn=8>`_, etc.) to eliminate nucleic acid that is not being used in downstream analysis.
+**Cleanup**: Elutions can be optionally treated with either RNAse (`RNase ONE™ Ribonuclease <https://www.promega.com/-/media/files/resources/msds/m4000/m4261.pdf?la=en-us>`_, `RNase A <https://files.zymoresearch.com/sds/e1008-1_e1008-8_e1008-24_e1008-30_rnase_a.pdf>`_, etc.) or DNAse (e.g., `DNase I` <https://www.neb.com/protocols/0001/01/01/a-typical-dnase-i-reaction-protocol-m0303>, `Baseline-ZERO™ DNase <http://www.epibio.com/docs/default-source/protocols/baseline-zero-dnase.pdf?sfvrsn=8>`_, etc.) to eliminate nucleic acid that is not being used in downstream analysis.
 
-- **Quality check**: After the nucleic acid generation step, it is recommended to assess the quantity and quality of the final elution. This can be accomplished using spectrophotometry and/or electropherograms.
+**Quality check**: After the nucleic acid generation step, it is recommended to assess the quantity and quality of the final elution. This can be accomplished using spectrophotometry and/or electropherograms.
 
 	1) **Spectrophotometry** measures a substance's ability to absorb a specific wavelength, which in turn is a proxy for concentration and purity. First, the sample is exposed an ultraviolet light at a wavelength of 260 nanometres (nm) and the DNA and RNA in the sample will absorb a relative amount of the light that is proportional to the concentration. Next a photo-detector measures the light that passes through the sample (i.e., not absorbed), which allows you to calculate the quantification of DNA/RNA in the sample. `Nucleic acid quantification <https://en.wikipedia.org/wiki/Nucleic_acid_quantitation>`_ using spectrophotometry relies on the `Beer–Lambert law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_. 
 
@@ -62,7 +62,19 @@ Nucleic acid purification requires cell lysis, binding of nucleic acid, washing 
 Library preparation
 -------------------
 
+Library preparation is used to generate a collection of DNA fragments for sequencing. Next-generation sequencing (NGS) libraries typically require genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
 
+- **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. 
+	- Physical fragmentation methods including sonication, nebulization or enzymatic reactions. 
+	- Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
+
+- **Adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors XX.
+
+- **PCR amplification** requires XX
+
+Sequencing reads generated via library preparation are ultimately evaluated by exciting individual fluorescent probes and digitally reading fluorescent output on the sequencing platform. Therefore, the commercially available library preparation kit chosen for library development should be consistent with the ultimate sequencing platform used for reading sequences. 
+
+Of note, for RNA sequencing, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to subjecting to library preparation. 
 
 
 ---------------------
@@ -75,7 +87,6 @@ For custom capture,
 High throughput sequencing
 --------------------------
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 Next-generation sequencing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,15 +96,6 @@ Sequencing is the next step in genomic analysis pipeline. The most commonly used
 1) **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.
 
 2) **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
-
-All NGS techniques require genomic fragmentation, ligation to custom linkers called adapters and then polymerase chain reaction (PCR) amplification. Ultimately, sequencing reads are digitally evaluated by exciting individual fluorescent probes.
-
-
-- **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. Physical fragmentation methods including sonication, nebulization or enzymatic reactions. Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
-
-- **Adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors or indices are used for XX. 
-
-- **PCR amplification** requires XX
 
 
 
