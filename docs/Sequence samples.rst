@@ -1,10 +1,14 @@
 .. image:: Sequence.png
 
-================
-Sequence samples
-================
 
-# Sample procurement
+
+==============================
+Methods for sequencing samples
+==============================
+
+------------------
+Sample procurement
+------------------
 
 For the analysis described here, samples must be derived from a germline tissue (normal sample) and a diseased tissue (tumor sample). Procuring samples from these two sample types requires consideration of the malignancy:
 
@@ -16,10 +20,22 @@ For the analysis described here, samples must be derived from a germline tissue 
 .. image:: sample_procurement.png
 
 
-# Nucleic acid generation
+----------------------
+Nucleic acid generation
+----------------------
 
-# Library preparation
+-------------------
+Library preparation
+-------------------
 
-# Hybridization capture
 
-# High throughput sequencing
+
+
+---------------------
+Hybridization capture
+---------------------
+
+
+--------------------------
+High throughput sequencing
+--------------------------
