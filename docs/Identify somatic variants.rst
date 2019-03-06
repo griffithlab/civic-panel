@@ -2,8 +2,6 @@
 Identify somatic variants
 =========================
 
-.. image:: Identify\ Variants.png
-
 # Alignment to reference genome
 
 # Unique molecular identifier

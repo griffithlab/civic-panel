@@ -16,7 +16,7 @@ gene level. An example of this hierarchy has been provided:
 
 .. image:: CIViC_hierarchy.png
 
-Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_ Assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
+Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
 
 .. image:: Assertion_Example.png
 
