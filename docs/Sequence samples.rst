@@ -21,7 +21,7 @@ For the analysis described here, samples must be derived from a germline tissue 
 
 It is important to note that blood samples cannot be used as the normal samples for solid cancers if the tumor is metastatic with high circulating tumor cells. In these cases, buccal swabs or skin biopsies are better for tumor normal comparisons.
 
---------------
+---------------
 Sample storage
 ---------------
 
@@ -32,9 +32,9 @@ Once samples are procured, they can be fresh-frozen (FF) or formalin-fixed paraf
 - **Formalin-fixed paraffin-embedded**: FFPE samples can be prepared using a variety of available kits (e.g., `QIAamp DNA FFPE Tissue Kit <https://www.horizondiscovery.com/media/resources/Miscellaneous/reference-standards/QIAamp%20DNA%20FFPE%20Tissue%20Kit%20Guidelines%20Digital%20(DISTRIBUTION).pdf>`_, `MagMAX™ FFPE DNA/RNA Ultra Kit <http://tools.thermofisher.com/content/sfs/manuals/MAN0015877_MagMAX_FFPE_DNA_RNA_Ultra_UG.pdf>`_, `Quick-DNA/RNA FFPE Miniprep Kit <https://files.zymoresearch.com/protocols/_d3067_quick-dna_ffpe_miniprep.pdf>`_, etc.). 
 
 
-----------------------
+------------------------
 Nucleic acid generation
-----------------------
+------------------------
 
 If samples are stored as FFPE blocks, they require FFPE DNA extraction. This can be accomplished using commercially available kits (e.g., INSERT). In general, these kits require paraffin removal and tissue rehydration, tissue digestion, mild reversal of cross-linkage, and nucleic acid purification. If samples are stored as fresh-frozen tissue blocks, they only require nucleic acid purification.
 
