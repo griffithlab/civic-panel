@@ -56,8 +56,6 @@ After the nucleic acid generation step, it is recommended to assess the quantity
 
 - **Spectrophotometry** measures a substance's ability to absorb a specific wavelength, which in turn is a proxy for concentration and purity. First, the sample is exposed an ultraviolet light at a wavelength of 260 nanometres (nm) and the DNA and RNA in the sample will absorb a relative amount of the light that is proportional to the concentration. Next a photo-detector measures the light that passes through the sample (i.e., not absorbed), which allows you to calculate the quantification of DNA/RNA in the sample. `Nucleic acid quantification <https://en.wikipedia.org/wiki/Nucleic_acid_quantitation>`_ using spectrophotometry relies on the `Beer–Lambert law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_. 
 
-<br/>
-
 - **Electropherograms** measure the nucleic acid concentration and size using a fluorescent spectrum. The `Agilent 2100 Bioanalyzer <https://ipmb.sinica.edu.tw/microarray/index.files/Agilent%202100%20Bioanalyzer%20user%20guide.pdf>`_ evaluates the sample using spectrum of fluorescents. The `Qubit 4 Fluorometer <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0017209_Qubit_4_Fluorometer_UG.pdf&title=VXNlciBHdWlkZTogUXViaXQgNCBGbHVvcm9tZXRlcg==>`_ utilizes fluorescent dyes that are specific to the target of interest.
 
 -------------------
@@ -78,4 +76,31 @@ High throughput sequencing
 --------------------------
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Next-generation sequencing
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. All NGS techniques require genomic fragmentation, ligation to custom linkers called adapters and then polymerase chain reaction (PCR) amplification. Ultimately, sequencing reads are digitally evaluated by exciting individual fluorescent probes.
+
+- **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. Physical fragmentation methods including sonication, nebulization or enzymatic reactions. Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
+
+- **Adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors or indices are used for XX. 
+
+- **PCR amplification** requires XX
+
+There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:
+
+1) **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.
+
+2) **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Third generation sequencing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Third Generation Sequencing Platforms: PacBio and NanoPore and third generation sequencing technologies that can sequence longer reads at a reduced cost to address the existing problems associated with NGS.
+
+1) **PacBio** utilizes hairpin adaptors to create a loop of DNA that can be fed through an immobilized polymerase to add complementary base pairs. As each nucleotide is held in the detection volume by the polymerase, a light pulse identifies the base. This platform requires high quality intact DNA with highly controlled fragmentation and can read strands up to 1Mb in length.
+
+2) **Oxford NanoPore Sequencing** utilizes biological transmembrane proteins that translocalize DNA. Measurement of changes in electoral conductivity as the DNA passes through the pore elucidates sequence reads. This platform can evaluate variable length reads and is incredibly inexpensive relative to other technologies. Specifically, the MinION device is completely portable, commercially available and can evaluate 20-100MB per run. The tradeoff is its low fidelity rate of only 85%.
