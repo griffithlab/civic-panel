@@ -80,7 +80,14 @@ High throughput sequencing
 Next-generation sequencing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. All NGS techniques require genomic fragmentation, ligation to custom linkers called adapters and then polymerase chain reaction (PCR) amplification. Ultimately, sequencing reads are digitally evaluated by exciting individual fluorescent probes.
+Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:
+
+1) **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.
+
+2) **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
+
+All NGS techniques require genomic fragmentation, ligation to custom linkers called adapters and then polymerase chain reaction (PCR) amplification. Ultimately, sequencing reads are digitally evaluated by exciting individual fluorescent probes.
+
 
 - **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. Physical fragmentation methods including sonication, nebulization or enzymatic reactions. Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
 
@@ -88,11 +95,6 @@ Sequencing is the next step in genomic analysis pipeline. The most commonly used
 
 - **PCR amplification** requires XX
 
-There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:
-
-1) **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.
-
-2) **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
