@@ -1,13 +1,13 @@
+.. image:: Header.png
+
 ==================
 CIViC introduction
 ==================
 
-.. image:: Header.png
-
 --------------
 What is CIViC?
 --------------
-The Clinical Interpretations of Variants in Cancer (CIViC) database is an open
+The `Clinical Interpretations of Variants in Cancer (CIViC) database <https://civicdb.org/>`_ is an open
 access, open source, community-driven web resource that captures clinically
 relevant variants in cancer. CIViC is built on evidence statements, whereby
 each statement summarizes variant actionability described by a publication.
