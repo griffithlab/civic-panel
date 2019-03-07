@@ -58,30 +58,47 @@ Nucleic acid purification requires cell lysis, binding of nucleic acid, washing 
 
 		- **Electropherograms** measure the nucleic acid concentration and size using a fluorescent spectrum. The `Agilent 2100 Bioanalyzer <https://ipmb.sinica.edu.tw/microarray/index.files/Agilent%202100%20Bioanalyzer%20user%20guide.pdf>`_ evaluates the sample using spectrum of fluorescents. The `Qubit 4 Fluorometer <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0017209_Qubit_4_Fluorometer_UG.pdf&title=VXNlciBHdWlkZTogUXViaXQgNCBGbHVvcm9tZXRlcg==>`_ utilizes fluorescent dyes that are specific to the target of interest.
 
--------------------
-Library preparation
--------------------
+-----------------------------
+Target enrichment strategies
+-----------------------------
 
-Library preparation is used to generate a collection of DNA fragments for sequencing. Next-generation sequencing (NGS) libraries typically require genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
+Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing. In advance of next-generation sequencing (NGS) development of these libraries typically require genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
 
 	1) **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. 
 		- Physical fragmentation methods including sonication, nebulization or enzymatic reactions. 
 		- Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
 
-	2) **Adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors XX.
+	2) **Adding adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors allow users to tag molecules for sequencing as well as employ unique molecular identifier (UMI) strategies.
 
-	3) **PCR amplification** requires XX
+	3) **PCR amplification** is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA.
 
-Sequencing reads generated via library preparation are ultimately evaluated by exciting individual fluorescent probes and digitally reading fluorescent output on the sequencing platform. Therefore, the commercially available library preparation kit chosen for library development should be consistent with the ultimate sequencing platform used for reading sequences. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PCR-based library preparation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Molecular inversion probes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+Hybridization capture
+~~~~~~~~~~~~~~~~~~~~~~
+
+Sequencing reads generated via library preparation are ultimately evaluated by exciting individual fluorescent probes and digitally reading fluorescent output on the sequencing platform. Therefore, the commercially available library preparation kit chosen for library development should be consistent with the ultimate sequencing platform used for reading sequences.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+Other considerations
+~~~~~~~~~~~~~~~~~~~~~~
 
 Of note, for RNA sequencing, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to subjecting to library preparation. 
 
-
----------------------
-Hybridization capture
----------------------
-
-For custom capture, 
 
 --------------------------
 High throughput sequencing
