@@ -9,12 +9,12 @@ Arguments:
     <name> = List your name
 """
 
-
 import sys
 import numpy as np
 
 person = sys.argv[1]
 
-print('Your name is ' + person)
-
-
+def print_name(person): 
+    print('Your name is ' + person)
+    
+interact(print_name(person))
