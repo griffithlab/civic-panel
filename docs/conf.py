@@ -41,7 +41,6 @@ release = '1.0'
 extensions = [
 'nbsphinx',
 'sphinx.ext.mathjax',
-'sphinxjp.themes.basicstrap',
 'RunNotebook',
 ]
 
