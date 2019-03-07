@@ -4,9 +4,9 @@
 OpenCAP introduction
 ====================
 
+-----------------
 What is OpenCAP?
-
-
+-----------------
 
 The Open-sourced CIViC Annotation Pipeline (OpenCAP) is a tutorial that provides users with a method to develop a customized capture panel for which the variants contained within the panel are linked to clinical relevance summaries in the CIViC knowledgebase. This tutorial contains four chapters:
 

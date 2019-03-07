@@ -16,6 +16,10 @@ gene level. An example of this hierarchy has been provided:
 
 .. image:: CIViC_hierarchy.png
 
+----------------------
+What is an Assertion?
+----------------------
+
 Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
 
 .. image:: Assertion_Example.png
@@ -93,8 +97,7 @@ More information on evidence Items can be found on the CIViC Help Pages under `E
 Editing entities in CIViC
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Any item in the CIViC interface can be edited using the pencil icon. TO DO: insert pencil icon
-Below we have provided a screencast entitled, `Editing entities in CIViC <https://www.youtube.com/watch?v=uss4R20ymPA>`_
- to walk users through editing items (i.e., evidence, variants, genes or assertions)  in CIViC. This screencast covers:
+Below we have provided a screencast entitled, `Editing entities in CIViC <https://www.youtube.com/watch?v=uss4R20ymPA>`_ to walk users through editing items (i.e., evidence, variants, genes or assertions)  in CIViC. This screencast covers:
 
 - Navigating to an entity's Edit Form
 - Importance of edit comments
