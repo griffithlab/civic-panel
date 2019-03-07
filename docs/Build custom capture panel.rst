@@ -1,8 +1,11 @@
 .. image:: Build.png
 
 ==========================
-Build custom capture panel
+Build Custom Capture Panel
 ==========================
+
+In this section we will use the CIViC interface to identify variants of interest for custom capture. The interface will then be used to download variants of interest, associated clinical descriptions, and curated coordinates. We will then open an interactive jupyter notebook to format the variant coordinates for probe development. The output from this exercise will be a file that is compatible with commercial probe development companies for custom panel development.
+
 
 ------------------------------
 Identify variants for capture
