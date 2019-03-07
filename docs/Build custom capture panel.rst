@@ -46,7 +46,7 @@ Although this screencast provides one method to create a variant pool, there are
 Build probe list using variant coordinates
 -------------------------------------------
 
-.. notebook:: TEST.ipynb
+`Build Jupiter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fdocs%2Fbinder_interactive>`_
 
 
 ---------------------------
