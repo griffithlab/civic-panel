@@ -13,8 +13,8 @@ Arguments:
 import sys
 import numpy as np
 
-person = sys.argv[0]
+person = sys.argv[1]
 
-print('Your name is', + person)
+print('Your name is ' + person)
 
 
