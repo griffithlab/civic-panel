@@ -4,3 +4,4 @@ seaborn==0.9
 sphinx>=1.4
 ipykernel
 nbsphinx
+sphinxjp
