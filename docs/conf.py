@@ -41,7 +41,8 @@ release = '1.0'
 extensions = [
 'nbsphinx',
 'sphinx.ext.mathjax',
-'sphinxjp.themes.basicstrap'
+'sphinxjp.themes.basicstrap',
+'RunNotebook'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
