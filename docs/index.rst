@@ -12,7 +12,6 @@ Welcome to OpenCAP's documentation!
 
    About
    CIViC introduction
-   TEST
    OpenCAP introduction
    Build custom capture panel
    Sequence samples

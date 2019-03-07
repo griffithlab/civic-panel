@@ -64,25 +64,18 @@ on the CIViC help pages. These activities include:
 - Adding assertions
 - Other curation tasks such as variant coordinate curation
 
-Once a new evidence item or change to existing evidence is submitted to the CIViC database it will become visible (depending on user display preferences). However, the submission will be listed as a “submitted” or “pending” until it is accepted by an editor. CIViC editors must have attained a sufficient degree of relevant education (typically PhD or MD level), must be extensively familiar with the CIViC interface, have a demonstrated track record of successful curation within the database, and must be approved by two existing editorial members. More information on becoming an editor can be found on the
-`Becoming an Editor Help Docs <https://civicdb.org/help/editor>`_. An example of how a submitted or revised evidence item becomes accepted in CIViC is shown below:
+Once a new evidence item or change to existing evidence is submitted to the CIViC database it will become visible (depending on user display preferences). However, the submission will be listed as a “submitted” or “pending” until it is accepted by an editor. CIViC editors must have attained a sufficient degree of relevant education (typically PhD or MD level), must be extensively familiar with the CIViC interface, have a demonstrated track record of successful curation within the database, and must be approved by two existing editorial members. More information on becoming an editor can be found on the `Becoming an Editor Help Docs <https://civicdb.org/help/editor>`_. An example of how a submitted or revised evidence item becomes accepted in CIViC is shown below:
 
 .. image:: CIViC_monitoring.png
 
-Regardless of curator status, each activity is recorded in the database.
-Revision history can be viewed for all items within CIViC and personal
-contributions can be viewed on an individual’s user profile. To promote user
-activity, CIViC badges can be earned for various curation actions and the
-`Community Leaderboards <https://civicdb.org/community/main>`_ show top
-activity in CIViC parsed by activity type.
+Regardless of curator status, each activity is recorded in the database. Revision history can be viewed for all items within CIViC and personal
+contributions can be viewed on an individual’s user profile. To promote user activity, CIViC badges can be earned for various curation actions and the
+`Community Leaderboards <https://civicdb.org/community/main>`_ show top activity in CIViC parsed by activity type.
 
 ^^^^^^^^^^^^^^^^^^^^^
 Adding Evidence Items
 ^^^^^^^^^^^^^^^^^^^^^
-The main activity in CIViC surrounds adding and editing evidence statements.
-Below we have provided a screencast entitled,
-`Adding CIViC Evidence <https://www.youtube.com/watch?v=od5Tgdfo6Qs>`_ to walk
-users through creating an evidence item in CIViC. This screencast covers:
+The main activity in CIViC surrounds adding and editing evidence statements. Below we have provided a screencast entitled, `Adding CIViC Evidence <https://www.youtube.com/watch?v=od5Tgdfo6Qs>`_ to walk users through creating an evidence item in CIViC. This screencast covers:
 
 - Scanning a publication for curatable details
 - Signing into CIViC to Add Evidence
