@@ -1,3 +1,5 @@
+import sphinx_bootstrap_theme
+
 # -*- coding: utf-8 -*-
 #
 # Configuration file for the Sphinx documentation builder.
@@ -20,8 +22,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'OpenCAP'
-copyright = '2019, Matthew Mosior'
-author = 'Matthew Mosior'
+copyright = u'2018, The McDonnell Genome Institute at Washington University School of Medicine'
+author = u'The McDonnell Genome Institute at Washington University School of Medicine'
 
 # The short X.Y version
 version = ''
@@ -85,13 +87,17 @@ html_theme = 'basicstrap'
 #
 
 html_theme_options = {
-   'header_inverse': False,
-   'relbar_inverse': False,
-   'inner_theme': True,
-   'inner_theme_name': 'bootswatch-cosmo',
+    'bootswatch_theme': 'cosmo',
+    'navbar_title': "Home",
+    'navbar_site_name': 'Menu',
+    'source_link_position': False,
+    'navbar_sidebarrel': False,
+    'navbar_pagenav': False,
 }
 
-html_logo =  'logo.png'
+html_logo =  'images/logo.png'
+
+html_favicon = "images/favicon.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

@@ -1,4 +1,4 @@
-.. image:: Build.png
+.. image:: images/Build.png
 
 ==========================
 Build Custom Capture Panel

@@ -1,4 +1,4 @@
-.. image:: Header.png
+.. image:: images/Header.png
 
 ==================
 CIViC introduction

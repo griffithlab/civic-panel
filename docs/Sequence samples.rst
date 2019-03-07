@@ -1,4 +1,4 @@
-.. image:: Sequence.png
+.. image:: images/Sequence.png
 
 
 
