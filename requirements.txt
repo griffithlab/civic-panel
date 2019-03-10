@@ -3,7 +3,6 @@ sphinx>=1.4
 ipykernel
 nbsphinx
 sphinxjp.themes.basicstrap
-sys
 pandas
 pybedtools
 pybiomart
