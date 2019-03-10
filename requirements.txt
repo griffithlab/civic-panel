@@ -1,7 +1,9 @@
 numpy==1.16
-matplotlib==3.*
-seaborn==0.9
 sphinx>=1.4
 ipykernel
 nbsphinx
 sphinxjp.themes.basicstrap
+sys
+pandas
+pybedtools
+pybiomart

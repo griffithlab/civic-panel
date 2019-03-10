@@ -13,7 +13,6 @@ Arguments:
 
 import sys
 import pandas as pd
-import requests
 from pybedtools import BedTool
 from pybiomart import Server
 
