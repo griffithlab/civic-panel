@@ -19,7 +19,7 @@ To identify variants for capture, users can add conditions (i.e., search criteri
 - Filtering variants in CIViC for capture
 - Downloading coordinates as a CSV file
 
-TO-DO: Embed YouTube Video: 
+TO-DO: Embed YouTube Video:
 
 Although this screencast provides one method to create a variant pool, there are many other examples of criteria that can be useful for identifying variants. Below we have provided a few additional examples of fields that might be helpful for building variant prioritization conditions. Each field has an associated description and links to help documents if applicable.
 
@@ -51,6 +51,9 @@ Build probe list using variant coordinates
 
 `Build Jupiter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive%2Fvariants_to_probes.ipynb>`_
 
+Jupyter et al., "Binder 2.0 - Reproducible, Interactive, Sharable
+Environments for Science at Scale." Proceedings of the 17th Python
+in Science Conference. 2018. 10.25080/Majora-4af1f417-011
 
 ---------------------------
 Build custom capture panel
