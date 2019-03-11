@@ -4,5 +4,5 @@ ipykernel
 nbsphinx
 sphinxjp.themes.basicstrap
 pandas
-pybedtools==2.27.0
+pybedtools==0.8.0
 pybiomart
