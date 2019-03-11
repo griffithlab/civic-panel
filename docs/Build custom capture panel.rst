@@ -49,7 +49,7 @@ Although this screencast provides one method to create a variant pool, there are
 Build probe list using variant coordinates
 -------------------------------------------
 
-`Build Jupiter Notebook <hhttps://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fdocs%2Fbinder_interactive>`_
+`Build Jupiter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fdocs%2Fbinder_interactive>`_
 
 Jupyter et al., "Binder 2.0 - Reproducible, Interactive, Sharable
 Environments for Science at Scale." Proceedings of the 17th Python
