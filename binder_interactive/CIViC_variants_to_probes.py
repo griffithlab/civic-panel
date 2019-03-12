@@ -3,11 +3,10 @@
 """
 This is a test python file for the CIViC smMIPs paper
 
-Usage: python3 variants_to_probes.py <CIViC variants file> <output path>
+Usage: python3 variants_to_probes.py <CIViC variants file>
 
 Arguments:
     <CIViC variants file> = TSV (tab separated values) file derived from CIViC that contains list of variants required to build custom capture panel.
-    <output path> = path for location of final probe list. Default is Desktop.
     
 """
 
@@ -16,11 +15,16 @@ import pandas as pd
 from pybedtools import BedTool
 from pybiomart import Server
 
-#Pull input file and output directory from command line
-if sys.argv[2]:
-    out_path = sys.argv[2] + 'OpenCAP_probe_list.tsv'
-if not sys.argv[2]:
-    out_path = '~/Desktop/OpenCAP_probe_list.tsv'
+import os
+from os import path
+import sys
+import shutil
+import subprocess
+
+bin_dir = path.dirname(sys.executable)
+os.environ['PATH'] += os.pathsep + bin_dir
+shutil.which('bedtools')
+subprocess.run(['bedtools', '--help'])
 
 #Read input file
 CIViC_variants = pd.read_csv(sys.argv[1], sep='\t')
@@ -84,4 +88,4 @@ probe_list = create_probe_list(CIViC_variants)
 probe_list.columns = ['tag','chromosome','start','stop','variant','gene', 'description']
 
 #Output probe list to output path
-probe_list.to_csv(out_path, index=False, sep='\t')
+probe_list.to_csv('probe_list.tsv', index=False, sep='\t')

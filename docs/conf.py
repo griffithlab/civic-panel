@@ -91,6 +91,7 @@ html_theme_options = {
     'source_link_position': False,
     'navbar_sidebarrel': False,
     'navbar_pagenav': False,
+    'logo_only': True
 }
 
 html_logo =  'images/logo.png'
@@ -196,3 +197,6 @@ source_parsers = {
 }
 
 source_suffix = ['.rst', '.md']
+
+def setup(app):
+    app.add_css_file("css/opencap.css")
