@@ -56,8 +56,7 @@ For variants that are large-scale copy number variants (i.e., â€œAMPLIFICATIONâ€
 
 .. image:: images/Tiling_types.png
 
-
-We have built a Jupyter Notebook that contains code for pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
+We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code for pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
 
 `Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive>`_
 
@@ -66,30 +65,34 @@ Once the Jupiter Notebook is loaded, you can add your Custom CIViC Variants file
 
 .. image:: images/Upload_Variants.png
 
-Now you can launch the Jupyter Notebook. Select "1. variants_to_probes.ipynb" in the home directory. Selecting this file will direct you to a new tab. Instructions for how to run the cells are provided in the notebook. Ensure that you change the file name to match the Custom CIViC Variants file that you uploaded to the home directory. See below:
+To launch the Jupyter Notebook select the file entitled, "1. variants_to_probes.ipynb" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_variants.tsv' - See below:
 
 .. image:: images/Run_variants_to_probes.png
 
-Once you have changed the file name, hold down the "Shift" key and select "Enter" to run your variants. Once the code is done, a new file will appear in the home directory called "Categorized_custom_CIViC_variants.tsv". You can download this file
+Once you have changed the file name, hold down the "Shift" key and select "Enter" to parse your Custom CIViC variants. Once the code is done, a new file will appear in the home directory called "Categorized_custom_CIViC_variants.txt.bed". You can download this file to your local computer 
 
+.. image:: images/Download_variants.png
 
+The file should be a tab separated bed file whereby each row represents a genomic region that requires coverage. An example file is shown below:
+
+TO:DO .. image:: INSERT EXAMPLE IMAGE
 
 
 ---------------------------
 Build custom capture panel
 ---------------------------
 
-After generat
+After generating the Categorized_custom_CIViC_variants.txt.bed file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
+
+- Integrated DNA Technologies (IDT)
+
+- Twist Biosciences
+
+- NimbleGen
+
+We will demonstrate custom capture panel development using the IDT software available at XX.
 
 
 
 
 
-
->>>>>>>>>>>
-References
->>>>>>>>>>>
-
-Jupyter et al., "Binder 2.0 - Reproducible, Interactive, Sharable
-Environments for Science at Scale." Proceedings of the 17th Python
-in Science Conference. 2018. 10.25080/Majora-4af1f417-011
