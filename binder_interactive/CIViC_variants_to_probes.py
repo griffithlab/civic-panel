@@ -53,7 +53,7 @@ def create_probe_list(CIViC_variants):
         #if the variant requires few probes for capture
         if difference <= 1000:
             #create probe for hotspot variant
-            probes_list.append([str(1) + '-' + gene + '_' + variant, chrom, start, stop, variant, gene, description])
+            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant])
         
         #If the transcript requires full tiling
         elif difference > 1000:
@@ -78,7 +78,7 @@ def create_probe_list(CIViC_variants):
                 chromosome = row[0]
                 start = row[1]
                 stop = row[2]
-                probes_list.append([str(i + 1) + '-' + gene + '_' + variant, chromosome, start, stop, variant, gene, description])
+                probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant])
                 
     #Create pandas dataframe of probe list
     probes = pd.DataFrame(probes_list)
@@ -86,7 +86,6 @@ def create_probe_list(CIViC_variants):
 
 #Generate probe list
 probe_list = create_probe_list(CIViC_variants)
-probe_list.columns = ['tag','chromosome','start','stop','variant','gene', 'description']
 
 #Output probe list to output path
-probe_list.to_csv('probe_list.tsv', index=False, sep='\t')
+probe_list.to_csv('Categorized_custom_CIViC_variants.txt.bed', index=False, sep='\t', header=False)
