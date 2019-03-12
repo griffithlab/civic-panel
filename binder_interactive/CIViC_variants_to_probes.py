@@ -12,6 +12,7 @@ Arguments:
 
 import sys
 import pandas as pd
+import pybedtools
 from pybedtools import BedTool
 from pybiomart import Server
 
