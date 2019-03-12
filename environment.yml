@@ -4,11 +4,14 @@ channels:
  - bioconda
 dependencies:
  - bedtools
+ - future
+ - requests
  - numpy==1.16
  - sphinx>=1.4
  - ipykernel
  - nbsphinx
- - sphinxjp.themes.basicstrap
  - pandas
  - pybedtools==0.8.0
- - pybiomart
+ - pip:
+     - requests_cache
+     - git+https://github.com/jrderuiter/pybiomart.git
