@@ -6,4 +6,3 @@ sphinxjp.themes.basicstrap
 pandas
 pybedtools==0.8.0
 pybiomart
-BEDTools
