@@ -2,9 +2,9 @@
 
 
 
-==============================
-Methods for sequencing samples
-==============================
+==================
+Sequence Samples
+==================
 
 ------------------
 Sample procurement
@@ -17,7 +17,7 @@ For the analysis described here, samples must be derived from a germline tissue 
 - **Solid Cancers**: An abnormal mass that does not contain cysts or liquid areas (e.g., sarcomas, carcinomas, and some lymphomas)
 
 
-.. image:: sample_procurement.png
+.. image:: images/sample_procurement.png
 
 It is important to note that blood samples cannot be used as the normal samples for solid cancers if the tumor is metastatic with high circulating tumor cells. In these cases, buccal swabs or skin biopsies are better for tumor normal comparisons.
 
