@@ -1,8 +1,9 @@
+.. image:: images/Annotate.png
+
 =================
 Annotate variants
 =================
 
-.. image:: Annotate.png
 
 # Annotate direct matches
 

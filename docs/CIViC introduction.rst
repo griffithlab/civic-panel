@@ -14,7 +14,7 @@ each statement summarizes variant actionability described by a publication.
 These evidence statements are summarized at the variant level and also at the
 gene level. An example of this hierarchy has been provided:
 
-.. image:: CIViC_hierarchy.png
+.. image:: images/CIViC_hierarchy.png
 
 ----------------------
 What is an Assertion?
@@ -22,7 +22,7 @@ What is an Assertion?
 
 Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
 
-.. image:: Assertion_Example.png
+.. image:: images/Assertion_Example.png
 
 ---------------
 Getting Started
@@ -66,7 +66,7 @@ on the CIViC help pages. These activities include:
 
 Once a new evidence item or change to existing evidence is submitted to the CIViC database it will become visible (depending on user display preferences). However, the submission will be listed as a “submitted” or “pending” until it is accepted by an editor. CIViC editors must have attained a sufficient degree of relevant education (typically PhD or MD level), must be extensively familiar with the CIViC interface, have a demonstrated track record of successful curation within the database, and must be approved by two existing editorial members. More information on becoming an editor can be found on the `Becoming an Editor Help Docs <https://civicdb.org/help/editor>`_. An example of how a submitted or revised evidence item becomes accepted in CIViC is shown below:
 
-.. image:: CIViC_monitoring.png
+.. image:: images/CIViC_monitoring.png
 
 Regardless of curator status, each activity is recorded in the database. Revision history can be viewed for all items within CIViC and personal
 contributions can be viewed on an individual’s user profile. To promote user activity, CIViC badges can be earned for various curation actions and the
