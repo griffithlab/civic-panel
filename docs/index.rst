@@ -1,3 +1,11 @@
+.. image:: images/Header.png
+
+|
+====================
+OpenCAP Index
+====================
+
+
 .. OpenCAP documentation master file, created by
    sphinx-quickstart on Tue Feb 26 10:04:47 2019.
    You can adapt this file completely to your liking, but it should at least

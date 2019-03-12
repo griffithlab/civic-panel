@@ -1,7 +1,6 @@
 .. image:: images/Sequence.png
 
-
-
+|
 ==================
 Sequence Samples
 ==================

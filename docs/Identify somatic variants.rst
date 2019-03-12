@@ -1,3 +1,6 @@
+.. image:: images/Idnetify.png
+
+|
 =========================
 Identify somatic variants
 =========================

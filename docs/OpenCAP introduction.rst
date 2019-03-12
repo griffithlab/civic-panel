@@ -1,5 +1,6 @@
 .. image:: images/About_OpenCAP.png
 
+|
 ====================
 OpenCAP introduction
 ====================
