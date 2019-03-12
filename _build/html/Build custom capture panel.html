@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Build Custom Capture Panel &mdash; OpenCAP 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/flavicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/opencap.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sequence Samples" href="Sequence samples.html" />
+    <link rel="prev" title="OpenCAP introduction" href="OpenCAP introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CIViC introduction.html">CIViC introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenCAP introduction.html">OpenCAP introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build Custom Capture Panel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#identify-variants-for-capture">Identify variants for capture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#categorize-variants-based-on-variant-length">Categorize variants based on variant length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Build custom capture panel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sequence samples.html">Sequence Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Identify somatic variants.html">Identify somatic variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annotate variants.html">Annotate variants</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenCAP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Build Custom Capture Panel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Build custom capture panel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<img alt="_images/Build.png" src="_images/Build.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="build-custom-capture-panel">
+<h1>Build Custom Capture Panel<a class="headerlink" href="#build-custom-capture-panel" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will use the CIViC interface to identify variants of interest for custom capture. The interface will then be used to download variants of interest, associated clinical descriptions, and curated coordinates. We will then open an interactive jupyter notebook to format the variant coordinates for probe development. The output from this exercise will be a file that is compatible with commercial probe development companies for custom panel development.</p>
+<div class="section" id="identify-variants-for-capture">
+<h2>Identify variants for capture<a class="headerlink" href="#identify-variants-for-capture" title="Permalink to this headline">¶</a></h2>
+<p>The CIViC database is constantly being updated with new evidence statements and assertions. Therefore, we have provided a real-time query interface that allows users to build a pool of variants required for custom capture. This interface can be accessed by going to the CIViC website, selecting the “SEARCH” button, and navigating to the <a class="reference external" href="https://civicdb.org/search/variants/">Variants” tab: `SEARCH-Variants</a>.</p>
+<p>To identify variants for capture, users can add conditions (i.e., search criteria) based on 28 predetermined fields in the drop down menu. If multiple conditions are employed, the user has the option to take the union (i.e., match any of the following conditions) or the intersection (i.e., match all of the following conditions). Additionally, after conditions are employed, the user has the option to further filter the selected variants using column headers in the search grid. The user can filter on Gene Name, Variant Name, Variant Group(s), Variant Types(s), or Description. Once the user is satisfied with the existing variants in the search grid, the user can export the data as a comma-separated values (CSV) file using the “Get Data” button in the search grid. This will provide users with information required to build probes for all variants selected. Below we have provided a screencast entitled, “Selecting Variants for Capture” to walk users through filtering on the variant evidence score and the pipeline type to select variants for capture.. This screencast covers:</p>
+<ul class="simple">
+<li>Accessing the “SEARCH” interface on CIViC</li>
+<li>Filtering variants in CIViC for capture</li>
+<li>Downloading coordinates as a CSV file</li>
+</ul>
+<p>TO-DO: Embed YouTube Video:</p>
+<p>Although this screencast provides one method to create a variant pool, there are many other examples of criteria that can be useful for identifying variants. Below we have provided a few additional examples of fields that might be helpful for building variant prioritization conditions. Each field has an associated description and links to help documents if applicable.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="5%" />
+<col width="40%" />
+<col width="22%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Field</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+<th class="head">Associated Help Documents</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td colspan="2">Assertion</td>
+<td>Variant is affiliated with clinical assertions that incorporate multiple evidence statements</td>
+<td>“Variant is associated with an assertion”</td>
+<td>Assertion - TO DO</td>
+</tr>
+<tr class="row-odd"><td colspan="2">CIViC Variant Evidence Score</td>
+<td>User can indicate minimum threshold for CIViC Variant Evidence Score</td>
+<td>“CIViC Variant Evidence Score is above 20”</td>
+<td>Variant Evidence Score - <a class="reference external" href="https://civicdb.org/help/variants/variant-evidence-score">https://civicdb.org/help/variants/variant-evidence-score</a></td>
+</tr>
+<tr class="row-even"><td colspan="2">Description</td>
+<td>Variant description must contain a keyword</td>
+<td>“Description contains colorectal cancer”</td>
+<td>Variant Summary - <a class="reference external" href="https://civicdb.org/help/variants/variants-summary">https://civicdb.org/help/variants/variants-summary</a></td>
+</tr>
+<tr class="row-odd"><td colspan="2">Disease Implicated (Name)</td>
+<td>Variant must contain at least one evidence item that is implicated in the desired disease</td>
+<td>“Disease Implicated is Melanoma”</td>
+<td>Disease Ontology - <a class="reference external" href="http://www.disease-ontology.org/">http://www.disease-ontology.org/</a></td>
+</tr>
+<tr class="row-even"><td colspan="2">Evidence Items</td>
+<td>User can indicate the required number of evidence items with a certain status</td>
+<td>“Evidence Items with status accepted is greater than or equal to 5”</td>
+<td>Evidence Monitoring - <a class="reference external" href="https://civicdb.org/help/getting-started/monitoring">https://civicdb.org/help/getting-started/monitoring</a></td>
+</tr>
+<tr class="row-odd"><td colspan="2">Gene Name</td>
+<td>Entrez gene name associated with variant must meet selected criteria</td>
+<td>“Gene Name contains TP53”</td>
+<td>Gene Name - <a class="reference external" href="https://civicdb.org/help/genes/genes-overview">https://civicdb.org/help/genes/genes-overview</a></td>
+</tr>
+<tr class="row-even"><td colspan="2">Name</td>
+<td>Variant Name must meet designated criteria</td>
+<td>“Name does not contain AMPLIFICATION”</td>
+<td>Variant Name - <a class="reference external" href="https://civicdb.org/help/variants/variants-naming">https://civicdb.org/help/variants/variants-naming</a></td>
+</tr>
+<tr class="row-odd"><td colspan="2">Pipeline Type</td>
+<td>Variant type is associated with sequence ontology ID(s) that can be evaluated on designated pipeline</td>
+<td>“Pipeline Type is DNA-based”</td>
+<td>Variant Name - TODO</td>
+</tr>
+<tr class="row-even"><td colspan="2">Variant Type(s)</td>
+<td>Variant type, which is the assigned sequence ontology ID, must meet designated criteria</td>
+<td>“Variant Type(s) does not contain Transcript Amplification”</td>
+<td>Variant Type - <a class="reference external" href="https://civicdb.org/help/variants/variants-type">https://civicdb.org/help/variants/variants-type</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="categorize-variants-based-on-variant-length">
+<h2>Categorize variants based on variant length<a class="headerlink" href="#categorize-variants-based-on-variant-length" title="Permalink to this headline">¶</a></h2>
+<p>The CSV file developed using the CIViC Search interface contains the genomic coordinates surrounding the variants of interest whereby each line represents a single variant. Before designing probes for these variants, we further categorized by variant length. This can be accomplished by using CIViC curated coordinates (i.e., variant start position minus variant stop position). If the variant length is less than 250 base pairs, the variant is eligible for hotspot targeting. If the variant is &gt;250 base pairs, the variant requires tiling of the protein coding exons.</p>
+<p>Some large-scale copy number variants (i.e., “AMPLIFICATION”, “LOSS”, “DELETION”), are eligible for sparse tiling, wherein 10 probes distributed across the exons of the gene were retained to enable assessment of copy number state. Other variant types such as “MUTATION”, or “FRAMESHIFT MUTATION”, etc., required tiling of all protein coding exons</p>
+<p>For variants that required hotspot targeting, smMIPs probes were designed for the genomic region indicated in the CIViC database. For all variants that required sparse exon tiling or full exon tiling, the representative transcript from the CIViC database was used to obtain all possible exons associated with each gene from Ensembl (biomart=”ENSEMBL_MART_ENSEMBL”, host=”grch37.ensembl.org”, dataset=”hsapiens_gene_ensembl”). Exons were filtered by Biotype to remove untranslated regions. For variants that required sparse exon tiling, approximately 10 smMIPs were designed to cover a portion of the transcript. For variants that required full exon tiling, overlapping smMIPs (i.e., at least one basepair of overlap) were designed to tile across all protein coding exons in the gene that encompassed the variant.</p>
+<p>Some of the variants are hot-spot variants (e.g., BRAF - V600E), whereas some of the variants span the entire length of the gene (e.g., TP53 - MUTATION). Therefore, the custom variant file must be</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive">Build Jupiter Notebook</a></p>
+<p>Jupyter et al., “Binder 2.0 - Reproducible, Interactive, Sharable
+Environments for Science at Scale.” Proceedings of the 17th Python
+in Science Conference. 2018. 10.25080/Majora-4af1f417-011</p>
+</div>
+<div class="section" id="id1">
+<h2>Build custom capture panel<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Sequence samples.html" class="btn btn-neutral float-right" title="Sequence Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OpenCAP introduction.html" class="btn btn-neutral float-left" title="OpenCAP introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, The McDonnell Genome Institute at Washington University School of Medicine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CIViC introduction &mdash; OpenCAP 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/flavicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/opencap.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OpenCAP introduction" href="OpenCAP introduction.html" />
+    <link rel="prev" title="About" href="About.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CIViC introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-civic">What is CIViC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-an-assertion">What is an Assertion?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#civic-resources">CIViC Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-civic">Contributing to CIViC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-evidence-items">Adding Evidence Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-entities-in-civic">Editing entities in CIViC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OpenCAP introduction.html">OpenCAP introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Build custom capture panel.html">Build Custom Capture Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sequence samples.html">Sequence Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Identify somatic variants.html">Identify somatic variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annotate variants.html">Annotate variants</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenCAP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>CIViC introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CIViC introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<img alt="_images/Header.png" src="_images/Header.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="civic-introduction">
+<h1>CIViC introduction<a class="headerlink" href="#civic-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-civic">
+<h2>What is CIViC?<a class="headerlink" href="#what-is-civic" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://civicdb.org/">Clinical Interpretations of Variants in Cancer (CIViC) database</a> is an open
+access, open source, community-driven web resource that captures clinically
+relevant variants in cancer. CIViC is built on evidence statements, whereby
+each statement summarizes variant actionability described by a publication.
+These evidence statements are summarized at the variant level and also at the
+gene level. An example of this hierarchy has been provided:</p>
+<img alt="_images/CIViC_hierarchy.png" src="_images/CIViC_hierarchy.png" />
+</div>
+<div class="section" id="what-is-an-assertion">
+<h2>What is an Assertion?<a class="headerlink" href="#what-is-an-assertion" title="Permalink to this headline">¶</a></h2>
+<p>Evidence items can also be used to build <a class="reference external" href="https://civicdb.org/help/evidence/overview">Assertions</a>. CIViC assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:</p>
+<img alt="_images/Assertion_Example.png" src="_images/Assertion_Example.png" />
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Below we have provided a screencast entitled, <a class="reference external" href="https://www.youtube.com/watch?v=Vr0BDUKkDeI">CIViC - Getting Started</a>.
+This screencast covers:
+* Description of CIViC and its goals
+* Navigating through CIViC’s core pages
+* Browsing, searching, and consuming knowledgebase content</p>
+<p>TO-DO: Embed YouTube Video: <a class="reference external" href="https://www.youtube.com/watch?v=Vr0BDUKkDeI">https://www.youtube.com/watch?v=Vr0BDUKkDeI</a></p>
+</div>
+<div class="section" id="civic-resources">
+<h2>CIViC Resources<a class="headerlink" href="#civic-resources" title="Permalink to this headline">¶</a></h2>
+<p>We have provided a variety of resources to introduce users to the CIVIC database. Please review the following information about CIViC and the CIViC team:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.nature.com/articles/ng.3774">Nature Genetics Publication</a></li>
+<li><a class="reference external" href="https://civicdb.org/help/introduction">CIViC Help Documents</a></li>
+<li><a class="reference external" href="https://civicdb.org/glossary">CIViC Glossary</a></li>
+<li><a class="reference external" href="https://griffithlab.github.io/civic-api-docs/">API Documentation</a></li>
+</ul>
+<p>If you have further issues or need to report a problem, feel free to email the
+CIViC team at <a class="reference external" href="mailto:help&#37;&#52;&#48;civicdb&#46;org">help<span>&#64;</span>civicdb<span>&#46;</span>org</a></p>
+</div>
+<div class="section" id="contributing-to-civic">
+<h2>Contributing to CIViC<a class="headerlink" href="#contributing-to-civic" title="Permalink to this headline">¶</a></h2>
+<p>Any user can browse or search existing curation within the database. However,
+users must create an account and log-in to contribute to CIViC. Different types
+of contributions can be found under
+<a class="reference external" href="https://civicdb.org/help/getting-started/example-activities">Example Activities</a>
+on the CIViC help pages. These activities include:</p>
+<ul class="simple">
+<li>Adding evidence</li>
+<li>Contributing to variant or gene summaries</li>
+<li>Editing CIViC content</li>
+<li>Adding assertions</li>
+<li>Other curation tasks such as variant coordinate curation</li>
+</ul>
+<p>Once a new evidence item or change to existing evidence is submitted to the CIViC database it will become visible (depending on user display preferences). However, the submission will be listed as a “submitted” or “pending” until it is accepted by an editor. CIViC editors must have attained a sufficient degree of relevant education (typically PhD or MD level), must be extensively familiar with the CIViC interface, have a demonstrated track record of successful curation within the database, and must be approved by two existing editorial members. More information on becoming an editor can be found on the <a class="reference external" href="https://civicdb.org/help/editor">Becoming an Editor Help Docs</a>. An example of how a submitted or revised evidence item becomes accepted in CIViC is shown below:</p>
+<img alt="_images/CIViC_monitoring.png" src="_images/CIViC_monitoring.png" />
+<p>Regardless of curator status, each activity is recorded in the database. Revision history can be viewed for all items within CIViC and personal
+contributions can be viewed on an individual’s user profile. To promote user activity, CIViC badges can be earned for various curation actions and the
+<a class="reference external" href="https://civicdb.org/community/main">Community Leaderboards</a> show top activity in CIViC parsed by activity type.</p>
+<div class="section" id="adding-evidence-items">
+<h3>Adding Evidence Items<a class="headerlink" href="#adding-evidence-items" title="Permalink to this headline">¶</a></h3>
+<p>The main activity in CIViC surrounds adding and editing evidence statements. Below we have provided a screencast entitled, <a class="reference external" href="https://www.youtube.com/watch?v=od5Tgdfo6Qs">Adding CIViC Evidence</a> to walk users through creating an evidence item in CIViC. This screencast covers:</p>
+<ul class="simple">
+<li>Scanning a publication for curatable details</li>
+<li>Signing into CIViC to Add Evidence</li>
+<li>Walking through the Add Evidence form</li>
+<li>Viewing the submitted evidence</li>
+</ul>
+<p>TO-DO: Embed YouTube Video: <a class="reference external" href="https://www.youtube.com/watch?v=od5Tgdfo6Qs">https://www.youtube.com/watch?v=od5Tgdfo6Qs</a></p>
+<p>More information on evidence Items can be found on the CIViC Help Pages under <a class="reference external" href="https://civicdb.org/help/evidence/overview">Evidence</a>. This guide provides detailed information on evidence statement inputs including: variant origin, evidence types, evidence levels, and evidence trust ratings. Additionally, when users <a class="reference external" href="https://civicdb.org/add/evidence/basic">add evidence items</a>, we provide hints and helpful prompts in the right-hand column to assist with evidence submission.</p>
+</div>
+<div class="section" id="editing-entities-in-civic">
+<h3>Editing entities in CIViC<a class="headerlink" href="#editing-entities-in-civic" title="Permalink to this headline">¶</a></h3>
+<p>Any item in the CIViC interface can be edited using the pencil icon. TO DO: insert pencil icon
+Below we have provided a screencast entitled, <a class="reference external" href="https://www.youtube.com/watch?v=uss4R20ymPA">Editing entities in CIViC</a> to walk users through editing items (i.e., evidence, variants, genes or assertions)  in CIViC. This screencast covers:</p>
+<ul class="simple">
+<li>Navigating to an entity’s Edit Form</li>
+<li>Importance of edit comments</li>
+<li>Identifying entities with pending changes</li>
+<li>Navigating to an entity’s suggested changes</li>
+<li>Reviewing entity revisions</li>
+</ul>
+<p>TO-DO: Embed YouTube Video: <a class="reference external" href="https://www.youtube.com/watch?v=uss4R20ymPA">https://www.youtube.com/watch?v=uss4R20ymPA</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OpenCAP introduction.html" class="btn btn-neutral float-right" title="OpenCAP introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="About.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, The McDonnell Genome Institute at Washington University School of Medicine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

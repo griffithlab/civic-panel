@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sequence Samples &mdash; OpenCAP 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/flavicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/opencap.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Identify somatic variants" href="Identify somatic variants.html" />
+    <link rel="prev" title="Build Custom Capture Panel" href="Build custom capture panel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CIViC introduction.html">CIViC introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenCAP introduction.html">OpenCAP introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Build custom capture panel.html">Build Custom Capture Panel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sequence Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sample-procurement">Sample procurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-storage">Sample storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nucleic-acid-generation">Nucleic acid generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-enrichment-strategies">Target enrichment strategies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pcr-based-library-preparation">PCR-based library preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#molecular-inversion-probes">Molecular inversion probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hybridization-capture">Hybridization capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-considerations">Other considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#high-throughput-sequencing">High throughput sequencing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#next-generation-sequencing">Next-generation sequencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#third-generation-sequencing">Third generation sequencing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Identify somatic variants.html">Identify somatic variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annotate variants.html">Annotate variants</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenCAP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sequence Samples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Sequence samples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<img alt="_images/Sequence.png" src="_images/Sequence.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="sequence-samples">
+<h1>Sequence Samples<a class="headerlink" href="#sequence-samples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sample-procurement">
+<h2>Sample procurement<a class="headerlink" href="#sample-procurement" title="Permalink to this headline">¶</a></h2>
+<p>For the analysis described here, samples must be derived from a germline tissue (normal sample) and a diseased tissue (tumor sample). Procuring samples from these two sample types requires consideration of the malignancy:</p>
+<ul class="simple">
+<li><strong>Liquid Cancers</strong>: A cancer that begins in blood-forming tissue, such as the bone marrow, or in the cells of the immune system (e.g., leukemia, multiple myeloma, and some lymphomas)</li>
+<li><strong>Solid Cancers</strong>: An abnormal mass that does not contain cysts or liquid areas (e.g., sarcomas, carcinomas, and some lymphomas)</li>
+</ul>
+<img alt="_images/sample_procurement.png" src="_images/sample_procurement.png" />
+<p>It is important to note that blood samples cannot be used as the normal samples for solid cancers if the tumor is metastatic with high circulating tumor cells. In these cases, buccal swabs or skin biopsies are better for tumor normal comparisons.</p>
+</div>
+<div class="section" id="sample-storage">
+<h2>Sample storage<a class="headerlink" href="#sample-storage" title="Permalink to this headline">¶</a></h2>
+<p>Once samples are procured, they can be fresh-frozen (FF) or formalin-fixed paraffin-embedded (FFPE).</p>
+<ul class="simple">
+<li><strong>Fresh Frozen</strong>: As soon as samples are obtained, fresh frozen preparation requires exposing the sample to liquid nitrogen as quickly as possible. Samples must subsequently be stored  in −80°C freezers until extraction.</li>
+<li><strong>Formalin-fixed paraffin-embedded</strong>: FFPE samples can be prepared using a variety of available kits (e.g., <a class="reference external" href="https://www.horizondiscovery.com/media/resources/Miscellaneous/reference-standards/QIAamp%20DNA%20FFPE%20Tissue%20Kit%20Guidelines%20Digital%20(DISTRIBUTION).pdf">QIAamp DNA FFPE Tissue Kit</a>, <a class="reference external" href="http://tools.thermofisher.com/content/sfs/manuals/MAN0015877_MagMAX_FFPE_DNA_RNA_Ultra_UG.pdf">MagMAX™ FFPE DNA/RNA Ultra Kit</a>, <a class="reference external" href="https://files.zymoresearch.com/protocols/_d3067_quick-dna_ffpe_miniprep.pdf">Quick-DNA/RNA FFPE Miniprep Kit</a>, etc.).</li>
+</ul>
+</div>
+<div class="section" id="nucleic-acid-generation">
+<h2>Nucleic acid generation<a class="headerlink" href="#nucleic-acid-generation" title="Permalink to this headline">¶</a></h2>
+<p>If samples are stored as FFPE blocks, they require FFPE DNA extraction. This can be accomplished using commercially available kits (e.g., INSERT). In general, these kits require paraffin removal and tissue rehydration, tissue digestion, mild reversal of cross-linkage, and nucleic acid purification. If samples are stored as fresh-frozen tissue blocks, they only require nucleic acid purification.</p>
+<p>Nucleic acid purification requires cell lysis, binding of nucleic acid, washing off non nucleic acid material, drying of nucleic acid, and elution into a buffer. There are many commercially available kits that can perform nucleic acid purification (e.g., ). These steps can also be automated using commercially available equipment (e.g., <a class="reference external" href="https://agtc.med.wayne.edu/pdfs/qiasymphony_sp_brochure.pdfn">QIAsymphony® SP</a>, <a class="reference external" href="https://www.mediray.co.nz/media/15757/om_biomerieux_nucleic-acids-isolation_nuclei-sens-user-manual-easymag.pdf">NUCLISENS® easyMAG®</a>, etc.). Below we describe each step in detail:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><strong>Lyse</strong>: Tissue samples are typically stored as whole cells. The lysis step is used to disrupt the cellular membrane to expose the nucleic acid. Lysis buffers typically comprises a chaotropic agent, which breaks the hydrogen bonds network between water molecules and optionally a surfactant to lower surface tension between membrane components and nucleic acid-containing solution. Some chaotropic agents can include: guanidium thiocyanate or magnesium chloride. Some surfactants can include: Triton-X-100, or sodium dodecyl sulfate.</p>
+</li>
+<li><p class="first"><strong>Bind</strong>: After nucleic acid has been suspended in solution, it can be reversibly bound to a positively charged material for purification. These materials can include magnetic particles, columns, filters, silica beads, or organic solvent-based methods.</p>
+</li>
+<li><p class="first"><strong>Wash</strong>: Once the nucleic acid is bound to a positively charged material, remaining substances in the lysate are washed from solution. A washing solution does not disrupt the covalent bond between the nucleic acid and the positively charged material used for purification. Washing buffers can include: INSERT.</p>
+</li>
+<li><p class="first"><strong>Dry</strong>: To ensure proper elution, bound nucleic acid typically needs to be completely devoid of all liquid. To avoid degradation, alcohols can be used to expedite the drying step.</p>
+</li>
+<li><p class="first"><strong>Elute</strong>: Elution buffers are solvents that displace the nucleic acid from the positively charged material used for purification. Elution buffers can include: 10 mM Tris at pH 8-9, Warmed MilliQ (60 oC), or 1X TE.</p>
+</li>
+<li><p class="first"><strong>Cleanup</strong>: Elutions can be optionally treated with either RNAse (<a class="reference external" href="https://www.promega.com/-/media/files/resources/msds/m4000/m4261.pdf?la=en-us">RNase ONE™ Ribonuclease</a>, <a class="reference external" href="https://files.zymoresearch.com/sds/e1008-1_e1008-8_e1008-24_e1008-30_rnase_a.pdf">RNase A</a>, etc.) or DNAse (e.g., <cite>DNase I</cite> &lt;<a class="reference external" href="https://www.neb.com/protocols/0001/01/01/a-typical-dnase-i-reaction-protocol-m0303">https://www.neb.com/protocols/0001/01/01/a-typical-dnase-i-reaction-protocol-m0303</a>&gt;, <a class="reference external" href="http://www.epibio.com/docs/default-source/protocols/baseline-zero-dnase.pdf?sfvrsn=8">Baseline-ZERO™ DNase</a>, etc.) to eliminate nucleic acid that is not being used in downstream analysis.</p>
+</li>
+<li><p class="first"><strong>Quality check</strong>: After the nucleic acid generation step, it is recommended to assess the quantity and quality of the final elution. This can be accomplished using spectrophotometry and/or electropherograms.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Spectrophotometry</strong> measures a substance’s ability to absorb a specific wavelength, which in turn is a proxy for concentration and purity. First, the sample is exposed an ultraviolet light at a wavelength of 260 nanometres (nm) and the DNA and RNA in the sample will absorb a relative amount of the light that is proportional to the concentration. Next a photo-detector measures the light that passes through the sample (i.e., not absorbed), which allows you to calculate the quantification of DNA/RNA in the sample. <a class="reference external" href="https://en.wikipedia.org/wiki/Nucleic_acid_quantitation">Nucleic acid quantification</a> using spectrophotometry relies on the <a class="reference external" href="https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law">Beer–Lambert law</a>.</li>
+<li><strong>Electropherograms</strong> measure the nucleic acid concentration and size using a fluorescent spectrum. The <a class="reference external" href="https://ipmb.sinica.edu.tw/microarray/index.files/Agilent%202100%20Bioanalyzer%20user%20guide.pdf">Agilent 2100 Bioanalyzer</a> evaluates the sample using spectrum of fluorescents. The <a class="reference external" href="https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0017209_Qubit_4_Fluorometer_UG.pdf&amp;title=VXNlciBHdWlkZTogUXViaXQgNCBGbHVvcm9tZXRlcg==">Qubit 4 Fluorometer</a> utilizes fluorescent dyes that are specific to the target of interest.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="target-enrichment-strategies">
+<h2>Target enrichment strategies<a class="headerlink" href="#target-enrichment-strategies" title="Permalink to this headline">¶</a></h2>
+<p>Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing. In advance of next-generation sequencing (NGS) development of these libraries typically require genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><dl class="first docutils">
+<dt><strong>Genome fragmentation</strong> requires breaking the DNA into smaller pieces using physical or chemical means.</dt>
+<dd><ul class="first last">
+<li>Physical fragmentation methods including sonication, nebulization or enzymatic reactions.</li>
+<li>Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>Adding adaptors</strong> are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors allow users to tag molecules for sequencing as well as employ unique molecular identifier (UMI) strategies.</li>
+<li><strong>PCR amplification</strong> is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA.</li>
+</ol>
+</div></blockquote>
+<div class="section" id="pcr-based-library-preparation">
+<h3>PCR-based library preparation<a class="headerlink" href="#pcr-based-library-preparation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="molecular-inversion-probes">
+<h3>Molecular inversion probes<a class="headerlink" href="#molecular-inversion-probes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="hybridization-capture">
+<h3>Hybridization capture<a class="headerlink" href="#hybridization-capture" title="Permalink to this headline">¶</a></h3>
+<p>Sequencing reads generated via library preparation are ultimately evaluated by exciting individual fluorescent probes and digitally reading fluorescent output on the sequencing platform. Therefore, the commercially available library preparation kit chosen for library development should be consistent with the ultimate sequencing platform used for reading sequences.</p>
+</div>
+<div class="section" id="other-considerations">
+<h3>Other considerations<a class="headerlink" href="#other-considerations" title="Permalink to this headline">¶</a></h3>
+<p>Of note, for RNA sequencing, total RNA must be subjected to reverse transcriptase treatment (e.g., <a class="reference external" href="https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368">ProtoScript® II Reverse Transcriptase</a>, <a class="reference external" href="https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&amp;title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==">SuperScript™ III Reverse Transcriptase</a>) to generate cDNA prior to subjecting to library preparation.</p>
+</div>
+</div>
+<div class="section" id="high-throughput-sequencing">
+<h2>High throughput sequencing<a class="headerlink" href="#high-throughput-sequencing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="next-generation-sequencing">
+<h3>Next-generation sequencing<a class="headerlink" href="#next-generation-sequencing" title="Permalink to this headline">¶</a></h3>
+<p>Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Illumina sequencing</strong> anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.</li>
+<li><strong>ThermoFisher ION Torrent</strong> evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="third-generation-sequencing">
+<h3>Third generation sequencing<a class="headerlink" href="#third-generation-sequencing" title="Permalink to this headline">¶</a></h3>
+<p>Third Generation Sequencing Platforms: PacBio and NanoPore and third generation sequencing technologies that can sequence longer reads at a reduced cost to address the existing problems associated with NGS.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>PacBio</strong> utilizes hairpin adaptors to create a loop of DNA that can be fed through an immobilized polymerase to add complementary base pairs. As each nucleotide is held in the detection volume by the polymerase, a light pulse identifies the base. This platform requires high quality intact DNA with highly controlled fragmentation and can read strands up to 1Mb in length.</li>
+<li><strong>Oxford NanoPore Sequencing</strong> utilizes biological transmembrane proteins that translocalize DNA. Measurement of changes in electoral conductivity as the DNA passes through the pore elucidates sequence reads. This platform can evaluate variable length reads and is incredibly inexpensive relative to other technologies. Specifically, the MinION device is completely portable, commercially available and can evaluate 20-100MB per run. The tradeoff is its low fidelity rate of only 85%.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Identify somatic variants.html" class="btn btn-neutral float-right" title="Identify somatic variants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Build custom capture panel.html" class="btn btn-neutral float-left" title="Build Custom Capture Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, The McDonnell Genome Institute at Washington University School of Medicine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
