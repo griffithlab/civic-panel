@@ -14,7 +14,7 @@ Identify variants for capture
 
 The CIViC database is constantly being updated with new evidence statements and assertions. Therefore, we have provided a real-time query interface that allows users to build a pool of variants required for custom capture. This interface can be accessed by going to the CIViC website, selecting the “SEARCH” button, and navigating to the `Variants” tab: `SEARCH-Variants <https://civicdb.org/search/variants/>`_.
 
-To identify variants for capture, users can add conditions (i.e., search criteria) based on 28 predetermined fields in the drop down menu. If multiple conditions are employed, the user has the option to take the union (i.e., match any of the following conditions) or the intersection (i.e., match all of the following conditions). Additionally, after conditions are employed, the user has the option to further filter the selected variants using column headers in the search grid. The user can filter on Gene Name, Variant Name, Variant Group(s), Variant Types(s), or Description. Once the user is satisfied with the existing variants in the search grid, the user can export the data as a comma-separated values file using the “Get Data” button in the search grid. This will provide users with information required to build probes for all variants selected. Below we have provided a screencast entitled, “Selecting Variants for Capture” to walk users through filtering on the variant evidence score and the pipeline type to select variants for capture.. This screencast covers:
+To identify variants for capture, users can add conditions (i.e., search criteria) based on 28 predetermined fields in the drop down menu. If multiple conditions are employed, the user has the option to take the union (i.e., match any of the following conditions) or the intersection (i.e., match all of the following conditions). Additionally, after conditions are employed, the user has the option to further filter the selected variants using column headers in the search grid. The user can filter on Gene Name, Variant Name, Variant Group(s), Variant Types(s), or Description. Once the user is satisfied with the existing variants in the search grid, the user can export the data as a comma-separated values (CSV) file using the “Get Data” button in the search grid. This will provide users with information required to build probes for all variants selected. Below we have provided a screencast entitled, “Selecting Variants for Capture” to walk users through filtering on the variant evidence score and the pipeline type to select variants for capture.. This screencast covers:
 
 - Accessing the “SEARCH” interface on CIViC
 - Filtering variants in CIViC for capture
@@ -47,8 +47,20 @@ Although this screencast provides one method to create a variant pool, there are
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 -------------------------------------------
-Build probe list using variant coordinates
+Categorize variants based on variant length
 -------------------------------------------
+
+The CSV file developed using the CIViC Search interface contains the genomic coordinates surrounding the variants of interest whereby each line represents a single variant. Before designing probes for these variants, we further categorized by variant length. This can be accomplished by using CIViC curated coordinates (i.e., variant start position minus variant stop position). If the variant length is less than 250 base pairs, the variant is eligible for hotspot targeting. If the variant is >250 base pairs, the variant requires tiling of the protein coding exons. 
+
+Some large-scale copy number variants (i.e., “AMPLIFICATION”, “LOSS”, “DELETION”), are eligible for sparse tiling, wherein 10 probes distributed across the exons of the gene were retained to enable assessment of copy number state. Other variant types such as “MUTATION”, or “FRAMESHIFT MUTATION”, etc., required tiling of all protein coding exons
+
+
+
+For variants that required hotspot targeting, smMIPs probes were designed for the genomic region indicated in the CIViC database. For all variants that required sparse exon tiling or full exon tiling, the representative transcript from the CIViC database was used to obtain all possible exons associated with each gene from Ensembl (biomart="ENSEMBL_MART_ENSEMBL", host="grch37.ensembl.org", dataset="hsapiens_gene_ensembl"). Exons were filtered by Biotype to remove untranslated regions. For variants that required sparse exon tiling, approximately 10 smMIPs were designed to cover a portion of the transcript. For variants that required full exon tiling, overlapping smMIPs (i.e., at least one basepair of overlap) were designed to tile across all protein coding exons in the gene that encompassed the variant. 
+
+
+
+Some of the variants are hot-spot variants (e.g., BRAF - V600E), whereas some of the variants span the entire length of the gene (e.g., TP53 - MUTATION). Therefore, the custom variant file must be
 
 `Build Jupiter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive>`_
 

@@ -199,4 +199,4 @@ source_parsers = {
 source_suffix = ['.rst', '.md']
 
 def setup(app):
-    app.add_stylesheet("css/opencap.css")
+    app.add_stylesheet("_static/css/opencap.css")

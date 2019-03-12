@@ -1,4 +1,4 @@
-.. image:: images/Idnetify.png
+.. image:: images/Identify.png
 
 |
 =========================
