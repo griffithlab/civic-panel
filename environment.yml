@@ -4,3 +4,11 @@ channels:
  - bioconda
 dependencies:
  - bedtools
+ - numpy==1.16
+ - sphinx>=1.4
+ - ipykernel
+ - nbsphinx
+ - sphinxjp.themes.basicstrap
+ - pandas
+ - pybedtools==0.8.0
+ - pybiomart
