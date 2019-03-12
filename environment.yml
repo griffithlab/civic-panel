@@ -1,5 +1,6 @@
 name: example-environment
 channels:
  - conda-forge
+ - bioconda
 dependencies:
  - bedtools
