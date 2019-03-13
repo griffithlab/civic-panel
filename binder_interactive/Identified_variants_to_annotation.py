@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 
 """
-This is a test python file for the CIViC smMIPs paper
+This is a python file for the OpenCAP
 
-Usage: python3 variants_to_annotation.py <variants file>
+Usage: python3 identified_variants_to_annotation.py <somatic variants file>
 
 Arguments:
-    <variants file> = TSV (tab separated values) of putative somatic variants with 5 columns [chromosome, start, stop, reference, variant]
+    <somatic variants file> = TSV (tab separated values) of putative somatic variants with 5 columns [chromosome, start, stop, reference, variant].
     
 """
 
 import sys
 import pandas as pd
 import requests
+from docx import Document
+from docx.shared import Inches
 
 # Pull in variant file
 somatic_variants = pd.read_csv(sys.argv[1], sep='\t')

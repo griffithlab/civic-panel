@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 """
-This is a test python file for the CIViC smMIPs paper
+This is a python file for OpenCAP
 
-Usage: python3 variants_to_probes.py <CIViC variants file>
+Usage: python3 CIViC_variants_to_probes.py <CIViC variants file>
 
 Arguments:
-    <CIViC variants file> = TSV (tab separated values) file derived from CIViC that contains list of variants required to build custom capture panel.
+    <CIViC variants file> = TSV (tab separated values) file derived from CIViC that contains list of variants required to build custom capture panel. Each row should contain the following: variant, gene, description, chromosome, start, stop.
     
 """
 
