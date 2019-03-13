@@ -39,6 +39,8 @@ matching_list = dataset.query(attributes=['ensembl_gene_id', 'external_gene_name
 
 #Create function to create probes for variants of different lengths
 def create_probe_list(CIViC_variants): 
+    sparse_tile_variant_types = ['LOSS', 'AMPLIFICATION', 'DELETION']
+    civic_coordinate_variants = ['DNA BINDING DOMAIN MUTATION', 'PROMOTER DEMETHYLATION', 'CONSERVED DOMAIN MUT']
     probes_list = []
     for i,row in CIViC_variants.iterrows():
         #Iterate through each variant an pull values
@@ -51,34 +53,70 @@ def create_probe_list(CIViC_variants):
         difference = int(stop) - int(start)
         
         #if the variant requires few probes for capture
-        if difference <= 1000:
+        if difference <= 250:
             #create probe for hotspot variant
-            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant])
+            variant_type = 'hotspot coverage'
+            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
+        
+        
+        
+        # If variant type is in a regulatory region or UTR
+        elif 'INTRON' in variant or 'UTR' in variant:
+            variant_type = 'sparse tiling'
+            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
+        
+        
+        
+        # for variant specific variant types pull CIViC coordiantes
+        elif variant in civic_coordinate_variants:
+            variant_type = 'sparse tiling'
+            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
         
         #If the transcript requires full tiling
-        elif difference > 1000:
+        else:
+            
             #Pull ESNG ID using the HUGO gene name
             ESNG_ID = list(matching_list[matching_list['Gene name'] == gene]['Gene stable ID'])[0]
-            
+
             #query biomart for all protein coding regions
             all_exons = pd.DataFrame(dataset.query(attributes=['chromosome_name','genomic_coding_start','genomic_coding_end'], filters={'link_ensembl_gene_id': [ESNG_ID]})).dropna()
-            
+
             #Sort the values by start position for bedtools format
             all_exons = all_exons.sort_values(by=['Genomic coding start'])
-            
+
             #Force start and stop coordinates to integer (not float)
             all_exons['Genomic coding start'] = all_exons['Genomic coding start'].astype(int)
             all_exons['Genomic coding end'] = all_exons['Genomic coding end'].astype(int)
-            
+
             #Merge all values for all exons in protein coding regions
             final_region = pybedtools.BedTool.from_dataframe(all_exons).merge().to_dataframe()
+
+            #Parse down the required coverage for variants in sparse_tile_variants
+            if variant in sparse_tile_variant_types:
+                #change varinat type to 'full tiling'
+                variant_type = 'sparse tiling'
+                #Create a probe for each consecutive genomic region across large variant
+                for i,row in final_region.iterrows():
+                    chromosome = row[0]
+                    #find the middle of each exon
+                    middle = (row[1] + row[2]) / 2
+                    #add 60 bp above and below middle region
+                    start = middle - 60
+                    stop = middle + 60
+                    #append this genomic region to list
+                    probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant, variant_type])
+
             
-            #Create a probe for each consecutive genomic region across large variant
-            for i,row in final_region.iterrows():
-                chromosome = row[0]
-                start = row[1]
-                stop = row[2]
-                probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant])
+            #Else complete full tiling
+            else:
+                #change varinat type to 'full tiling'
+                variant_type = 'full tiling'
+                #Create a probe for each consecutive genomic region across large variant
+                for i,row in final_region.iterrows():
+                    chromosome = row[0]
+                    start = row[1]
+                    stop = row[2]
+                    probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant, variant_type])
                 
     #Create pandas dataframe of probe list
     probes = pd.DataFrame(probes_list)
