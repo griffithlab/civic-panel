@@ -1,4 +1,5 @@
-variant	gene	description	chromosome	start	stop
-V600E	BRAF	Sensitivity to vemurafenib for patients with melanoma	3	43290	43290
-MUTATION	TP53	Poor outcome for patients with AML	17	7571720	7590856
-LOSS	PTEN	Supports resistance of Everolimus for patients with bladder cancer	10	89622870	89731687
+Chromosome	Start	Stop	Ref	Var
+3	43290	43290	C	G
+17	7571820	7571820	C	G
+10	89621870	89621870	C	G
+7	140453136	140453136	A	T
