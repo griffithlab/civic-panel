@@ -1,16 +1,16 @@
 .wy-nav-content {
-    background-image: url('/_static/img/body-bg.png') !important;
+    background-image: url('/_static/img/content-bg.png') !important;
     background-repeat: no-repeat;
     background-position: -300px 0;
 }
 
 .wy-side-nav-search {
-    background-color: #F2F2F2;
+    background-color: #027dba;
+    background-image: url('/_static/img/graph-bg.png');
 }
 
 .wy-nav-side {
     background-color: #292727;
-    background-image: url('/_static/img/sidebar-bg_bottom.png');
-    background-repeat: no-repeat;
+    background-image: url('/_static/img/graph-bg.png');
     background-position: 0 0;
 }

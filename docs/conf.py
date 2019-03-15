@@ -41,7 +41,6 @@ release = '1.0'
 extensions = [
 'nbsphinx',
 'sphinx.ext.mathjax',
-'sphinxjp.themes.basicstrap'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -85,16 +84,10 @@ html_theme = 'sphinx_rtd_theme'
 #
 
 html_theme_options = {
-    'bootswatch_theme': 'cosmo',
-    'navbar_title': "Home",
-    'navbar_site_name': 'Menu',
-    'source_link_position': False,
-    'navbar_sidebarrel': False,
-    'navbar_pagenav': False,
     'logo_only': True
 }
 
-html_logo =  'images/logo.png'
+html_logo =  '_static/img/opencap-logo.png'
 
 html_favicon = "images/flavicon.png"
 
