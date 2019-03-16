@@ -5,6 +5,8 @@
 Sequence Samples
 ==================
 
+This section describes the massively parallel sequencing pipeline. We first detail methods for samples procurement and nucleic acid extraction. Subsequently we provide an overview of library preparation, target enrichment, and next-generation sequencing (NGS). We also touch on new methods for NGS, which includes describing PacBio and NanoPore Sequencing. This high-level overview gives brief insight into how we employ custom capture reagents on tumor samples to enriched capture for variants of interest.
+
 ------------------
 Sample procurement
 ------------------
