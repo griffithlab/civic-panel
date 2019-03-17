@@ -7,6 +7,7 @@ Usage: python3 identified_variants_to_annotation.py <somatic variants file> <sam
 
 Arguments:
     <somatic variants file> = TSV (tab separated values) of putative somatic variants with 5 columns [chromosome, start, stop, reference, variant].
+    
     <sample name> = label the sample that is being annotated
     
 """
@@ -23,6 +24,8 @@ import myvariant
 somatic_variants = pd.read_csv(sys.argv[1], sep='\t')
 sample_name = sys.argv[2]
 
+#Crate myvarinat info pull
+mv = myvariant.MyVariantInfo()
 
 # Create function to pull evidence statements from CIViC Directory derived from myvariant info
 def get_evidence_statements(civic_directory):
@@ -114,7 +117,7 @@ def get_evidence_statements(civic_directory):
 currentDT = datetime.datetime.now()
 
 document = Document()
-document.add_picture('Extra/report_header.png', width=Inches(6))
+document.add_picture('../Extra/report_header.png', width=Inches(6))
 document.add_heading('SOMATIC VARIANT ANNOTATION', 0)
 
 # ADD SAMPLE NAME, DATE, AND TIME

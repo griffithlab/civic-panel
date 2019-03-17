@@ -56,9 +56,9 @@ For variants that are large-scale copy number variants (i.e., â€œAMPLIFICATIONâ€
 
 .. image:: images/Tiling_types.png
 
-We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code for pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
+We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
 
-`Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive>`_
+`Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fdocs%2Fbinder_interactive%2FBuild_Panel>`_
 
 Once the Jupiter Notebook is loaded, you can add your Custom CIViC Variants file to the environment using the "Upload" button. See below:  
 
