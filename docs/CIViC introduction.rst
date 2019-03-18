@@ -1,6 +1,5 @@
 .. image:: images/Header.png
 
-|
 ==================
 CIViC introduction
 ==================
@@ -40,7 +39,7 @@ This screencast covers:
        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vr0BDUKkDeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
- 
+   <br /> <br />
 
 ---------------
 CIViC Resources
@@ -115,3 +114,4 @@ Below we have provided a screencast entitled, `Editing entities in CIViC <https:
    <div style=“position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;“>
        <iframe width="560" height="315" src="https://www.youtube.com/embed/uss4R20ymPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
+   <br /> <br />

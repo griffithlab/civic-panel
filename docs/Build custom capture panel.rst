@@ -1,6 +1,5 @@
 .. image:: images/Build.png
 
-|
 ==========================
 Build Custom Capture Panel
 ==========================

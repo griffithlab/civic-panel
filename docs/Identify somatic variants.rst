@@ -1,6 +1,5 @@
 .. image:: images/Identify.png
 
-| 
 ===========================
 Identify somatic variants
 ===========================

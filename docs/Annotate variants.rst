@@ -1,6 +1,5 @@
 .. image:: images/Annotate.png
 
-| 
 =================
 Annotate variants
 =================

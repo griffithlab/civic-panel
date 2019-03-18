@@ -1,6 +1,5 @@
 .. image:: images/Header.png
 
-|
 =====
 About
 =====
