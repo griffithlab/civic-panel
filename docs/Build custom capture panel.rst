@@ -6,6 +6,10 @@ Build Custom Capture Panel
 
 In this section we will use the CIViC interface to identify variants of interest for custom capture. The interface will then be used to download variants of interest, associated clinical descriptions, and curated coordinates. We will then open an interactive jupyter notebook to format the variant coordinates for probe development. The output from this exercise will be a file that is compatible with commercial probe development companies for custom panel development.
 
+We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. While you are reading the tutorial, open the link provided below to start the process of loading a Binder Notebook (Note: loading the Jupyter Notebook can take 5-10 minutes):
+
+`Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive%2FBuild_Panel>`_
+
 
 ------------------------------
 Identify variants for capture
@@ -55,7 +59,7 @@ For variants that are large-scale copy number variants (i.e., â€œAMPLIFICATIONâ€
 
 .. image:: images/Tiling_types.png
 
-We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
+Hopefully you have already started building the Binder Notebook as recommended at the beginning of this page. If not please select the following link:
 
 `Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive%2FBuild_Panel>`_
 
@@ -83,15 +87,19 @@ Build custom capture panel
 
 After generating the Categorized_custom_CIViC_variants.txt.bed file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
 
-- Integrated DNA Technologies (IDT)
+	- `Integrated DNA Technologies (IDT) Custom Probes <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture/custom-probes-panels>`_
 
-- Twist Biosciences
+	- `Twist Biosciences Oligo Pools <https://twistbioscience.com/products/oligopools>`_
 
-- NimbleGen
+	- `NimbleGen SeqCap <https://sequencing.roche.com/en/products-solutions/by-category/target-enrichment/hybridization/seqcap-ez-prime-choice-probes.html>`_
 
-We will demonstrate custom capture panel development using the IDT software available at XX.
+We will demonstrate custom capture panel development using the `IDT Target Capture Probe Design & Ordering Tool <https://www.idtdna.com/site/order/ngs>`_. First, under "Input Format", select the "Coordinates (BED)" option. Next, select the "Upload File" option and click on the upload human genomic coordinates button. Upload the file that was prepared using the CIViC interface. By default, this file will be called, "Categorized_custom_CIViC_variants.txt.bed".
 
+We also recommend looking at the Design Parameters to ensure proper capture design. Ensure that the following parameters are selected: 
+	- Target species = "Human (Feb. 2009 GRCh37/hg19)"
+	- Target Definition = "Full Region"
+	- Probe Length = 120 basepairs
+	- Probe Tiling Density = 1X
 
-
-
+TODO: REVIEW DESIGN ORDER ETC.
 
