@@ -40,6 +40,7 @@ This screencast covers:
        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vr0BDUKkDeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
+<br/><br/>
 
 ---------------
 CIViC Resources
@@ -54,7 +55,6 @@ We have provided a variety of resources to introduce users to the CIVIC database
 
 If you have further issues or need to report a problem, feel free to email the
 CIViC team at `help@civicdb.org <help@civicdb.org>`_
-<br/><br/>
 
 ---------------------
 Contributing to CIViC
