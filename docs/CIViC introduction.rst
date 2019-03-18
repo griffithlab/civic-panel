@@ -54,6 +54,7 @@ We have provided a variety of resources to introduce users to the CIVIC database
 
 If you have further issues or need to report a problem, feel free to email the
 CIViC team at `help@civicdb.org <help@civicdb.org>`_
+<br/><br/>
 
 ---------------------
 Contributing to CIViC
