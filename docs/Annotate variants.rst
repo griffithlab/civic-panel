@@ -7,23 +7,6 @@ Annotate variants
 
 After defining a putative list of somatic variants associated with the patient's tumor, this section describes how to ink variants back to the CIViC database to annotate the sample for clinical relevance. We again use an interactive jupyter notebook to pull in somatic variants calls and output a report that can be easily consumed by the user. 
 
-----------------------------------
-Format somatic variant input file
-----------------------------------
-
-
-
-
-----------------------------
-OpenCAP output report format
-----------------------------
-
-
-
--------------------------------
-Generate OpenCAP output report
--------------------------------
-
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 Build Binder Docker Image
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -80,16 +63,15 @@ For a variant to be included in OpenCAP it must be a perfect match (i.e., chromo
 For somatic variants that have a perfect match with a CIViC entry, a "Clinical Variant" section has been created for this variant. For each entry, the annotation has four distinct parts:
 
 1) **Variant Information:** For each variant, we list the following:
-- Gene name - `HUGO Nomenclature <https://www.genenames.org/>`_ 
-- Protein coding change  - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant protein change
-- Genomic coordinates - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant genomic coordinates 
-- ENST ID - `Ensembl transcript identification number <http://useast.ensembl.org/info/genome/genebuild/genome_annotation.html>`_ for representative transcript
-- ENSG ID - `Ensembl gene identification number <http://useast.ensembl.org/info/genome/genebuild/genome_annotation.html>`_ for gene
-
+ - Gene name - `HUGO Nomenclature <https://www.genenames.org/>`_ 
+ - Protein coding change  - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant protein change
+ - Genomic coordinates - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant genomic coordinates 
+ - ENST ID - `Ensembl transcript identification number <http://useast.ensembl.org/info/genome/genebuild/genome_annotation.html>`_ for representative transcript
+ - ENSG ID - `Ensembl gene identification number <http://useast.ensembl.org/info/genome/genebuild/genome_annotation.html>`_ for gene
 
 2) **Variant Description:** If the variant has a description in CIViC, the variant description has been reproduced in this section. The variant description contains a high-level overview of all evidence statements available for this variant.
 
-3) **Associated Assertions: ** If the variant has associated assertions, then these assertions have been reproduced in this section. Assertions incorporate multiple evidence items to support a single clinical relevance statement. Typically, assertions include information from nationally recognized organizations such as the NCCN, the FDA, and the AMP.
+3) **Associated Assertions:** If the variant has associated assertions, then these assertions have been reproduced in this section. Assertions incorporate multiple evidence items to support a single clinical relevance statement. Typically, assertions include information from nationally recognized organizations such as the NCCN, the FDA, and the AMP.
 
-4) **Associated Evidence Items: ** This section provides an overview of evidence items associated with the variant. Evidence items have been condensed into a grid with three columns. The first column is a single description of the evidence item, the second column provides the evidence item identification number(s) that support(s) the description, and finally, we provide the Pubmed identifications numbers associated with these evidence statements. For an evidence statement to be included in the grid, it must have an evidence level greater than "C" (Case Study) and it must be "Accepted".
+4) **Associated Evidence Items:** This section provides an overview of evidence items associated with the variant. Evidence items have been condensed into a grid with three columns. The first column is a single description of the evidence item, the second column provides the evidence item identification number(s) that support(s) the description, and finally, we provide the Pubmed identifications numbers associated with these evidence statements. For an evidence statement to be included in the grid, it must have an evidence level greater than "C" (Case Study) and it must be "Accepted".
 
