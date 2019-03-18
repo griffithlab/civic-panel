@@ -14,7 +14,7 @@ dependencies:
  - pybedtools==0.8.0
  - sys
  - myvariant
-docx
+ - python-docx
 datetime
  - pip:
      - requests_cache
