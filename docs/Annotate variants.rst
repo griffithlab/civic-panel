@@ -14,7 +14,7 @@ Build Binder Docker Image
 
 We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in a BED/BED-like file and link variant annotation CIViC for all variants that have CIViC curation. The input file. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
 
-`Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fdocs%2Fbinder_interactive%2FAnnotate_Variants>`_
+`Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive%2FAnnotate_Variants>`_
 
 
 >>>>>>>>>>>>>>>>>>>
