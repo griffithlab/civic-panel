@@ -34,7 +34,10 @@ This screencast covers:
 * Navigating through CIViC's core pages
 * Browsing, searching, and consuming knowledgebase content
 
-TO-DO: Embed YouTube Video: https://www.youtube.com/watch?v=Vr0BDUKkDeI
+.. youtube:: Vr0BDUKkDeI
+	:height: 315
+	:width: 560
+	:align: center
 
 ---------------
 CIViC Resources
