@@ -40,7 +40,7 @@ This screencast covers:
        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vr0BDUKkDeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
-<br/><br/>
+<br /> <br />
 
 ---------------
 CIViC Resources
@@ -89,7 +89,12 @@ The main activity in CIViC surrounds adding and editing evidence statements. Bel
 - Walking through the Add Evidence form
 - Viewing the submitted evidence
 
-TO-DO: Embed YouTube Video: https://www.youtube.com/watch?v=od5Tgdfo6Qs
+.. raw:: html
+
+   <div style=“position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;“>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/od5Tgdfo6Qs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
+
 
 More information on evidence Items can be found on the CIViC Help Pages under `Evidence <https://civicdb.org/help/evidence/overview>`_. This guide provides detailed information on evidence statement inputs including: variant origin, evidence types, evidence levels, and evidence trust ratings. Additionally, when users `add evidence items <https://civicdb.org/add/evidence/basic>`_, we provide hints and helpful prompts in the right-hand column to assist with evidence submission.
 
@@ -105,5 +110,8 @@ Below we have provided a screencast entitled, `Editing entities in CIViC <https:
 - Navigating to an entity's suggested changes
 - Reviewing entity revisions
 
+.. raw:: html
 
-TO-DO: Embed YouTube Video: https://www.youtube.com/watch?v=uss4R20ymPA
+   <div style=“position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;“>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/uss4R20ymPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
