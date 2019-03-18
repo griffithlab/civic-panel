@@ -15,7 +15,7 @@ dependencies:
  - sys
  - myvariant
  - python-docx
-datetime
+ - datetime
  - pip:
      - requests_cache
      - git+https://github.com/jrderuiter/pybiomart.git
