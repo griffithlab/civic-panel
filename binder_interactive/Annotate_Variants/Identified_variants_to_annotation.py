@@ -17,7 +17,6 @@ from docx.shared import Inches
 from docx.enum.table import WD_TABLE_ALIGNMENT
 import pandas as pd
 import datetime
-import solvebio
 import myvariant
 
 # Pull in variant file

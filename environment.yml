@@ -12,6 +12,10 @@ dependencies:
  - nbsphinx
  - pandas
  - pybedtools==0.8.0
+ - sys
+ - myvariant
+docx
+datetime
  - pip:
      - requests_cache
      - git+https://github.com/jrderuiter/pybiomart.git
