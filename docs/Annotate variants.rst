@@ -62,6 +62,7 @@ For a variant to be included in OpenCAP it must be a perfect match (i.e., chromo
 For somatic variants that have a perfect match with a CIViC entry, a "Clinical Variant" section has been created for this variant. For each entry, the annotation has four distinct parts:
 
 1) **Variant Information:** For each variant, we list the following:
+
  - Gene name - `HUGO Nomenclature <https://www.genenames.org/>`_ 
  - Protein coding change  - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant protein change
  - Genomic coordinates - `HGVS Nomenclature <http://varnomen.hgvs.org/>`_ for variant genomic coordinates 

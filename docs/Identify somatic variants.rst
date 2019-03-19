@@ -35,19 +35,21 @@ As FASTA files are processed, read strands in FASTA files are annotated with add
 2) FASTQ Files
 >>>>>>>>>>>>>>
 
-In addition to FASTA files, sequencing runs often produce `FASTQ files <https://en.wikipedia.org/wiki/FASTQ_format>`_, which provides a high level overview of sequencing quality. FASTQ files also have a consistent format that can be easily read by aligners. Each line a FASTQ file includes a header, a sequence, a separator, and quality scores:
+In addition to FASTA files, sequencing runs often produce `FASTQ files <https://en.wikipedia.org/wiki/FASTQ_format>`_, which provides a high level overview of sequencing quality. FASTQ files also have a consistent format that can be easily read by aligners. Each line a FASTQ file includes a header, a sequence, a separator, and quality scores.
 
+Read example 1: 
 
+* > GAPDH_204s.100.1  
+* AATTAGGAGCGATTTGAGATTGCCCCCGATTTATTGACCCGTTTAGCC  
+* \+  
+* !``\*((_\*>\*+())))>>>>>\*\*\*+1.(%%%%%^&\*\*\*\*#)CCCCC65  
 
-	> GAPDH_204s.100.1
-	AATTAGGAGCGATTTGAGATTGCCCCCGATTTATTGACCCGTTTAGCC
-	+
-	!``*((_*>*+())))>>>>>***+1.(%%%%%^&****#)CCCCC65
+Read example 2:
 
-	> HAPTB_204s.100.1
-	AAGGCGTGAGAAAGTGCCCGTGGGTAGTGCGGGAGTGGGATGGTAGCC
-	+
-	!``*(((*(*+()))>>>>>.%%%%^&**#)C65***+()))>>>>>.%
+* > HAPTB_204s.100.1  
+* AAGGCGTGAGAAAGTGCCCGTGGGTAGTGCGGGAGTGGGATGGTAGCC  
+* \+  
+* !``\*(((\*(\*+()))>>>>>.%%%%^&\*\*#)C65\*\*\*+()))>>>>>.%  
 
 
 Quality scores are based on the `Phred scale <https://en.wikipedia.org/wiki/Phred_quality_score>`_ and are enclosed using `ASCII Annotation <https://en.wikipedia.org/wiki/ASCII>`_ characters (for brevity). Each score is calculated differently depending on the technology/instrument used for sequencing.
@@ -85,7 +87,7 @@ Alignment can be performed using various alignment software. Generally speaking,
 
 	- Fast solutions include hash-based solutions such as Burrows-Wheeler transformation. These algorithms create shortcuts to reduce alignment time.
 
-The input for alignment software is the FASTA files and the output from alignment is a `Sequence Alignment Map (SAM) <http://samtools.github.io/hts-specs/SAMv1.pdf>`_ or `Binary Alignment Map (BAM). Typically, these software also produce alignment QC, which includes information about mapped reads, coverage, etc.
+The input for alignment software is the FASTA files and the output from alignment is a `Sequence Alignment Map (SAM) <http://samtools.github.io/hts-specs/SAMv1.pdf>`_ or Binary Alignment Map (BAM). Typically, these software also produce alignment QC, which includes information about mapped reads, coverage, etc.
 
 Sequencing alignment can be accomplished following the commands on the `Alignment page <https://pmbio.org/module-03-align/0003/02/01/Alignment/>`_ provided by the Precision Medicine Bioinformatic Course.
 
