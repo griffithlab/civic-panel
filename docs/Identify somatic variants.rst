@@ -120,11 +120,14 @@ Germline variant filtering can be accomplished following the commands on the `Ge
 Somatic Variant Analysis
 >>>>>>>>>>>>>>>>>>>>>>>>>>
 
-In addition to germline variant calling, somatic variant calling can be performed by comparing the tumor and normal alignments to observe differences that are only intrinsic to the tumor sample. Somatic variant calling is a similar process, but it requires the variant to be exclusively observed in the tumor tissue and not present in the germline (normal) tissue. Below we describe automated methods for bother germline and somatic variant calling.
+In addition to germline variant calling, somatic variant calling can be performed identifying differences that are intrinsic to the tumor sample and not observed in the matched normal samples. Somatic variant calling requires looking for single nucleotide variants (SNVs), insertions and deletions (indels), copy number variants (CNVs), structural variants (SVs), and loss of heterozygosity (LOH). These different types of variants can be identified by using various software including: Pindel, VarScan, Mutect, Strelka, or a combination of multiple variant callers. Additionally, somatic variants can be further confirmed by comparing identified variants to variant databases such as:
+	- `gnomAD <https://gnomad.broadinstitute.org/>`_: (123,136 WXS and 15,496 WGS) 
+	- `1000 genome <http://www.internationalgenome.org/>`_: 1000 genome projects
+	- `Exome Aggregation Consortium <http://exac.broadinstitute.org/>`_: (~60,000 individuals)
+	- `Exome sequencing project <https://esp.gs.washington.edu/drupal/>`_: (~6,500 individuals)
 
->>>>>>>>>>>>>>>>>>>>>>>>
-Somatic Variant Calling
->>>>>>>>>>>>>>>>>>>>>>>>
+
+
 
 
 
@@ -135,16 +138,16 @@ Somatic Variant Refinement
 
 Following automated somatic variant calling, somatic variant refinement is required to identify a high-quality list of variants associated with an individual's tumor. Somatic variant refinement requires either employing an algorithm on the sequencing data to further filter sequencing artifacts or visualizing aligned reads in a genomic viewer and manually refining variants using common sequencing tags. Both of these methods for somatic variant refinement have been described:
 
-1) DeepSVR: A deep learning approach to automate refinement of somatic variant calling from cancer sequencing data
+	1) DeepSVR: A deep learning approach to automate refinement of somatic variant calling from cancer sequencing data
  
 	Ainscough, B.J., Barnell E.K., Griffith, M., Rohan, T.E., Govindan, R., Mardis, E.R., Swamidass. J.S., Griffith O.L. Deep Learning Approach to Automating Somatic Variant Refinement. Nature Genetics, 2018 [Epub ahead of print]. (https://doi.org/10.1038/s41588-018-0257-y)
 
 
-2) Manual Review: Standard operating procedure for somatic variant refinement of sequencing data with paired tumor and normal samples
+	2) Manual Review: Standard operating procedure for somatic variant refinement of sequencing data with paired tumor and normal samples
 
 	Barnell E.K., Ronning P., Campbell K.M., Krysiak K., Ainscough B.J., Sheta L.M., Pema S.P., Schmidt A.D., Richters M., Cotto K.C., Danos A.M., Ramirez C., Skidmore Z.L., Spies N.C., Hundal J., Sediqzad M.S., Kunisaki J., Gomez F., Trani L., Matlock M., Wagner A.H., Swamidass S.J., Griffith M., Griffith O.L. Standard operating procedure for somatic variant refinement of sequencing data with paired tumor normal samples. Genetics in Medicine, October 5, 2018 [Epub ahead of print]. (https://doi.org/10.1038/s41436-018-0278-z)
 
-After employing somatic variant refinement strategies on the somatic variant list, the final 
+After employing somatic variant refinement strategies on the somatic variant list, the final list of putative somatic variants can be used 
 	
 
 

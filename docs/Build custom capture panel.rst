@@ -68,17 +68,21 @@ Once the Jupiter Notebook is loaded, you can add your Custom CIViC Variants file
 
 .. image:: images/Upload_Variants.png
 
-To launch the Jupyter Notebook select the file entitled, "1. variants_to_probes.ipynb" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_variants.tsv' - See below:
+To launch the Jupyter Notebook select the file entitled, "Build Probes Notebook" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_variants.tsv' - See below:
 
 .. image:: images/Run_variants_to_probes.png
 
-Once you have changed the file name, hold down the "Shift" key and select "Enter" to parse your Custom CIViC variants. Once the code is done, a new file will appear in the home directory called "Categorized_custom_CIViC_variants.txt.bed". You can download this file to your local computer 
+Once you have changed the input file name, hold down the "Shift" key and select "Enter" to parse your Custom CIViC variants. Once the code is done, two new files will appear in the home directory:
+	- IDT_INPUT_custom_CIViC_variants.txt = coordinates for all probes required to capture variants of interest without annotation
+	- REFERENCE_custom_CIViC_variants.txt = list of all probes required to capture variants of interest with annotation (gene name, probe id, type of tiling)
+
+You can download these files to your local computer by checking the box next to the file of interest and selecting the "Download" button:
 
 .. image:: images/Download_variants.png
 
-The file should be a tab separated bed file whereby each row represents a genomic region that requires coverage. An example file is shown below:
+The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as the input file for probe design. This file should be a tab separated text file whereby each row represents a genomic region that requires coverage. An example file is shown below:
 
-TO:DO .. image:: INSERT EXAMPLE IMAGE
+.. image:: images/Example_BED.png
 
 
 ---------------------------
@@ -93,7 +97,7 @@ After generating the Categorized_custom_CIViC_variants.txt.bed file. You can acc
 
 	- `NimbleGen SeqCap <https://sequencing.roche.com/en/products-solutions/by-category/target-enrichment/hybridization/seqcap-ez-prime-choice-probes.html>`_
 
-We will demonstrate custom capture panel development using the `IDT Target Capture Probe Design & Ordering Tool <https://www.idtdna.com/site/order/ngs>`_. First, under "Input Format", select the "Coordinates (BED)" option. Next, select the "Upload File" option and click on the upload human genomic coordinates button. Upload the file that was prepared using the CIViC interface. By default, this file will be called, "Categorized_custom_CIViC_variants.txt.bed".
+We will demonstrate custom capture panel development using the `IDT Target Capture Probe Design & Ordering Tool <https://www.idtdna.com/site/order/ngs>`_. First, under "Input Format", select the "Coordinates (BED)" option. Next, select the "Upload File" option and click on the upload human genomic coordinates button. Upload the file that was prepared using the CIViC interface (IDT_INPUT_custom_CIViC_variants.txt).
 
 We also recommend looking at the Design Parameters to ensure proper capture design. Ensure that the following parameters are selected: 
 	- Target species = "Human (Feb. 2009 GRCh37/hg19)"
@@ -101,5 +105,9 @@ We also recommend looking at the Design Parameters to ensure proper capture desi
 	- Probe Length = 120 basepairs
 	- Probe Tiling Density = 1X
 
-TODO: REVIEW DESIGN ORDER ETC.
+Successful upload of the text file should look like this:
+
+.. image:: images/IDT_upload.png
+
+Once the files are successfully uploaded, select the "Continue" button to develop the reagent. Of note, you must be logged into the interface to continue with this process. The next steps include reviewing the design, ordering probes, ordering buffers, and ordering blocking oligos. Once the panel design has been reviewed, you can purchase the reagents through the IDT interface.
 

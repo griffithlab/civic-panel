@@ -46,7 +46,6 @@ def create_probe_list(CIViC_variants):
         #Iterate through each variant an pull values
         variant = row['variant']
         gene = row['gene']
-        description = row['description']
         chrom = 'chr' + str(row['chromosome'])
         start = int(row['start'])
         stop = int(row['stop'])
@@ -56,20 +55,17 @@ def create_probe_list(CIViC_variants):
         if difference <= 250:
             #create probe for hotspot variant
             variant_type = 'hotspot coverage'
-            
-            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
-        
-        
+            probes_list.append([chrom, start, stop + 1, variant, gene, str(1) + '-' + gene + '_' + variant, variant_type])        
         
         # If variant type is in a regulatory region or UTR
         elif 'INTRON' in variant or 'UTR' in variant:
             variant_type = 'sparse tiling'
-            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
+            probes_list.append([chrom, start, stop, variant, gene, str(1) + '-' + gene + '_' + variant, variant_type])
         
         # for variant specific variant types pull CIViC coordiantes
         elif variant in civic_coordinate_variants:
             variant_type = 'sparse tiling'
-            probes_list.append([chrom, start, stop, variant, gene, description, str(1) + '-' + gene + '_' + variant, variant_type])
+            probes_list.append([chrom, start, stop, variant, gene, str(1) + '-' + gene + '_' + variant, variant_type])
         
         #If the transcript requires full tiling
         else:
@@ -103,7 +99,7 @@ def create_probe_list(CIViC_variants):
                     start = int(middle - 60)
                     stop = int(middle + 60)
                     #append this genomic region to list
-                    probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant, variant_type])
+                    probes_list.append([chromosome, start, stop, variant, gene, str(i + 1) + '-' + gene + '_' + variant, variant_type])
 
             
             #Else complete full tiling
@@ -115,7 +111,7 @@ def create_probe_list(CIViC_variants):
                     chromosome = 'chr' + str(row[0])
                     start = int(row[1])
                     stop = int(row[2])
-                    probes_list.append([chromosome, start, stop, variant, gene, description, str(i + 1) + '-' + gene + '_' + variant, variant_type])
+                    probes_list.append([chromosome, start, stop, variant, gene, str(i + 1) + '-' + gene + '_' + variant, variant_type])
                 
     #Create pandas dataframe of probe list
     probes = pd.DataFrame(probes_list)
@@ -125,5 +121,5 @@ def create_probe_list(CIViC_variants):
 probe_list = create_probe_list(CIViC_variants)
 
 #Output probe list to output path
-probe_list.iloc[:,0:3].to_csv('Categorized_custom_CIViC_variants.bed', index=False, sep='\t', header=False)
-probe_list.to_csv('Categorized_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
+probe_list.iloc[:,0:3].to_csv('IDT_INPUT_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
+probe_list.to_csv('REFERENCE_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
