@@ -72,41 +72,45 @@ Target enrichment strategies are used to generate a specific collection of DNA f
 
 	3) **PCR amplification** is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-PCR-based library preparation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>
+Hybridization Capture
+>>>>>>>>>>>>>>>>>>>>>>>
+
+Hybridization capture requires designing specific primers that bind to regions of interest and isolating these bound DNA fragments using chemistry (e.g., Strepavidin Beads). All genomic DNA that is not bound to the capture probes will be washed away and not eligible for amplification. The remaining DNA, which is enriched for regions of interest, is amplified using PCR and sequenced. Reagents that use hybridization capture include: `Swift BioSciences <https://swiftbiosci.com/applications/hyb-cap-seq/>`_, `IDT <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture>`_, `Agilent <https://www.agilent.com/en/product/hybridization-based-next-generation-sequencing-(ngs)>`_, among others. The process for hybridization capture described below:
+
+.. image:: images/Hyb_capture.png
+
+>>>>>>>>>>>>>>>>>>>>>>>
+Amplicon Enrichment
+>>>>>>>>>>>>>>>>>>>>>>>
+
+Amplicon enrichment uses a slightly different strategy for amplification of regions of interest. This method uses two probes that flank the region of interest and PCR occurs between the designed probes . Reagents that use amplicon sequencing include: `QIAGEN <https://www.qiagen.com/us/products/ngs/ngs-life-sciences/dna-amplicon-sequencing/>`_, `Illumina <https://www.illumina.com/techniques/sequencing/dna-sequencing/targeted-resequencing/amplicon-sequencing.html>`_, and others. An example of the process of amplicon enrichment is shown below:
+
+.. image:: images/Amplicon_capture.png
 
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Unique Molecular Identifiers
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-Molecular inversion probes
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unique molecular identifiers (UMIs) are short sequences or molecular tags that can be added to each read during library preparation. Typically, these molecular identifiers are added prior to amplification so that they tag individual DNA molecules observed in the sample. This allows the individual to assign all amplification products to a single DNA molecule after sequencing. These tags serve to reduce the quantitative bias introduced by cDNA amplification. UMI-based sequencing can take on many forms and are unique to the individual library preparation. An example of a single molecule molecular inversion probe is provided below:
 
+.. image:: images/smmips.png
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~
-Hybridization capture
-~~~~~~~~~~~~~~~~~~~~~~
-
-Sequencing reads generated via library preparation are ultimately evaluated by exciting individual fluorescent probes and digitally reading fluorescent output on the sequencing platform. Therefore, the commercially available library preparation kit chosen for library development should be consistent with the ultimate sequencing platform used for reading sequences.
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>
 Other considerations
-~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>
 
-Of note, for RNA sequencing, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to subjecting to library preparation. 
+Of note, for evaluation of RNA, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to subjecting to library preparation. 
 
 
 --------------------------
 High throughput sequencing
 --------------------------
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Next-generation sequencing
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:
 
@@ -114,11 +118,9 @@ Sequencing is the next step in genomic analysis pipeline. The most commonly used
 
 	- **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Third generation sequencing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 Third Generation Sequencing Platforms: PacBio and NanoPore and third generation sequencing technologies that can sequence longer reads at a reduced cost to address the existing problems associated with NGS.
 
