@@ -115,39 +115,85 @@ Germline variant refinement can be performed by using heuristic cutoffs for qual
 
 Germline variant filtering can be accomplished following the commands on the `Germline Filtering, Annotation, and Review module <https://pmbio.org/module-04-germline/0004/02/02/Germline_SnvIndel_FilteringAnnotationReview/>`_ provided by the Precision Medicine Bioinformatic Course.
 
-
->>>>>>>>>>>>>>>>>>>>>>>>>>
+-------------------------
 Somatic Variant Analysis
->>>>>>>>>>>>>>>>>>>>>>>>>>
+-------------------------
 
-In addition to germline variant calling, somatic variant calling can be performed identifying differences that are intrinsic to the tumor sample and not observed in the matched normal samples. Somatic variant calling requires looking for single nucleotide variants (SNVs), insertions and deletions (indels), copy number variants (CNVs), structural variants (SVs), and loss of heterozygosity (LOH). These different types of variants can be identified by using various software including: Pindel, VarScan, Mutect, Strelka, or a combination of multiple variant callers. Additionally, somatic variants can be further confirmed by comparing identified variants to variant databases such as:
-	- `gnomAD <https://gnomad.broadinstitute.org/>`_: (123,136 WXS and 15,496 WGS) 
-	- `1000 genome <http://www.internationalgenome.org/>`_: 1000 genome projects
-	- `Exome Aggregation Consortium <http://exac.broadinstitute.org/>`_: (~60,000 individuals)
-	- `Exome sequencing project <https://esp.gs.washington.edu/drupal/>`_: (~6,500 individuals)
+In addition to germline variant calling, somatic variant calling can be performed identifying differences that are intrinsic to the tumor sample and not observed in the matched normal samples. Somatic variant calling requires looking for single nucleotide variants (SNVs), insertions and deletions (indels), copy number variants (CNVs), structural variants (SVs), and loss of heterozygosity (LOH). These different types of variants can be identified by using various software. Here we will go through each of these automated variant callers to describe the types of variants each caller can identify and subsequent strengths and weaknesses.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>
+Somatic SNV/InDel Calling
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Algorithms that perform Somatic SNV/Indel Calling include: VarScan, Strelka, and MuTect. It is recommended that aligned bam files are evaluated by multiple different variant callers and subsequently, filtering can be employed by identifying variants that were observed by multiple different callers.
+
+	1) `Varscan <http://varscan.sourceforge.net/>`_ is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data and employs a robust heuristic/statistic approach to call variants that meet desired thresholds for read depth, base quality, variant allele frequency, and statistical significance.
 
 
+	2) `Strelka <https://github.com/Illumina/strelka/blob/master/docs/userGuide/README.md>`_ calls germline and somatic small variants from mapped sequencing reads and is optimized for rapid clinical analysis of germline variation in small cohorts and somatic variation in tumor/normal sample pairs. Both germline and somatic callers include a final empirical variant rescoring step using a random forest model to reflect numerous features indicative of call reliability which may not be represented in the core variant calling probability model.
+
+	3) `MuTect2 <https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_cancer_m2_MuTect2.php>`_ is a somatic SNP and indel caller that combines the DREAM challenge-winning somatic genotyping engine of the original MuTect (Cibulskis et al., 2013) with the assembly-based machinery of HaplotypeCaller.
+
+Somatic Variant Calling with these three automated callers can be accomplished following the commands on the `Somatic SNV/InDel Calling module <https://pmbio.org/module-05-somatic/0005/02/01/Somatic_SnvIndel_Calling/>`_ provided by the Precision Medicine Bioinformatic Course.
 
 
+>>>>>>>>>>>>>>>>>>>
+Somatic SV Calling
+>>>>>>>>>>>>>>>>>>>
 
+`Manta <https://github.com/Illumina/manta>`_ is a structural variant caller maintained by Illumina and optimized for calling somatic variation in tumor/normal pairs. Structural variants are rearrangements in DNA involving a breakpoint(s). Generally speaking structural variants can fall into four categories:
+
+	1) Insertions: a region is inserted into the DNA
+	2) Deletions: a region is deleted in the DNA
+	3) Inversions: a section of DNA is reversed
+	4) Translocations: a section of DNA is remved and re-inserted in a new region
+
+
+Somatic Structural Variant calling with Manta can be executed by following the commands on the `Somatic SV Calling module <https://pmbio.org/module-05-somatic/0005/03/01/Somatic_SV_Calling/>`_ provided by the Precision Medicine Bioinformatic Course.
+
+
+>>>>>>>>>>>>>>>>>>>>
+Somatic CNV Calling
+>>>>>>>>>>>>>>>>>>>>
+
+Copy number alterations occur when a section of the genome is duplicated or deleted. This phenomenon has an important role in evolution for development of homologs/paralogs that allow for development of new function with retention of old function (e.g., alpha and beta hemoglobin). However, these events can also play an intrinsic role in disease development. Examples of Copy Number Alterations are shown below:
+
+.. image:: images/CNA.png
+
+There are two algorithms that can be used to identify copy number alterations in tumor samples:
+
+	1) `copyCat <https://github.com/chrisamiller/copyCat>`_ is an R package used for detecting somatic (experiment/control) copy number aberrations. It works by measuring the depth of coverage from a sequencing experiment. For example in a diploid organism such as human, a single copy number deletion should result in aproximately half the depth (number of reads) compared to the control.
+	2) `CNVkit <https://github.com/etal/cnvkit>`_ is a python package for copy number calling specifically designed for hybrid capture and exome sequencing data. During a typical hybrid capture sequencing experiment the probes capture DNA from the sequencing library, however the probes don’t always bind perfectly. This results in not only the “on-target” regions being pulled from the library for later sequencing but “off-target” as well where the probes didn’t perfectly bind and essentially pulled the wrong region. The effect provides very low read coverage across the entire genome which CNVkit takes advantage of to make CN calls. 
+
+Copy Number Variant calling with copyCat and CNVkit can be executed by following the commands on the `CNV Calling module <https://pmbio.org/module-05-somatic/0005/04/01/Somatic_CNV_Calling/>`_ provided by the Precision Medicine Bioinformatic Course.
+
+
+>>>>>>>>>>>>>>>>>>>>
+Somatic LOH Calling
+>>>>>>>>>>>>>>>>>>>>
+
+Loss of heterozygosity is a common genetic event that occurs in cancer whereby one allele is lost. In this segment, the tumor sample appears to be homozygous whereas the same section is heterozygous in the matched normal sample. Methods for calculating sections of LOH requires first calculating the variant allele frequencies (VAFs) in the normal sample to find heterozygous germline positions. Subsequently, we run `bam-readcounts <https://github.com/genome/bam-readcount>`_ on the tumor sample at these same genomic loci and determine if the tumor sample shows homo- or heterozygosity. If there is an area of homozygosity in the tumor sample that is heterozygous in the normal sample, this represents a section of LOH.
+
+Methods for identifying and visualizing section of LOH can be found in the `Somatic LOH Calling module <https://pmbio.org/module-05-somatic/0005/05/01/Somatic_LOH_Calling/>`_ provided by the Precision Medicine Bioinformatic Course.
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 Somatic Variant Refinement
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Following automated somatic variant calling, somatic variant refinement is required to identify a high-quality list of variants associated with an individual's tumor. Somatic variant refinement requires either employing an algorithm on the sequencing data to further filter sequencing artifacts or visualizing aligned reads in a genomic viewer and manually refining variants using common sequencing tags. Both of these methods for somatic variant refinement have been described:
+Following automated somatic variant calling, somatic variant refinement is required to identify a high-quality list of variants associated with an individual's tumor. Especially for SNVs/Indels, we recommend that the final list of variants identified by automated callers is further refined. This can be accomplished by executing one or all of the following:
 
-	1) DeepSVR: A deep learning approach to automate refinement of somatic variant calling from cancer sequencing data
- 
-	Ainscough, B.J., Barnell E.K., Griffith, M., Rohan, T.E., Govindan, R., Mardis, E.R., Swamidass. J.S., Griffith O.L. Deep Learning Approach to Automating Somatic Variant Refinement. Nature Genetics, 2018 [Epub ahead of print]. (https://doi.org/10.1038/s41588-018-0257-y)
+	1) Heuristic filtering based on variant allele frequency (VAF), total coverage, allele read count, or and allele read depth. We recommend that variants require at least 20X coverage in both the tumor and normal sample with a VAF >5%. These numbers can be adjusted based on the experiment and the reagents employed on the samples. 
 
+	2) Manual review of aligned sequencing reads. The Griffith Lab has defined a `Standard Operating Procedure (SOP) <https://www.nature.com/articles/s41436-018-0278-z>`_ for somatic variant refinement of sequencing data with paired tumor and normal sample. The SOP describes a standard way to visualize reads using Integrative Genomic Viewer (IGV) and assign labels to variants to filter in true somatic variants and filter out variants attributable to sequencing and alignment artifacts. Although manual review of aligned sequencing reads is incredible effective in eliminating many false positives observed during automated calling, it is incredibly time-consuming and expensive.
 
-	2) Manual Review: Standard operating procedure for somatic variant refinement of sequencing data with paired tumor and normal samples
+	3) Automated refinement using a machine learning approach. `DeepSVR <https://github.com/griffithlab/DeepSVR/wiki>`_ is a deep learning model that evaluates variants called by automated callers and provides a value between 0-1 that indicates confidence in that variant being a true positive. The input in the model is 59 features derived from aligned BAM files and the output is a value for three labels: Somatic, Ambiguous, Fail. This model can be employed on samples to further refine a list of somatic variants from automated callers.
 
-	Barnell E.K., Ronning P., Campbell K.M., Krysiak K., Ainscough B.J., Sheta L.M., Pema S.P., Schmidt A.D., Richters M., Cotto K.C., Danos A.M., Ramirez C., Skidmore Z.L., Spies N.C., Hundal J., Sediqzad M.S., Kunisaki J., Gomez F., Trani L., Matlock M., Wagner A.H., Swamidass S.J., Griffith M., Griffith O.L. Standard operating procedure for somatic variant refinement of sequencing data with paired tumor normal samples. Genetics in Medicine, October 5, 2018 [Epub ahead of print]. (https://doi.org/10.1038/s41436-018-0278-z)
+Additionally, somatic variants can be further confirmed by comparing identified variants to variant databases such as:
 
-After employing somatic variant refinement strategies on the somatic variant list, the final list of putative somatic variants can be used 
-	
+	- `gnomAD <https://gnomad.broadinstitute.org/>`_: (123,136 WXS and 15,496 WGS) 
+	- `1000 genome <http://www.internationalgenome.org/>`_: 1000 genome projects
+	- `Exome Aggregation Consortium <http://exac.broadinstitute.org/>`_: (~60,000 individuals)
+	- `Exome sequencing project <https://esp.gs.washington.edu/drupal/>`_: (~6,500 individuals)
 
-
+Methods for Somatic Variant Refinement can be viewed on the `Somatic SNV and Indel Manual Review module <https://pmbio.org/module-05-somatic/0005/02/03/Somatic_SNV_and_Indel_Manual_Review/>`_ provided by the Precision Medicine Bioinformatic Course.
