@@ -186,8 +186,8 @@ for i,row in somatic_variants.iterrows():
             p.add_run(str(variant) + '\n')
             p.add_run('ENST ID' + '\t'+ '\t'+ '\t').bold = True
             p.add_run(str(ENST) + '\n')
-            p.add_run('ENSG ID' + '\t'+ '\t'+ '\t').bold = True
-            p.add_run(str(ENSG))
+            #p.add_run('ENSG ID' + '\t'+ '\t'+ '\t').bold = True
+            #p.add_run(str(ENSG))
 
             
             document.add_heading('Variant Description: ', 3)
