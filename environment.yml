@@ -3,7 +3,6 @@ channels:
  - conda-forge
  - bioconda
 dependencies:
- - bioconductor-myvariant
  - bedtools
  - future
  - requests
@@ -15,5 +14,6 @@ dependencies:
  - pybedtools==0.8.0
  - python-docx
  - pip:
+     - myvariant
      - requests_cache
      - git+https://github.com/jrderuiter/pybiomart.git
