@@ -18,6 +18,8 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 import pandas as pd
 import datetime
 import myvariant
+import requests
+
 
 # Pull in variant file
 somatic_variants = pd.read_csv(sys.argv[1], sep='\t')
@@ -44,7 +46,7 @@ def get_evidence_statements(civic_directory):
             else:    
                 initial = str(gene) +  ' ' +str(variant) +  ' ' +evidence['evidence_direction']+ ' ' + evidence['clinical_significance']
             CIViC_EID =  evidence['name']
-            PubmedID = str(evidence['source']['pubmed'])
+            PubmedID = str(evidence['source']['citation_id'])
 
             #PREDICTIVE
             if evidence['evidence_type'] == 'Predictive':
@@ -154,20 +156,22 @@ for i,row in somatic_variants.iterrows():
 
             # Pull general information for variant
             gene = directory['civic']['entrez_name']
-            ENST = directory['cadd']['gene']['feature_id']
-            ENSG = directory['cadd']['gene']['gene_id']
+            ENST = directory['civic']['coordinates']['representative_transcript']
+            #ENSG = directory['cadd']['gene']['gene_id']
             protein_change = directory['civic']['name']
+            variant_id = directory['civic']['variant_id']
             
+            civic_directory = requests.get('https://civicdb.org/api/variants/' + str(variant_id)).json()
             # Pull assertion information for variant
             if 'assertions' in directory['civic'].keys():
                 for item in directory['civic']['assertions']:
                     assertions.append(item['description']) 
             
-            # Pull evidence item information for variant
-            if directory['civic']['description']:
+            # Pull variant description for variant
+            if 'description' in directory['civic']:
                 variant_descriptions.append(directory['civic']['description']) 
-
-            evidence_items, sample_evidence_count = get_evidence_statements(directory['civic'])
+            
+            evidence_items, sample_evidence_count = get_evidence_statements(civic_directory)
 
             # ADD INFORMATION TO DOCUMENT ABOUT VARIANT
             # general variant information
