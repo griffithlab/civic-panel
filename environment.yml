@@ -3,6 +3,7 @@ channels:
  - conda-forge
  - bioconda
 dependencies:
+ - bioconductor-myvariant
  - bedtools
  - future
  - requests
@@ -16,4 +17,3 @@ dependencies:
  - pip:
      - requests_cache
      - git+https://github.com/jrderuiter/pybiomart.git
-     - install myvariant
