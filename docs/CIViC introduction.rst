@@ -10,7 +10,7 @@ What is CIViC?
 The `Clinical Interpretations of Variants in Cancer (CIViC) database <https://civicdb.org/>`_ is an open
 access, open source, community-driven web resource that captures clinically
 relevant variants in cancer. CIViC is built on evidence statements, whereby
-each statement summarizes variant actionability described by a publication.
+each statement summarizes a variant's potential clinical relevance as described by a publication.
 These evidence statements are summarized at the variant level and also at the
 gene level. An example of this hierarchy has been provided:
 
@@ -20,7 +20,7 @@ gene level. An example of this hierarchy has been provided:
 What is an Assertion?
 ----------------------
 
-Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregates individual evidence items into a single clinical action that allows for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
+Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregate individual evidence items into a single assessment of the clinical relevance of a variant in a specific disease setting. Assertions allow for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
 
 .. image:: images/Assertion_Example.png
 
@@ -31,7 +31,7 @@ Below we have provided a screencast entitled, `CIViC - Getting Started <https://
 This screencast covers:
 * Description of CIViC and its goals
 * Navigating through CIViC's core pages
-* Browsing, searching, and consuming knowledgebase content
+* Browsing, searching, and consuming CIViC knowledgebase content
 
 .. raw:: html
 
@@ -52,21 +52,21 @@ We have provided a variety of resources to introduce users to the CIVIC database
 - `CIViC Glossary <https://civicdb.org/glossary>`_
 - `API Documentation <https://griffithlab.github.io/civic-api-docs/>`_
 
-If you have further issues or need to report a problem, feel free to email the
+If you have further issues or wish to report a problem, feel free to email the
 CIViC team at `help@civicdb.org <help@civicdb.org>`_
 
 ---------------------
 Contributing to CIViC
 ---------------------
-Any user can browse or search existing curation within the database. However,
-users must create an account and log-in to contribute to CIViC. Different types
+Any user can browse or search existing curated knowledge within the database. However,
+users must create an account and log-in to contribute new content to CIViC. Different types
 of contributions can be found under
 `Example Activities <https://civicdb.org/help/getting-started/example-activities>`_
 on the CIViC help pages. These activities include:
 
 - Adding evidence
 - Contributing to variant or gene summaries
-- Editing CIViC content
+- Revising existing CIViC content
 - Adding assertions
 - Other curation tasks such as variant coordinate curation
 
@@ -76,12 +76,12 @@ Once a new evidence item or change to existing evidence is submitted to the CIVi
 
 Regardless of curator status, each activity is recorded in the database. Revision history can be viewed for all items within CIViC and personal
 contributions can be viewed on an individual’s user profile. To promote user activity, CIViC badges can be earned for various curation actions and the
-`Community Leaderboards <https://civicdb.org/community/main>`_ show top activity in CIViC parsed by activity type.
+`Community Leaderboards <https://civicdb.org/community/main>`_ show the top CIViC contributors, parsed by activity type.
 
 ^^^^^^^^^^^^^^^^^^^^^
 Adding Evidence Items
 ^^^^^^^^^^^^^^^^^^^^^
-The main activity in CIViC surrounds adding and editing evidence statements. Below we have provided a screencast entitled, `Adding CIViC Evidence <https://www.youtube.com/watch?v=od5Tgdfo6Qs>`_ to walk users through creating an evidence item in CIViC. This screencast covers:
+The main curation activity in CIViC involves adding and editing evidence statements. Below we have provided a screencast entitled, `Adding CIViC Evidence <https://www.youtube.com/watch?v=od5Tgdfo6Qs>`_ to walk users through creating an evidence item in CIViC. This screencast covers:
 
 - Scanning a publication for curatable details
 - Signing into CIViC to Add Evidence
@@ -101,7 +101,7 @@ More information on evidence Items can be found on the CIViC Help Pages under `E
 Editing entities in CIViC
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Any item in the CIViC interface can be edited using the pencil icon. TO DO: insert pencil icon
-Below we have provided a screencast entitled, `Editing entities in CIViC <https://www.youtube.com/watch?v=uss4R20ymPA>`_ to walk users through editing items (i.e., evidence, variants, genes or assertions)  in CIViC. This screencast covers:
+Below we have provided a screencast entitled, `Editing entities in CIViC <https://www.youtube.com/watch?v=uss4R20ymPA>`_ to walk users through editing items (i.e., evidence, variants, genes or assertions) in CIViC. This screencast covers:
 
 - Navigating to an entity's Edit Form
 - Importance of edit comments
