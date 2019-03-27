@@ -4,7 +4,7 @@
 Build Custom Capture Panel
 ==========================
 
-In this section we will use the CIViC interface to identify variants of interest for custom capture. The interface will then be used to download variants of interest, associated clinical descriptions, and curated coordinates. We will then open an interactive jupyter notebook to format the variant coordinates for probe development. The output from this exercise will be a file that is compatible with commercial probe development companies for custom panel development.
+In this section we will use the CIViC interface to identify variants of interest for custom capture. The interface will then be used to download variants of interest, associated clinical descriptions, and curated coordinates. We will then open an interactive jupyter notebook to reformat the variant coordinates for probe development. The output from this exercise will be a file that is compatible with commercial probe development companies for custom panel development.
 
 We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in CIViC variants derived from the CIViC Search interface and create a list of genomic coordinates that require capture. While you are reading the tutorial, open the link provided below to start the process of loading a Binder Notebook (Note: loading the Jupyter Notebook can take 5-10 minutes):
 
@@ -53,9 +53,9 @@ Although this screencast provides one method to create a variant pool, there are
 Categorize variants based on variant length
 -------------------------------------------
 
-The CSV file developed using the CIViC Search interface contains the genomic coordinates that encapsulate the variants of interest (i.e., Custom CIViC Variants). Each line in this file represents a single variant that requires probe development. However, before designing probes for these variants, we must further categorize each variant by variant length. This can be accomplished by using CIViC curated coordinates (i.e., variant start position minus variant stop position). If the variant length is less than 250 base pairs, the variant is eligible for hotspot targeting. If the variant is >250 base pairs, the variant requires tiling of the protein coding exons. For variants that require tiling, there are two different types of tiling.
+The CSV file developed using the CIViC Search interface contains the genomic coordinates that encapsulate the variants of interest (i.e., Custom CIViC Variants). Each line in this file represents a single variant that requires probe development. However, before designing probes for these variants, we must further categorize each variant by variant length. This can be accomplished by using CIViC curated coordinates (i.e., variant start position minus variant stop position plus one). If the variant length is less than 250 base pairs, the variant is eligible for hotspot targeting. If the variant is >250 base pairs, the variant requires tiling of the protein coding exons. For variants that require tiling, there are two different types of tiling.
 
-For variants that are large-scale copy number variants (i.e., “AMPLIFICATION”, “LOSS”, “DELETION”), sparse tiling is appropriate. Sparse tiling requires creating approximately 10 probes across all protein coding exons. For variants that are bucket variant, (i.e., “MUTATION”, or “FRAMESHIFT MUTATION”), full tiling is appropriate. Full tiling requires creating overlapping probes across all protein coding exon.
+For variants that are large-scale copy number variants (e.g., “AMPLIFICATION”, “LOSS”, “DELETION”, etc.), sparse tiling is appropriate. Sparse tiling requires creating approximately 10 probes spread across all protein coding exons. For variants that are bucket variants, (e.g., “MUTATION”, “FRAMESHIFT MUTATION”, etc.), full tiling is appropriate. Full tiling requires creating overlapping probes across the entire protein coding exon(s).
 
 .. image:: images/Tiling_types.png
 
@@ -68,11 +68,11 @@ Once the Jupiter Notebook is loaded, you can add your Custom CIViC Variants file
 
 .. image:: images/Upload_Variants.png
 
-To launch the Jupyter Notebook select the file entitled, "Build Probes Notebook" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_variants.tsv' - See below:
+To launch the Jupyter Notebook select the file entitled, "Build Probes Notebook" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_create_variants.tsv' - See below:
 
 .. image:: images/Run_variants_to_probes.png
 
-Once you have changed the input file name, hold down the "Shift" key and select "Enter" to parse your Custom CIViC variants. Once the code is done, two new files will appear in the home directory:
+Once you have changed the input file name, hold down the "Shift" key and select "Enter" to process your Custom CIViC variants. Once the code is done, two new files will appear in the home directory:
 	- IDT_INPUT_custom_CIViC_variants.txt = coordinates for all probes required to capture variants of interest without annotation
 	- REFERENCE_custom_CIViC_variants.txt = list of all probes required to capture variants of interest with annotation (gene name, probe id, type of tiling)
 
@@ -80,7 +80,7 @@ You can download these files to your local computer by checking the box next to 
 
 .. image:: images/Download_variants.png
 
-The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as the input file for probe design. This file should be a tab separated text file whereby each row represents a genomic region that requires coverage. An example file is shown below:
+The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as an example input file, suitable for IDT probe design. This file should be a tab separated text file whereby each row represents a genomic region that requires coverage. An example file is shown below:
 
 .. image:: images/Example_BED.png
 
@@ -89,7 +89,7 @@ The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as the input 
 Build custom capture panel
 ---------------------------
 
-After generating the Categorized_custom_CIViC_variants.txt.bed file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
+After generating the IDT_INPUT_custom_CIViC_variants.txt file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
 
 	- `Integrated DNA Technologies (IDT) Custom Probes <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture/custom-probes-panels>`_
 
