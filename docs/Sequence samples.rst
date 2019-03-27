@@ -38,9 +38,9 @@ Nucleic acid generation
 
 If samples are stored as FFPE blocks, they require FFPE DNA extraction. This can be accomplished using commercially available kits (e.g., INSERT). In general, these kits require paraffin removal and tissue rehydration, tissue digestion, mild reversal of cross-linkage, and nucleic acid purification. If samples are stored as fresh-frozen tissue blocks, they only require nucleic acid purification.
 
-Nucleic acid purification requires cell lysis, binding of nucleic acid, washing off non nucleic acid material, drying of nucleic acid, and elution into a buffer. There are many commercially available kits that can perform nucleic acid purification (e.g., ). These steps can also be automated using commercially available equipment (e.g., `QIAsymphony® SP <https://agtc.med.wayne.edu/pdfs/qiasymphony_sp_brochure.pdfn>`_, `NUCLISENS® easyMAG® <https://www.mediray.co.nz/media/15757/om_biomerieux_nucleic-acids-isolation_nuclei-sens-user-manual-easymag.pdf>`_, etc.). Below we describe each step in detail:
+Nucleic acid purification requires cell lysis, binding of nucleic acid, washing off non nucleic acid material, drying of nucleic acid, and elution into a buffer. There are many commercially available kits that can perform nucleic acid purification (e.g., INSERT). These steps can also be automated using commercially available equipment (e.g., `QIAsymphony® SP <https://agtc.med.wayne.edu/pdfs/qiasymphony_sp_brochure.pdfn>`_, `NUCLISENS® easyMAG® <https://www.mediray.co.nz/media/15757/om_biomerieux_nucleic-acids-isolation_nuclei-sens-user-manual-easymag.pdf>`_, etc.). Below we describe each step in detail:
 
-	1) **Lyse**: Tissue samples are typically stored as whole cells. The lysis step is used to disrupt the cellular membrane to expose the nucleic acid. Lysis buffers typically comprises a chaotropic agent, which breaks the hydrogen bonds network between water molecules and optionally a surfactant to lower surface tension between membrane components and nucleic acid-containing solution. Some chaotropic agents can include: guanidium thiocyanate or magnesium chloride. Some surfactants can include: Triton-X-100, or sodium dodecyl sulfate.
+	1) **Lyse**: Tissue samples are typically stored as whole cells. The lysis step is used to disrupt the cellular membrane to expose the nucleic acid. Lysis buffers typically comprises a chaotropic agent, which breaks the hydrogen bond network between water molecules and optionally a surfactant to lower surface tension between membrane components and nucleic acid-containing solution. Some chaotropic agents can include: guanidium thiocyanate or magnesium chloride. Some surfactants can include: Triton-X-100, or sodium dodecyl sulfate.
  
 	2) **Bind**: After nucleic acid has been suspended in solution, it can be reversibly bound to a positively charged material for purification. These materials can include magnetic particles, columns, filters, silica beads, or organic solvent-based methods. 
 
@@ -54,15 +54,15 @@ Nucleic acid purification requires cell lysis, binding of nucleic acid, washing 
 
 	7) **Quality check**: After the nucleic acid generation step, it is recommended to assess the quantity and quality of the final elution. This can be accomplished using spectrophotometry and/or electropherograms.
 
-		- **Spectrophotometry** measures a substance's ability to absorb a specific wavelength, which in turn is a proxy for concentration and purity. First, the sample is exposed an ultraviolet light at a wavelength of 260 nanometres (nm) and the DNA and RNA in the sample will absorb a relative amount of the light that is proportional to the concentration. Next a photo-detector measures the light that passes through the sample (i.e., not absorbed), which allows you to calculate the quantification of DNA/RNA in the sample. `Nucleic acid quantification <https://en.wikipedia.org/wiki/Nucleic_acid_quantitation>`_ using spectrophotometry relies on the `Beer–Lambert law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_. 
+		- **Spectrophotometry** measures a substance's ability to absorb a specific wavelength, which in turn is a proxy for concentration and purity. First, the sample is exposed to an ultraviolet light at a wavelength of 260 nanometres (nm) and the DNA and RNA in the sample will absorb a relative amount of the light that is proportional to the concentration. Next a photo-detector measures the light that passes through the sample (i.e., not absorbed), which allows you to calculate the quantification of DNA/RNA in the sample. `Nucleic acid quantification <https://en.wikipedia.org/wiki/Nucleic_acid_quantitation>`_ using spectrophotometry relies on the `Beer–Lambert law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_. 
 
-		- **Electropherograms** measure the nucleic acid concentration and size using a fluorescent spectrum. The `Agilent 2100 Bioanalyzer <https://ipmb.sinica.edu.tw/microarray/index.files/Agilent%202100%20Bioanalyzer%20user%20guide.pdf>`_ evaluates the sample using spectrum of fluorescents. The `Qubit 4 Fluorometer <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0017209_Qubit_4_Fluorometer_UG.pdf&title=VXNlciBHdWlkZTogUXViaXQgNCBGbHVvcm9tZXRlcg==>`_ utilizes fluorescent dyes that are specific to the target of interest.
+		- **Electropherograms** measure the nucleic acid concentration and size using a fluorescent spectrum. The `Agilent 2100 Bioanalyzer <https://ipmb.sinica.edu.tw/microarray/index.files/Agilent%202100%20Bioanalyzer%20user%20guide.pdf>`_ evaluates the sample using a spectrum of fluorescents. The `Qubit 4 Fluorometer <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0017209_Qubit_4_Fluorometer_UG.pdf&title=VXNlciBHdWlkZTogUXViaXQgNCBGbHVvcm9tZXRlcg==>`_ utilizes fluorescent dyes that are specific to the target of interest.
 
 -----------------------------
-Target enrichment strategies
+Library construction
 -----------------------------
 
-Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing. In advance of next-generation sequencing (NGS) development of these libraries typically require genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
+In advance of next-generation sequencing (NGS) construction of so-called sequencing libraries typically requires genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
 
 	1) **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. 
 		- Physical fragmentation methods including sonication, nebulization or enzymatic reactions. 
@@ -71,6 +71,12 @@ Target enrichment strategies are used to generate a specific collection of DNA f
 	2) **Adding adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors allow users to tag molecules for sequencing as well as employ unique molecular identifier (UMI) strategies.
 
 	3) **PCR amplification** is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA.
+
+-----------------------------
+Target enrichment strategies
+-----------------------------
+
+Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing.
 
 >>>>>>>>>>>>>>>>>>>>>>>
 Hybridization Capture
