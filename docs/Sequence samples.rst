@@ -62,27 +62,27 @@ Nucleic acid purification requires cell lysis, binding of nucleic acid, washing 
 Library construction
 -----------------------------
 
-In advance of next-generation sequencing (NGS) construction of so-called sequencing libraries typically requires genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
+In advance of next-generation sequencing (NGS), construction of sequencing libraries is first required. This typically requires genomic fragmentation, ligation to custom linkers called adapters, and polymerase chain reaction (PCR) amplification.
 
-	1) **Genome fragmentation** requires breaking the DNA into smaller pieces using physical or chemical means. 
-		- Physical fragmentation methods including sonication, nebulization or enzymatic reactions. 
+	1) **Genome fragmentation** involves breaking the DNA into smaller pieces using physical or chemical means. 
+		- Physical fragmentation methods include sonication, nebulization or enzymatic reactions. 
 		- Chemical fragmentation relies on hydroxyl radicals to break DNA into fragments, which can accommodate more material, but can induce false positives through novel mutations or transversion artifacts.
 
-	2) **Adding adaptors** are chemically synthesized double stranded DNA molecules that tag individual reads. These adaptors allow users to tag molecules for sequencing as well as employ unique molecular identifier (UMI) strategies.
+	2) **Adaptors** are chemically synthesized double stranded DNA molecules that make sequencing reactions possible. Adaptors are ligated to DNA fragments and may include sequences to allow binding to a flowcell, sequencing primer sites, sample indexes, unique molecular identifier (UMI) sequences, etc.
 
-	3) **PCR amplification** is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA.
+	3) **PCR amplification** is a method to make many copies of a specific DNA segment. PCR requires first denaturing dsDNA to create ssDNA using heat, binding of targeted primers to ssDNA fragments, and elongation of ssDNA to create a copied dsDNA. Amplification is typically performed at multiple steps in the sequencing pipeline.
 
 -----------------------------
 Target enrichment strategies
 -----------------------------
 
-Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing.
+Target enrichment strategies are used to generate a specific collection of DNA fragments for sequencing. These enrichment strategies are often performed on the constructed sequence library or incorporated into a library construction step.
 
 >>>>>>>>>>>>>>>>>>>>>>>
 Hybridization Capture
 >>>>>>>>>>>>>>>>>>>>>>>
 
-Hybridization capture requires designing specific primers that bind to regions of interest and isolating these bound DNA fragments using chemistry (e.g., Strepavidin Beads). All genomic DNA that is not bound to the capture probes will be washed away and not eligible for amplification. The remaining DNA, which is enriched for regions of interest, is amplified using PCR and sequenced. Reagents that use hybridization capture include: `Swift BioSciences <https://swiftbiosci.com/applications/hyb-cap-seq/>`_, `IDT <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture>`_, `Agilent <https://www.agilent.com/en/product/hybridization-based-next-generation-sequencing-(ngs)>`_, among others. The process for hybridization capture described below:
+Hybridization capture requires designing specific primers that bind to regions of interest and isolating these bound DNA fragments using chemistry (e.g., use of strepavidin Beads in combination with biotinylated DNA). Genomic DNA that is not bound to the capture probes will be washed away. The remaining DNA, which is enriched for regions of interest, is amplified using PCR and sequenced. Reagents that use hybridization capture include: `Swift BioSciences <https://swiftbiosci.com/applications/hyb-cap-seq/>`_, `IDT <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture>`_, `Agilent <https://www.agilent.com/en/product/hybridization-based-next-generation-sequencing-(ngs)>`_, among others. The process for hybridization capture is described below:
 
 .. image:: images/Hyb_capture.png
 
@@ -90,7 +90,7 @@ Hybridization capture requires designing specific primers that bind to regions o
 Amplicon Enrichment
 >>>>>>>>>>>>>>>>>>>>>>>
 
-Amplicon enrichment uses a slightly different strategy for amplification of regions of interest. This method uses two probes that flank the region of interest and PCR occurs between the designed probes . Reagents that use amplicon sequencing include: `QIAGEN <https://www.qiagen.com/us/products/ngs/ngs-life-sciences/dna-amplicon-sequencing/>`_, `Illumina <https://www.illumina.com/techniques/sequencing/dna-sequencing/targeted-resequencing/amplicon-sequencing.html>`_, and others. An example of the process of amplicon enrichment is shown below:
+Amplicon enrichment uses a slightly different strategy for enrichment of regions of interest. Instead of hybridization based capture, regions of interest are amplified by PCR using sets of primer sequences designed to target regions of interest. Reagents that use amplicon sequencing include: `QIAGEN <https://www.qiagen.com/us/products/ngs/ngs-life-sciences/dna-amplicon-sequencing/>`_, `Illumina <https://www.illumina.com/techniques/sequencing/dna-sequencing/targeted-resequencing/amplicon-sequencing.html>`_, and others. An example of the process of amplicon enrichment is shown below:
 
 .. image:: images/Amplicon_capture.png
 
@@ -99,7 +99,7 @@ Amplicon enrichment uses a slightly different strategy for amplification of regi
 Unique Molecular Identifiers
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Unique molecular identifiers (UMIs) are short sequences or molecular tags that can be added to each read during library preparation. Typically, these molecular identifiers are added prior to amplification so that they tag individual DNA molecules observed in the sample. This allows the individual to assign all amplification products to a single DNA molecule after sequencing. These tags serve to reduce the quantitative bias introduced by cDNA amplification. UMI-based sequencing can take on many forms and are unique to the individual library preparation. An example of a single molecule molecular inversion probe is provided below:
+Unique molecular identifiers (UMIs) are short sequences or molecular tags that can be added to each read during library preparation. Typically, these molecular identifiers are added prior to amplification so that they tag individual DNA molecules observed in the sample. This allows the individual to assign all amplification products to a single originating DNA molecule after sequencing. Through a process of consensus read formation, individual sequencing-related errors can be discounted, decreasing the effective error-rate of sequencing. UMI-based sequencing can take on many forms, each unique to the individual library preparation. An example of the single molecule molecular inversion probe approach is provided below:
 
 .. image:: images/smmips.png
 
@@ -107,7 +107,7 @@ Unique molecular identifiers (UMIs) are short sequences or molecular tags that c
 Other considerations
 >>>>>>>>>>>>>>>>>>>>>>
 
-Of note, for evaluation of RNA, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to subjecting to library preparation. 
+Of note, for evaluation of RNA, total RNA must be subjected to reverse transcriptase treatment (e.g., `ProtoScript® II Reverse Transcriptase <https://www.neb.com/protocols/2016/04/26/first-strand-cdna-synthesis-standard-protocol-neb-m0368>`_, `SuperScript™ III Reverse Transcriptase <https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FsuperscriptIII_man.pdf&title=U3VwZXJTY3JpcHQgSUlJIFJldmVyc2UgVHJhbnNjcmlwdGFzZQ==>`_) to generate cDNA prior to library preparation. 
 
 
 --------------------------
@@ -118,18 +118,18 @@ High throughput sequencing
 Next-generation sequencing
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Sequencing is the next step in genomic analysis pipeline. The most commonly used sequencing technique is next-generation sequencing (NGS), which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. There are two main platforms that harness the power of next-generation sequencing to efficiently sequence tumor samples:
+Sequencing is the final step in data production part of a genomic analysis pipeline. The most commonly used sequencing technique is so-called next-generation sequencing (NGS) or high-throughput sequencing, which evaluates millions of sequences in parallel to dramatically reduce time and cost of the analysis. There are at least two popular platforms (in use clinically) that harness the power of next-generation sequencing to efficiently sequence tumor samples:
 
-	- **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through polymerase chain reaction. Amplified reads are sequenced by individually adding single blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs with massive parallel sequencing to decrease time and cost of the analysis. Each run takes approximately 2-3 days to complete in under $1,000 per sample.
+	- **Illumina sequencing** anneals individual reads to a bead or plate using DNA adaptors and the molecule is amplified through PCR. Amplified reads are sequenced by individually adding single fluorescently tagged and blocked-nucleotides to the complementary DNA sequence and exposing the nucleotide to light to produce a characteristic fluorescence. These blocked-nucleotides can then be un-blocked to allow for an additional base to bind and the process repeated until the whole complementary sequence is elucidated. This platform has a high accuracy rate and can evaluate 50-300 base-pairs per read, and very high-throughput runs producing millions to billions of reads. Each run takes approximately 2-3 days to complete for as little as $1,000 per 30x whole genome sample.
 
-	- **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the power and throughput of the Illumina sequencing platform.
+	- **ThermoFisher ION Torrent** evaluates hydrogen atoms emitted during polymerization of base pairs, which can be measured as a variation in the solution’s pH. This method has a low error rate for substitutions and point mutations and it is relatively inexpensive with a fast turn-around for data production (2-7 hours per run), however, the platform has higher error rates for insertions and deletions, it cannot read long chains of mononucleotides, and it cannot currently match the throughput of the Illumina sequencing platform.
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Third generation sequencing
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Third Generation Sequencing Platforms: PacBio and NanoPore and third generation sequencing technologies that can sequence longer reads at a reduced cost to address the existing problems associated with NGS.
+Third Generation Sequencing Platforms: PacBio and NanoPore are considered third generation sequencing technologies that can sequence longer reads at a reduced cost to address the existing problems associated with NGS.
 
 	- **PacBio** utilizes hairpin adaptors to create a loop of DNA that can be fed through an immobilized polymerase to add complementary base pairs. As each nucleotide is held in the detection volume by the polymerase, a light pulse identifies the base. This platform requires high quality intact DNA with highly controlled fragmentation and can read strands up to 1Mb in length.
 
-	- **Oxford NanoPore Sequencing** utilizes biological transmembrane proteins that translocalize DNA. Measurement of changes in electoral conductivity as the DNA passes through the pore elucidates sequence reads. This platform can evaluate variable length reads and is incredibly inexpensive relative to other technologies. Specifically, the MinION device is completely portable, commercially available and can evaluate 20-100MB per run. The tradeoff is its low fidelity rate of only 85%.
+	- **Oxford NanoPore Sequencing** utilizes biological transmembrane proteins that translocalize DNA. Measurement of changes in electoral conductivity as the DNA passes through the pore elucidates sequence reads. This platform can evaluate variable length reads and is inexpensive relative to other technologies. Specifically, the MinION device is completely portable, commercially available and can evaluate 20-100MB per run. The tradeoff is its low fidelity rate of only ~85%.
