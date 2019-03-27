@@ -4,7 +4,7 @@
 Sequence Samples
 ==================
 
-This section describes the massively parallel sequencing pipeline. We first detail methods for samples procurement and nucleic acid extraction. Subsequently we provide an overview of library preparation, target enrichment, and next-generation sequencing (NGS). We also touch on new methods for NGS, which includes describing PacBio and NanoPore Sequencing. This high-level overview gives brief insight into how we employ custom capture reagents on tumor samples to enriched capture for variants of interest.
+This section describes the massively parallel sequencing pipeline. We first detail methods for sample procurement and nucleic acid extraction. Subsequently we provide an overview of library preparation, target enrichment, and next-generation sequencing (NGS). We also touch on new methods for NGS, which includes describing PacBio and NanoPore Sequencing. This high-level overview gives brief insight into how we employ custom capture reagents on tumor samples to enrich for variants of interest. Note, there are many variations of the following sequencing pipeline that may be appropriate for the individual researcher or clinical use case. This section is meant to provide a general overview of a typical pipeline.
 
 ------------------
 Sample procurement
@@ -19,15 +19,15 @@ For the analysis described here, samples must be derived from a germline tissue 
 
 .. image:: images/sample_procurement.png
 
-It is important to note that blood samples cannot be used as the normal samples for solid cancers if the tumor is metastatic with high circulating tumor cells. In these cases, buccal swabs or skin biopsies are better for tumor normal comparisons.
+It is important to note that blood samples may not be suitable as the normal samples for solid cancers if the tumor is metastatic with high circulating tumor cells or circulating tumor DNA. In these cases, buccal swabs or skin biopsies may be better for tumor-normal comparisons.
 
 ---------------
 Sample storage
 ---------------
 
-Once samples are procured, they can be fresh-frozen (FF) or formalin-fixed paraffin-embedded (FFPE).
+Once samples are procured, they are typically preserved as fresh-frozen (FF) or formalin-fixed paraffin-embedded (FFPE) specimens.
 
-- **Fresh Frozen**: As soon as samples are obtained, fresh frozen preparation requires exposing the sample to liquid nitrogen as quickly as possible. Samples must subsequently be stored  in −80°C freezers until extraction.
+- **Fresh Frozen**: As soon as samples are obtained, fresh frozen preparation requires exposing the sample to liquid nitrogen as quickly as possible. Samples must subsequently be stored in −80°C freezers until extraction.
 
 - **Formalin-fixed paraffin-embedded**: FFPE samples can be prepared using a variety of available kits (e.g., `QIAamp DNA FFPE Tissue Kit <https://www.horizondiscovery.com/media/resources/Miscellaneous/reference-standards/QIAamp%20DNA%20FFPE%20Tissue%20Kit%20Guidelines%20Digital%20(DISTRIBUTION).pdf>`_, `MagMAX™ FFPE DNA/RNA Ultra Kit <http://tools.thermofisher.com/content/sfs/manuals/MAN0015877_MagMAX_FFPE_DNA_RNA_Ultra_UG.pdf>`_, `Quick-DNA/RNA FFPE Miniprep Kit <https://files.zymoresearch.com/protocols/_d3067_quick-dna_ffpe_miniprep.pdf>`_, etc.). 
 
