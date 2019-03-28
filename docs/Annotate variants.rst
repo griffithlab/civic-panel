@@ -53,7 +53,12 @@ Once you have configured the input variables, you can run the command by holding
 OpenCAP Output File
 >>>>>>>>>>>>>>>>>>>>>
 
-After you run Identified_variants_to_annotation.py using the Jupyter Notebook, a file will be generated in the home directory. This file name will start with the sample name and will end with `"OpenCAP_report.docx"`. Select this file to download the OpenCAP report for your sample. The report will look something like the following:
+After you run Identified_variants_to_annotation.py using the Jupyter Notebook, a file will be generated in the home directory. This file name will start with the sample name and will end with `"OpenCAP_report.docx"`. Select this file to download the OpenCAP report for your sample. The following screenshot shows you how to download these reports:
+
+.. image:: images/download_OpenCap_report.png
+
+
+The report will look something like the following:
 
 .. image:: images/OpenCap_report.png
 
