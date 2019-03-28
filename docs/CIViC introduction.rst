@@ -20,7 +20,7 @@ gene level. An example of this hierarchy has been provided:
 What is an Assertion?
 ----------------------
 
-Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregate individual evidence items into a single assessment of the clinical relevance of a variant in a specific disease setting. Assertions allow for incorporation of guidelines and varying levels of specificity (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
+Evidence items can also be used to build `Assertions <https://civicdb.org/help/evidence/overview>`_. CIViC assertions aggregate individual evidence items into a single assessment of the clinical relevance of a variant in a specific disease setting. Assertions also allow for incorporation of guidelines (e.g., ACMG, FDA companion tests, drug approvals, AMP variant levels, NCCN guidelines, etc.). An example of a CIViC assertion is shown below:
 
 .. image:: images/Assertion_Example.png
 
