@@ -21,6 +21,8 @@ from os import path
 import sys
 import shutil
 import subprocess
+import warnings
+warnings.filterwarnings('ignore')
 
 bin_dir = path.dirname(sys.executable)
 os.environ['PATH'] += os.pathsep + bin_dir
@@ -123,3 +125,5 @@ probe_list = create_probe_list(CIViC_variants)
 #Output probe list to output path
 probe_list.iloc[:,0:3].to_csv('IDT_INPUT_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
 probe_list.to_csv('REFERENCE_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
+
+print('Panel generation has been successfully completed!')

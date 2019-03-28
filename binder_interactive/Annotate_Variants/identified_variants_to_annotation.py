@@ -19,6 +19,8 @@ import pandas as pd
 import datetime
 import myvariant
 import requests
+import warnings
+warnings.filterwarnings('ignore')
 
 
 # Pull in variant file
@@ -256,4 +258,6 @@ for section in sections:
     section.right_margin = Inches(.5)
 
 # SAVe DOCUMENTS
-document.save(sample_name + '_OpenCAP_report.docx')   
+document.save(sample_name + '_OpenCAP_report.docx') 
+
+print('Variant annotation has been successfully completed!')  
