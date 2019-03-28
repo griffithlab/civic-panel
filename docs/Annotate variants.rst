@@ -4,14 +4,14 @@
 Annotate variants
 =================
 
-After defining a putative list of somatic variants associated with the patient's tumor, this section describes how to ink variants back to the CIViC database to annotate the sample for clinical relevance. We again use an interactive jupyter notebook to pull in somatic variants calls and output a report that can be easily consumed by the user. 
+After identifying a putative list of somatic variants associated with the patient's tumor, this section describes how to link variants back to the CIViC database to annotate the sample/variants for clinical relevance. We again use an interactive interface (jupyter notebook) to import somatic variants calls and output a report that can be easily consumed by the user. 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 Build Binder Docker Image
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in a BED/BED-like file and link variant annotation CIViC for all variants that have CIViC curation. The input file. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
+We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupyterpdf/download>`_ that contains code to pull in a BED/BED-like file and link variants to clinical relevance annotations for all variants that have CIViC curation. Please open the link provided below to start this process (Note: loading the Jupyter Notebook can take 5-10 minutes):
 
 `Build Jupyter Notebook <https://mybinder.org/v2/gh/griffithlab/civic-panel/master?filepath=%2Fbinder_interactive%2FAnnotate_Variants>`_
 
@@ -20,11 +20,11 @@ We have built a `Binder Jupyter Notebook <https://www.simula.no/file/projectjupy
 Docker Image Set-up
 >>>>>>>>>>>>>>>>>>>
 
-Once you open the docker image, the interface should look as follows:
+Once the Jupiter Notebook is loaded, the interface should look as follows:
 
 .. image:: images/Annotate_Variants_docker.png
 
-**Annotate Variants Notebook.ipynb** = This notebook is an interactive docker session that allows users to run python scripts. The specific notebook in this section is set up to run Identified_variants_to_annotation.py. To use this notebook, you must change the input variables (input variant list  ) 
+**Annotate Variants Notebook.ipynb** = This notebook is an interactive session that allows users to run python scripts. The specific notebook in this section is set up to run Identified_variants_to_annotation.py. To use this notebook, you must change the input variables (input variant list) 
 
 .. image:: images/Annotate_Notebook.png
 
@@ -40,13 +40,13 @@ Run OpenCAP in Binder
 
 Using the Binder Docker Image created above, you can run the provided identified_variants_to_annotation.py script. This script will take in variants from the sequencing pipeline and output a document with annotation information.
 
-Before running the Jupyter Notebook cells, you must upload your somatic variants to the home directory. This can be accomplished by selection the "upload" button on the home directory:
+Before running the Jupyter Notebook code blocks, you must upload your somatic variants to the home directory. This can be accomplished using the "upload" button on the home directory:
 
 .. image:: images/Annotate_upload.png
 
 You must also change the sample name to match the sample name of the associated somatic variants. This name will be used to label the output files.
 
-Once you have configured the input variables, you can run the cell by holding the "shift" key and selecting "enter".
+Once you have configured the input variables, you can run the command by holding the "shift" key and selecting "enter".
 
 
 >>>>>>>>>>>>>>>>>>>>>
@@ -57,7 +57,7 @@ After you run Identified_variants_to_annotation.py using the Jupyter Notebook, a
 
 .. image:: images/OpenCap_report.png
 
-For a variant to be included in OpenCAP it must be a perfect match (i.e., chromosome, start, stop, reference, variant). Currently, OpenCAP does not support matching bucket variants (e.g., TP53 - MUTATION) or variants without specific genomic changes (e.g., KRAS - G12*). We hope to improve the pipeline overtime to allow for annotation of these variants.
+For a variant to be included in OpenCAP it must be a perfect match (i.e., chromosome, start, stop, reference, variant). Currently, OpenCAP does not support matching bucket variants (e.g., TP53 - MUTATION) or variants without specific genomic changes (e.g., KRAS - G12*). We hope to improve the pipeline over time to allow for annotation of these variants.
 
 For somatic variants that have a perfect match with a CIViC entry, a "Clinical Variant" section has been created for this variant. For each entry, the annotation has four distinct parts:
 
