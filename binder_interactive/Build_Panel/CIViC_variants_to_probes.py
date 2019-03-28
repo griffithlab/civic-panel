@@ -123,7 +123,7 @@ def create_probe_list(CIViC_variants):
 probe_list = create_probe_list(CIViC_variants)
 
 #Output probe list to output path
-probe_list.iloc[:,0:3].to_csv('IDT_INPUT_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
+probe_list.iloc[:,0:3].to_csv('INPUT_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
 probe_list.to_csv('REFERENCE_custom_CIViC_variants.txt', index=False, sep='\t', header=False)
 
 print('Panel generation has been successfully completed!')

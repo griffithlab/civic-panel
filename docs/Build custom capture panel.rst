@@ -21,6 +21,8 @@ To identify variants for capture, users can add conditions (i.e., search criteri
 
 .. image:: images/download_variants_image.png
 
+An example file output created from the CIViC interface can be viewed on the GitHub Repository `<https://raw.githubusercontent.com/griffithlab/civic-panel/master/binder_interactive/Build_Panel/test_create_variants.tsv>`_
+
 Although this screenshot provides one method to create a variant pool, there are many other examples of criteria that can be useful for identifying variants. Below we have provided a few additional examples of fields that might be helpful for building variant prioritization conditions. Each field has an associated description and links to help documents if applicable.
 
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------+
@@ -64,19 +66,19 @@ Once the Jupiter Notebook is loaded, you can add your Custom CIViC Variants file
 
 .. image:: images/Upload_Variants.png
 
-To launch the Jupyter Notebook select the file entitled, "Build Probes Notebook" in the home directory. Selecting this file will direct you to a new tab in the same browser. Instructions for how to run the cells are provided in the notebook. In the Jupyter Notebook cell, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_create_variants.tsv' - See below:
+To launch the Jupyter Notebook select the file entitled, "Build Probes Notebook" in the home directory. Selecting this file will direct you to a new tab in the same browser. Each Jupiter Notebook consist of cells which can contain text or code. Running a cell will execute entered functions. A cell can be run by selecting the cell, holding down the "Shift" key and pressing enter. Instructions for how to run the cells are also provided in the notebook. In the Jupyter Notebook cell that contains the python script, ensure that you change the input variant list file name to match the Custom CIViC Variants file that you uploaded to the home directory. The default file name is 'test_create_variants.tsv' - See below:
 
 .. image:: images/Run_variants_to_probes.png
 
 Once you have changed the input file name, hold down the "Shift" key and select "Enter" to process your Custom CIViC variants. Once the code is done, two new files will appear in the home directory:
-	- IDT_INPUT_custom_CIViC_variants.txt = coordinates for all probes required to capture variants of interest without annotation
+	- INPUT_custom_CIViC_variants.txt = coordinates for all probes required to capture variants of interest without annotation
 	- REFERENCE_custom_CIViC_variants.txt = list of all probes required to capture variants of interest with annotation (gene name, probe id, type of tiling)
 
 You can download these files to your local computer by checking the box next to the file of interest and selecting the "Download" button:
 
 .. image:: images/Download_variants.png
 
-The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as an example input file, suitable for IDT probe design. This file should be a tab separated text file whereby each row represents a genomic region that requires coverage. An example file is shown below:
+The file entitled "INPUT_custom_CIViC_variants.txt" will serve as an example input file, suitable for IDT probe design. This file should be a tab separated text file whereby each row represents a genomic region that requires coverage. An example file is shown below:
 
 .. image:: images/Example_BED.png
 
@@ -85,7 +87,7 @@ The file entitled "IDT_INPUT_custom_CIViC_variants.txt" will serve as an example
 Build custom capture panel
 ---------------------------
 
-After generating the IDT_INPUT_custom_CIViC_variants.txt file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
+After generating the INPUT_custom_CIViC_variants.txt file. You can access custom probe software provided by commercial entities for reagent development. Some of these entities include:
 
 	- `Integrated DNA Technologies (IDT) Custom Probes <https://www.idtdna.com/pages/products/next-generation-sequencing/hybridization-capture/custom-probes-panels>`_
 
@@ -93,7 +95,7 @@ After generating the IDT_INPUT_custom_CIViC_variants.txt file. You can access cu
 
 	- `NimbleGen SeqCap <https://sequencing.roche.com/en/products-solutions/by-category/target-enrichment/hybridization/seqcap-ez-prime-choice-probes.html>`_
 
-We will demonstrate custom capture panel development using the `IDT Target Capture Probe Design & Ordering Tool <https://www.idtdna.com/site/order/ngs>`_. First, under "Input Format", select the "Coordinates (BED)" option. Next, select the "Upload File" option and click on the upload human genomic coordinates button. Upload the file that was prepared using the CIViC interface (IDT_INPUT_custom_CIViC_variants.txt).
+We will demonstrate custom capture panel development using the `IDT Target Capture Probe Design & Ordering Tool <https://www.idtdna.com/site/order/ngs>`_. First, under "Input Format", select the "Coordinates (BED)" option. Next, select the "Upload File" option and click on the upload human genomic coordinates button. Upload the file that was prepared using the CIViC interface (INPUT_custom_CIViC_variants.txt).
 
 We also recommend looking at the Design Parameters to ensure proper capture design. Ensure that the following parameters are selected: 
 	- Target species = "Human (Feb. 2009 GRCh37/hg19)"
