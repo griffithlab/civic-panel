@@ -30,7 +30,7 @@ shutil.which('bedtools')
 subprocess.run(['bedtools', '--help'])
 
 #Read input file
-CIViC_variants = pd.read_csv(sys.argv[1], sep='\t')
+CIViC_variants = pd.read_csv(sys.argv[1])
 
 #Connect to the Ensembl BioMart Server
 server = Server(host='grch37.ensembl.org')
@@ -97,10 +97,10 @@ def create_probe_list(CIViC_variants):
                 #change varinat type to 'full tiling'
                 variant_type = 'sparse tiling'
                 #Create a probe for each consecutive genomic region across large variant
-                for i,row in final_region.iterrows():
-                    chromosome = 'chr' + str(row[0])
+                for i,thing in final_region.iterrows():
+                    chromosome = 'chr' + str(thing[0])
                     #find the middle of each exon
-                    middle = (row[1] + row[2]) / 2
+                    middle = (thing[1] + thing[2]) / 2
                     #add 60 bp above and below middle region
                     start = int(middle - 60)
                     stop = int(middle + 60)
@@ -113,12 +113,12 @@ def create_probe_list(CIViC_variants):
                 #change varinat type to 'full tiling'
                 variant_type = 'full tiling'
                 #Create a probe for each consecutive genomic region across large variant
-                for i,row in final_region.iterrows():
-                    chromosome = 'chr' + str(row[0])
-                    start = int(row[1])
-                    stop = int(row[2])
+                for i,thing in final_region.iterrows():
+                    chromosome = 'chr' + str(thing[0])
+                    start = int(thing[1])
+                    stop = int(thing[2])
                     probes_list.append([chromosome, start, stop, variant, gene, str(i + 1) + '-' + gene + '_' + variant, variant_type])
-        if 'Chromosome 2':
+        if not pd.isnull(row['Chromosome 2']):
             chrom = 'chr' + str(row['Chromosome 2'])
             start = int(row['Chromosome 2 Start'])
             stop = int(row['Chromosome 2 Stop'])
