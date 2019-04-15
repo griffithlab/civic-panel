@@ -17,7 +17,7 @@ Welcome to OpenCAP's documentation!
    OpenCAP introduction
    Build custom capture panel
    Sequence samples
-   Identify somatic variants
+   Identify variants
    Annotate variants
 
 Indices and tables
