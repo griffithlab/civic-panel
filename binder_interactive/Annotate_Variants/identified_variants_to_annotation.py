@@ -12,9 +12,9 @@ Arguments:
     
 """
 import sys
-from docx import Document
+from docx import Document, oxml, opc
 from docx.shared import Inches
-from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.enum.dml import MSO_THEME_COLOR_INDEX
 import pandas as pd
 import datetime
 import myvariant
@@ -29,6 +29,36 @@ sample_name = sys.argv[2]
 
 #Crate myvarinat info pull
 mv = myvariant.MyVariantInfo()
+
+# Create function to add hyperlinks for evidence IDs
+def add_hyperlink(paragraph, text, url):
+    # This gets access to the document.xml.rels file and gets a new relation id value
+    part = paragraph.part
+    r_id = part.relate_to(url, opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+
+    # Create the w:hyperlink tag and add needed values
+    hyperlink = oxml.shared.OxmlElement('w:hyperlink')
+    hyperlink.set(oxml.shared.qn('r:id'), r_id, )
+
+    # Create a w:r element and a new w:rPr element
+    new_run = oxml.shared.OxmlElement('w:r')
+    rPr = oxml.shared.OxmlElement('w:rPr')
+
+    # Join all the xml elements together add add the required text to the w:r element
+    new_run.append(rPr)
+    new_run.text = text
+    hyperlink.append(new_run)
+
+    # Create a new Run object and add the hyperlink into it
+    r = paragraph.add_run ()
+    r._r.append (hyperlink)
+
+    # A workaround for the lack of a hyperlink style (doesn't go purple after using the link)
+    # Delete this if using a template that has the hyperlink style in it
+    r.font.color.theme_color = MSO_THEME_COLOR_INDEX.HYPERLINK
+    r.font.underline = True
+
+    return hyperlink
 
 # Create function to pull evidence statements from CIViC Directory derived from myvariant info
 def get_evidence_statements(civic_directory):
@@ -214,28 +244,34 @@ for i,row in somatic_variants.iterrows():
             # Evidence Statements
             document.add_heading('Associated Evidence Items:', 3)
             
-            table = document.add_table(rows=1, cols=3, style = 'Table Grid')
-            table.alignment = WD_TABLE_ALIGNMENT.CENTER
-            hdr_cells = table.rows[0].cells
-            run = hdr_cells[0].paragraphs[0].add_run('Description')
-            run.bold = True
-            run = hdr_cells[1].paragraphs[0].add_run('CIViC EID')
-            run.bold = True
-            run = hdr_cells[2].paragraphs[0].add_run('PubMedID')
-            run.bold = True
-                
+
             for k,v in evidence_items.items():
-                row_cells = table.add_row().cells
-                row_cells[0].text = str(k)
-                row_cells[1].text = str(", ".join(v[0]))
-                row_cells[2].text = str(", ".join(v[1]))
-                
-            for cell in table.columns[0].cells:
-                cell.width = Inches(4.5)
-            for cell in table.columns[1].cells:
-                cell.width = Inches(1.5)
-            for cell in table.columns[2].cells:
-                cell.width = Inches(1.5)
+                p = document.add_paragraph()
+                p.add_run('Description: ').bold = True
+                p.add_run(str(k))
+                p = document.add_paragraph(style='List Bullet')
+                p.add_run('CIViC EID(s): ').bold = True
+                civic_eid_count = 0
+                for civic_eid in v[0]:
+                    civic_eid_count += 1
+                    if civic_eid_count == 1:
+                        add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
+                    if civic_eid_count > 1:
+                        p.add_run(', ')
+                        add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
+                p = document.add_paragraph(style='List Bullet')
+                p.add_run('PubMed ID(s): ').bold = True
+                pubmed_id_count = 0
+                for pubmed_id in v[1]:
+                    pubmed_id_count += 1
+                    if pubmed_id_count == 1:
+                        add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
+                    if pubmed_id_count > 1:
+                        p.add_run(', ')
+                        add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
+                # row_cells[1].text = str(", ".join(v[0]))
+                # row_cells[2].text = str(", ".join(v[1]))
+
 
 document.add_heading('Processing information', 1)
 
