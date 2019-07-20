@@ -79,51 +79,52 @@ def get_evidence_statements(civic_directory):
                 initial = str(gene) +  ' ' +str(variant) +  ' ' +evidence['evidence_direction']+ ' ' + evidence['clinical_significance']
             CIViC_EID =  evidence['name']
             PubmedID = str(evidence['source']['citation_id'])
+            Source = str(evidence['source']['citation'])
 
             #PREDICTIVE
             if evidence['evidence_type'] == 'Predictive':
                 if 'drug_interaction_type' not in evidence:
-                    evidence_statements.append([initial + ' to ' + evidence['drugs'][0]['name'] + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID])
+                    evidence_statements.append([initial + ' to ' + evidence['drugs'][0]['name'] + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID, Source])
 
                 elif evidence['drug_interaction_type'] == 'Combination':
                         drug_list = []
                         for drug in evidence['drugs']:
                             drug_list.append(drug['name'])
-                        evidence_statements.append([initial + ' to ' + 'combination of ' + ', '.join(drug_list[:-1]) + ' and ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID])
+                        evidence_statements.append([initial + ' to ' + 'combination of ' + ', '.join(drug_list[:-1]) + ' and ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID, Source])
 
 
                 elif evidence['drug_interaction_type'] == 'Substitutes':
                         drug_list = []
                         for drug in evidence['drugs']:
                             drug_list.append(drug['name'])
-                        evidence_statements.append([initial + ' to ' + ', '.join(drug_list[:-1]) + ' or ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID])
+                        evidence_statements.append([initial + ' to ' + ', '.join(drug_list[:-1]) + ' or ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID, Source])
 
                 elif evidence['drug_interaction_type'] == 'Substitutes':
                         drug_list = []
                         for drug in evidence['drugs']:
                             drug_list.append(drug['name'])
-                        evidence_statements.append([initial + ' to ' + ', '.join(drug_list[:-1]) + ' or ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID])
+                        evidence_statements.append([initial + ' to ' + ', '.join(drug_list[:-1]) + ' or ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID, Source])
 
                 elif evidence['drug_interaction_type'] == 'Sequential':
                         drug_list = []
                         for drug in evidence['drugs']:
                             drug_list.append(drug['name'])
-                        evidence_statements.append([initial + ' to ' + 'sequence of ' + ', '.join(drug_list[:-1]) + ' and ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID])
+                        evidence_statements.append([initial + ' to ' + 'sequence of ' + ', '.join(drug_list[:-1]) + ' and ' + str(drug_list[-1]) + ' for patients with ' + evidence['disease'][ 'name'], CIViC_EID, PubmedID, Source])
 
 
             #CREATE PROGNOSTIC EVIDENCE STATEMENT
             if evidence['evidence_type'] == 'Prognostic':
-                evidence_statements.append([initial + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID])
+                evidence_statements.append([initial + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID, Source])
 
 
             #CREATE DIAGNOSTIC EVIDENCE STATEMENT
             if evidence['evidence_type'] == 'Diagnostic':
-                evidence_statements.append([initial + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID])
+                evidence_statements.append([initial + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID, Source])
 
 
             #CREATE PREDISPOSING EVIDENCE STATEMENT
             if evidence['evidence_type'] == 'Predisposing':
-                evidence_statements.append([initial + ' Predisposition For Cancer ' + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID])
+                evidence_statements.append([initial + ' Predisposition For Cancer ' + ' for patients with ' + evidence['disease']['name'], CIViC_EID, PubmedID, Source])
 
 
             if evidence['evidence_type'] == 'Predictive':
@@ -138,10 +139,11 @@ def get_evidence_statements(civic_directory):
     final_evidence = {}
     for item in evidence_statements:
         if item[0] not in final_evidence:
-            final_evidence[item[0]] = [[item[1]],[item[2]]]
+            final_evidence[item[0]] = [[item[1]], [item[2]], [item[3]]]
         else:
             final_evidence[item[0]][0].append(item[1])
             final_evidence[item[0]][1].append(item[2])
+            final_evidence[item[0]][2].append(item[3])
             
     return final_evidence, sample_evidence_count
 
@@ -189,11 +191,11 @@ for i,row in somatic_variants.iterrows():
             # Pull general information for variant
             gene = directory['civic']['entrez_name']
             ENST = directory['civic']['coordinates']['representative_transcript']
-            #ENSG = directory['cadd']['gene']['gene_id']
             protein_change = directory['civic']['name']
             variant_id = directory['civic']['variant_id']
             
             civic_directory = requests.get('https://civicdb.org/api/variants/' + str(variant_id)).json()
+            
             # Pull assertion information for variant
             if 'assertions' in directory['civic'].keys():
                 for item in directory['civic']['assertions']:
@@ -221,10 +223,33 @@ for i,row in somatic_variants.iterrows():
             #p.add_run('ENSG ID' + '\t'+ '\t'+ '\t').bold = True
             #p.add_run(str(ENSG))
 
-            
-            document.add_heading('Variant Description: ', 3)
-            if not variant_descriptions:
+            # External Databases
+            document.add_heading('External Databases:', 3)
+            if 'clinvar' in directory:
+                p = document.add_paragraph()
+                p.add_run('ClinVar Allele ID: ').bold = True
+                variant_id = str(directory['clinvar']['variant_id'])
+                add_hyperlink(p, variant_id, f'https://www.ncbi.nlm.nih.gov/clinvar/variation/{variant_id}/')
+                p.add_run('\n')
+                
+                p.add_run('dbSNP ID: ').bold = True
+                rsid = directory['clinvar']['rsid']
+                add_hyperlink(p, rsid, f'https://www.ncbi.nlm.nih.gov/snp/{rsid}/')
+                p.add_run('\n')
+                
+                if 'cosmic' in directory:
+                    p.add_run('COSMIC ID: ').bold = True
+                    cosmic_id = directory['cosmic']['cosmic_id'].strip('COSM')
+                    add_hyperlink(p, cosmic_id, f'https://cancer.sanger.ac.uk/cosmic/mutation/overview?id={cosmic_id}')
+                    p.add_run('\n')
+                
+            else:
                 p = document.add_paragraph('N/A')
+        
+        
+            document.add_heading('CIViC Variant Description: ', 3)
+            if not variant_descriptions:
+                p = document.add_paragraph('N/A' + '\n')
             
             else:
                 for i,item in enumerate(variant_descriptions):
@@ -233,44 +258,84 @@ for i,row in somatic_variants.iterrows():
             
             
             # Assertions
-            document.add_heading('Associated Assertions:', 3)
+            document.add_heading('Associated CIViC Assertions:', 3)
             if not assertions:
-                p = document.add_paragraph('N/A')           
+                p = document.add_paragraph('N/A' + '\n')           
             else:
                 for i,item in enumerate(assertions):
                     p = document.add_paragraph(style='List Number')
                     p.add_run(str(item) + '\n')
-                
-            # Evidence Statements
-            document.add_heading('Associated Evidence Items:', 3)
-            
+               
 
-            for k,v in evidence_items.items():
-                p = document.add_paragraph()
-                p.add_run('Description: ').bold = True
-                p.add_run(str(k))
-                p = document.add_paragraph(style='List Bullet')
-                p.add_run('CIViC EID(s): ').bold = True
-                civic_eid_count = 0
-                for civic_eid in v[0]:
-                    civic_eid_count += 1
-                    if civic_eid_count == 1:
-                        add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
-                    if civic_eid_count > 1:
-                        p.add_run(', ')
-                        add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
-                p = document.add_paragraph(style='List Bullet')
-                p.add_run('PubMed ID(s): ').bold = True
-                pubmed_id_count = 0
-                for pubmed_id in v[1]:
-                    pubmed_id_count += 1
-                    if pubmed_id_count == 1:
-                        add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
-                    if pubmed_id_count > 1:
-                        p.add_run(', ')
-                        add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
-                # row_cells[1].text = str(", ".join(v[0]))
-                # row_cells[2].text = str(", ".join(v[1]))
+            
+            #Evidence Statements
+            document.add_heading('Associated CIViC Evidence Items:', 3)
+            if len(evidence_items) == 0:
+                p = document.add_paragraph('N/A') 
+
+            else:
+                for k,v in evidence_items.items():
+                    p = document.add_paragraph()
+                    p.add_run('Description: ').bold = True
+                    p.add_run(str(k) + '\n')
+
+                    p.add_run('\n' + '\t')
+                    
+                    
+                    CIViC_eid = p.add_run('CIViC ID(s)')
+                    CIViC_eid.bold = True
+                    CIViC_eid.underline = True
+                    p.add_run('\t' + '\t')
+                    Citation = p.add_run('Citation(s)')
+                    Citation.bold = True
+                    Citation.underline = True
+                    p.add_run('\n' + '\t')
+                    
+                    for item in range(len(v[0])):
+
+                        EID = v[0][item].strip("'")
+
+                        add_hyperlink(p, EID, f'https://civicdb.org/links?idtype=evidence&id={EID}')
+                        p.add_run('\t' + '\t')
+
+                        pubmed_id = v[1][item].strip("'")
+                        source = v[2][item]
+
+                        add_hyperlink(p, source, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
+                        p.add_run('\n'+ '\t')
+                    
+#                     civic_eid_count = 0
+#                     for civic_eid in v[0]:
+#                         civic_eid_count += 1
+#                         for item in range(len(civic_eid)):
+#                             civic_eid = v[item]['civic_eid']
+#                             pubmed_id =
+#                             add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
+                            
+#                             p.add_run('\t' + '\t')
+                            
+                            
+#                             p.add_run('\n'+ '\t')
+                            
+                            
+#                         if civic_eid_count > 1:
+#                             p.add_run(', ')
+#                             add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
+                    
+                    
+                    
+                    
+#                     p.add_run('PubMed ID(s): ').bold = True
+#                     pubmed_id_count = 0
+#                     for pubmed_id in v[1]:
+#                         pubmed_id_count += 1
+#                         if pubmed_id_count == 1:
+#                             add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
+#                         if pubmed_id_count > 1:
+#                             p.add_run(', ')
+#                             add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
+                    # row_cells[1].text = str(", ".join(v[0]))
+                    # row_cells[2].text = str(", ".join(v[1]))
 
 
 document.add_heading('Processing information', 1)
