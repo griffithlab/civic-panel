@@ -304,39 +304,6 @@ for i,row in somatic_variants.iterrows():
                         add_hyperlink(p, source, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
                         p.add_run('\n'+ '\t')
                     
-#                     civic_eid_count = 0
-#                     for civic_eid in v[0]:
-#                         civic_eid_count += 1
-#                         for item in range(len(civic_eid)):
-#                             civic_eid = v[item]['civic_eid']
-#                             pubmed_id =
-#                             add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
-                            
-#                             p.add_run('\t' + '\t')
-                            
-                            
-#                             p.add_run('\n'+ '\t')
-                            
-                            
-#                         if civic_eid_count > 1:
-#                             p.add_run(', ')
-#                             add_hyperlink(p, civic_eid, f'https://civicdb.org/links?idtype=evidence&id={civic_eid}')
-                    
-                    
-                    
-                    
-#                     p.add_run('PubMed ID(s): ').bold = True
-#                     pubmed_id_count = 0
-#                     for pubmed_id in v[1]:
-#                         pubmed_id_count += 1
-#                         if pubmed_id_count == 1:
-#                             add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
-#                         if pubmed_id_count > 1:
-#                             p.add_run(', ')
-#                             add_hyperlink(p, pubmed_id, f'https://www.ncbi.nlm.nih.gov/pubmed/{pubmed_id}')
-                    # row_cells[1].text = str(", ".join(v[0]))
-                    # row_cells[2].text = str(", ".join(v[1]))
-
 
 document.add_heading('Processing information', 1)
 
@@ -348,8 +315,10 @@ p.add_run(str(processed) + '\n')
 p.add_run('Clinical Annotations: ').bold = True
 p.add_run(str(clinical_count) + '\n')
 
-# ADD DISCLAIMER    
-p = document.add_paragraph('OpenCAP is intended for research use only and clinical applications of subsequent panels designed using the SOP would require further panel validation.').italics = True
+# ADD DISCLAIMER  
+document.add_heading('Disclaimer', 1)
+p = document.add_paragraph('OpenCAP is intended for research use only and clinical applications of subsequent panels designed using the standard operating procedure would require further panel validation. This Report was generated based on an input list of variants. Recommendations for panel development, sequencing approach, variant identification, and variant refinement can be found at www.OpenCAP.org. These methods require the use of reagents, protocols, instruments, software, databases, and other items. A defect or malfunction in any such materials may compromise the accuracy of the report. The data presented in this report is representative of the databases that are queried. Therefore, presented information is limited to the curation within said databases. Additionally, data within and between database might be inaccurate or inconsistent. Specifically, some of the information within or between databases might be conflicting and / or unreliable. Therefore, it is important that the report be interpreted and considered within the clinical context.')
+p.italics = True
 
 sections = document.sections
 for section in sections:
