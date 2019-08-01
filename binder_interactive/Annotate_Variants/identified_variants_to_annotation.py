@@ -176,7 +176,6 @@ for i,row in somatic_variants.iterrows():
     start = int(row['Start'])
     ref = row['Ref']
     var = row['Var']
-    
     variant = myvariant.format_hgvs(chrom, start, ref, var)
     directory = mv.getvariant(variant)
 
@@ -193,6 +192,7 @@ for i,row in somatic_variants.iterrows():
             ENST = directory['civic']['coordinates']['representative_transcript']
             protein_change = directory['civic']['name']
             variant_id = directory['civic']['variant_id']
+            HGVS = directory['civic']['hgvs_expressions']
             
             civic_directory = requests.get('https://civicdb.org/api/variants/' + str(variant_id)).json()
             
@@ -220,8 +220,14 @@ for i,row in somatic_variants.iterrows():
             p.add_run(str(variant) + '\n')
             p.add_run('ENST ID' + '\t'+ '\t'+ '\t').bold = True
             p.add_run(str(ENST) + '\n')
-            #p.add_run('ENSG ID' + '\t'+ '\t'+ '\t').bold = True
-            #p.add_run(str(ENSG))
+            p.add_run('HGVS Expression(s)' + '\t'+ '\t').bold = True
+            if isinstance(HGVS, list):
+                for item in HGVS:
+                    p.add_run(str(item) + '\n'+ '\t'+ '\t'+ '\t'+ '\t')
+            else:
+                p.add_run(str(HGVS) + '\n')
+            
+            
 
             # External Databases
             document.add_heading('External Databases:', 3)
@@ -277,10 +283,18 @@ for i,row in somatic_variants.iterrows():
                 for k,v in evidence_items.items():
                     p = document.add_paragraph()
                     p.add_run('Description: ').bold = True
-                    p.add_run(str(k) + '\n')
+                    if 'Does Not Support' in k:
+                        k_DNS = k.split('Does Not Support')
+                        p.add_run(str(k_DNS[0]))
+                        DNS = p.add_run(' *Does Not Support* ')
+                        DNS.bold = True
+                        DNS.underline = True
+                        
+                        p.add_run(str(k_DNS[1]) + '\n')
+                    else:
+                        p.add_run(str(k) + '\n')
 
                     p.add_run('\n' + '\t')
-                    
                     
                     CIViC_eid = p.add_run('CIViC ID(s)')
                     CIViC_eid.bold = True
@@ -296,7 +310,7 @@ for i,row in somatic_variants.iterrows():
                         EID = v[0][item].strip("'")
 
                         add_hyperlink(p, EID, f'https://civicdb.org/links?idtype=evidence&id={EID}')
-                        p.add_run('\t' + '\t')
+                        p.add_run('   ' + '\t' + '\t')
 
                         pubmed_id = v[1][item].strip("'")
                         source = v[2][item]
